@@ -38,6 +38,7 @@ Ideas and thoughts:
 - give players async abilities (dash and double jump for example)
 - time limit
 - optional level select if time
+- pickups that negatively effect your timer
 
 
 
