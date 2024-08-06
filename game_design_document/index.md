@@ -33,12 +33,16 @@ Features we found:
 - background music
 - progression of difficulty
 - new features in later levels (fan, rotating platforms)
+- static camera
+- no fog of war
+- no lighting / unshaded
 
 Ideas and thoughts:
 - give players async abilities (dash and double jump for example)
 - time limit
 - optional level select if time
 - pickups that negatively effect your timer
+- pickup for speed up 
 
 
 

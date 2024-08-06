@@ -9,4 +9,7 @@ Character controlled by player inputs.
 - fully animated
   - walking, falling, jumping
 - Sound effects
-  - jumping, death  
+  - jumping, death
+
+
+
