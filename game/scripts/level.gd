@@ -8,6 +8,7 @@ class_name Level extends Node2D
 @onready var placeholder = $Placeholder
 
 var finish_condition
+var finished: bool = false
 
 func _ready():
 	# var spawn_point_package = get_spawn_points()
@@ -19,8 +20,7 @@ func _ready():
 
 func _process(delta):
 	if finish_condition and finish_condition.is_satisfied():
-		pass
-		# Level finished
+		finished = true
 
 func get_spawn_points() -> SpawnPointPackage:
 	return SpawnPointPackage.constructor(
@@ -33,3 +33,6 @@ func _get_configuration_warnings():
 		if child is FinishCondition:
 			return []
 	return ["Missing FinishCondition"]
+
+func is_finished() -> bool:
+	return finished
