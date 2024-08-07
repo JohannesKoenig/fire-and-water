@@ -1,4 +1,4 @@
-class_name LevelTransitions extends Node
+extends Node
 
 var LEVEL_LAYOUT = "res://resources/level_layout.json"
 var data
