@@ -1,0 +1,17 @@
+{
+    "levels": {
+        "Level 1": {
+            "file": "level1.tscn"
+        },
+        "Level 2": {
+            "file": "level2.tscn"
+        }
+    },
+    "transitions": [
+        {
+            "name": "Level 1 -> Level 2",
+            "from": "Level 1",
+            "to": "Level 2"
+        }
+    ]
+}
