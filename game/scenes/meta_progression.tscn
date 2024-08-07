@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://7hfjwlvoetv2"]
+
+[ext_resource type="Script" path="res://scripts/ingame.gd" id="1_5j0tq"]
+[ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_g7kmn"]
+
+[node name="MetaProgression" type="Node2D"]
+script = ExtResource("1_5j0tq")
+
+[node name="LevelRig" type="Node2D" parent="."]
+
+[node name="LevelTransitions" type="Node" parent="."]
+script = ExtResource("2_g7kmn")

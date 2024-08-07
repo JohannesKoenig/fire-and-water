@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs7ivftqycpbx"]
+
+[ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_kns2y"]
+[ext_resource type="PackedScene" uid="uid://c8vplyo6ecf70" path="res://scenes/finish_condition.tscn" id="2_tvpur"]
+
+[node name="Level" instance=ExtResource("1_kns2y")]
+level_name = "Level 2"
+
+[node name="FinishCondition" parent="." index="3" instance=ExtResource("2_tvpur")]

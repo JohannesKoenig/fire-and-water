@@ -1,10 +1,10 @@
 {
 	"levels": {
 		"Level 1": {
-			"file": "level1.tscn"
+			"file": "res://scenes/levels/level_1.tscn"
 		},
 		"Level 2": {
-			"file": "level2.tscn"
+			"file": "res://scenes/levels/level_2.tscn"
 		}
 	},
 	"first_level": "Level 1",
