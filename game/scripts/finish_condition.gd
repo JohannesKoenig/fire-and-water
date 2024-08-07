@@ -1,4 +1,4 @@
 class_name FinishCondition extends Node
 
-func is_finished() -> bool:
+func is_satisfied() -> bool:
 	return false

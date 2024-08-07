@@ -1,4 +1,6 @@
 class_name MetaProgression extends Node2D
+# The main container for the game play scenes - This is where we will manage the
+# currently loaded levels and their transitions.
 
 @onready var level_rig = $LevelRig
 @onready var level_transitions = $LevelTransitions
