@@ -14,6 +14,12 @@ config/name="Fire and Water"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=288
+window/stretch/mode="viewport"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
