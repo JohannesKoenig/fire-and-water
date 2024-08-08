@@ -29,5 +29,6 @@ grow_vertical = 0
 text = "Menu"
 
 [node name="InGameMenu" parent="CanvasLayer" instance=ExtResource("3_wy7o0")]
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/ToggleMenuButton" to="CanvasLayer/InGameMenu" method="open"]
