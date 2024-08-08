@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://7hfjwlvoetv2"]
+[gd_scene load_steps=4 format=3 uid="uid://7hfjwlvoetv2"]
 
 [ext_resource type="Script" path="res://scripts/meta_progression.gd" id="1_5j0tq"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_g7kmn"]
+[ext_resource type="PackedScene" uid="uid://6aiifjgk6hr7" path="res://scenes/menu/in_game_menu.tscn" id="3_wy7o0"]
 
 [node name="MetaProgression" type="Node2D"]
 script = ExtResource("1_5j0tq")
@@ -10,3 +11,23 @@ script = ExtResource("1_5j0tq")
 
 [node name="LevelTransitions" type="Node" parent="."]
 script = ExtResource("2_g7kmn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ToggleMenuButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -38.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Menu"
+
+[node name="InGameMenu" parent="CanvasLayer" instance=ExtResource("3_wy7o0")]
+
+[connection signal="pressed" from="CanvasLayer/ToggleMenuButton" to="CanvasLayer/InGameMenu" method="open"]
