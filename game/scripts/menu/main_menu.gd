@@ -5,9 +5,7 @@ class_name MainMenu extends Node2D
 
 
 func transition_to_level():
-	var current_level = level_transitions.get_first_level()
-	var level_path = level_transitions.get_level_path(current_level)
-	get_tree().change_scene_to_file(level_path)
+	get_tree().change_scene_to_file("res://scenes/meta_progression.tscn")
 
 func close_application():
 	get_tree().quit()
