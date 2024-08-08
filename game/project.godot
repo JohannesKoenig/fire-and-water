@@ -20,6 +20,11 @@ window/size/viewport_width=512
 window/size/viewport_height=288
 window/stretch/mode="viewport"
 
+[layer_names]
+
+2d_physics/layer_10="exit"
+2d_physics/layer_11="can-exit"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpwmu6xqdrlj1"]
+
+[ext_resource type="Script" path="res://scripts/exit/exit.gd" id="1_nvmq8"]
+[ext_resource type="Script" path="res://scripts/exit/exit_input.gd" id="2_htf3t"]
+[ext_resource type="Script" path="res://scripts/exit/exit_model.gd" id="3_adc83"]
+[ext_resource type="Script" path="res://scripts/exit/exit_state_machine.gd" id="4_7tmew"]
+[ext_resource type="Script" path="res://scripts/exit/idle_exit_state.gd" id="5_dv31i"]
+[ext_resource type="Script" path="res://scripts/exit/transition_to_exit_exit_state.gd" id="6_b0o0h"]
+[ext_resource type="Script" path="res://scripts/exit/exit_exit_state.gd" id="7_q7evi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk2b7"]
+
+[node name="Exit" type="Node2D"]
+script = ExtResource("1_nvmq8")
+
+[node name="Input" type="Node2D" parent="."]
+script = ExtResource("2_htf3t")
+
+[node name="Area2D" type="Area2D" parent="Input"]
+collision_layer = 512
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Input/Area2D"]
+shape = SubResource("RectangleShape2D_dk2b7")
+
+[node name="Model" type="Node2D" parent="."]
+script = ExtResource("3_adc83")
+
+[node name="ExitStateMachine" type="Node" parent="Model"]
+script = ExtResource("4_7tmew")
+
+[node name="Idle" type="Node" parent="Model/ExitStateMachine"]
+script = ExtResource("5_dv31i")
+
+[node name="TransitionToExit" type="Node" parent="Model/ExitStateMachine"]
+script = ExtResource("6_b0o0h")
+
+[node name="Exit" type="Node" parent="Model/ExitStateMachine"]
+script = ExtResource("7_q7evi")
