@@ -1,0 +1,17 @@
+{
+	"levels": {
+		"Level 1": {
+			"file": "res://scenes/levels/level_1.tscn"
+		},
+		"Level 2": {
+			"file": "res://scenes/levels/level_2.tscn"
+		}
+	},
+	"first_level": "Level 1",
+	"transitions": [
+		{
+			"from": "Level 1",
+			"to": "Level 2"
+		}
+	]
+}
