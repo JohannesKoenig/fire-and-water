@@ -7,11 +7,9 @@ class_name Level extends Node2D
 @onready var water_spawn_point = $WaterSpawnPoint
 @onready var placeholder = $Placeholder
 
-var finish_condition
-var finished: bool = false
+var finish_condition: FinishCondition
 
 func _ready():
-	# var spawn_point_package = get_spawn_points()
 	for child in get_children():
 		if child is FinishCondition:
 			finish_condition = child
@@ -21,8 +19,6 @@ func _ready():
 func _process(delta):
 	if Engine.is_editor_hint():
 		return
-	if finish_condition and finish_condition.is_satisfied():
-		finished = true
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
@@ -41,4 +37,7 @@ func _get_configuration_warnings():
 	return ["Missing FinishCondition"]
 
 func is_finished() -> bool:
-	return finished
+	if finish_condition and finish_condition.is_satisfied():
+		return true
+	else:
+		return false

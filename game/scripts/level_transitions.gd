@@ -20,7 +20,7 @@ func load_from_file():
 	else:
 		print(json.get_error_message())
 
-func get_next_level(current_level: String) -> Array[String]:
+func get_next_level(current_level: String) -> Array:
 	var transitions: Array = data["transitions"]
 	var transitions_from_current_level = transitions.filter(
 		func(transition): return transition["from"] == current_level
