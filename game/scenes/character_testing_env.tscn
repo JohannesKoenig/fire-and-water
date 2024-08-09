@@ -26,3 +26,10 @@ position = Vector2(0, -2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-206, 84)
 shape = SubResource("RectangleShape2D_y1nxe")
+
+[node name="PlayerCharacter2" parent="." instance=ExtResource("1_lxmcy")]
+
+[node name="PlayerInput" parent="PlayerCharacter2" index="3"]
+player_id = 1
+
+[editable path="PlayerCharacter2"]

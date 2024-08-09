@@ -5,7 +5,7 @@ class_name PlayerInput extends Node
 
 func get_input() -> InputPackage:
 	var input_package = InputPackage.new()
-	input_package.input_direction = Input.get_axis(
+	input_package.direction = Input.get_axis(
 		_contextualize_input_name("left"),
 		_contextualize_input_name("right"),
 	)

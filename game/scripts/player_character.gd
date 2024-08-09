@@ -5,7 +5,7 @@ extends CharacterBody2D
 const SPEED = 120.0
 const JUMP_VELOCITY = -300.0
 
-
+@onready var player_input = $PlayerInput
 @onready var rig = $Rig
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -13,21 +13,23 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _process(delta):
-	var direction = Input.get_axis("left", "right")
+	var input_package = player_input.get_input()
+	var direction = input_package.direction
 	if direction > 0:
 		rig.facing_right = true
 	elif direction < 0:
 		rig.facing_right = false
+	input_package.queue_free()
 
 func _physics_process(delta):
-	
-	var direction = Input.get_axis("left", "right")
+	var input_package = player_input.get_input()
+	var direction = input_package.direction
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if "jump" in input_package.actions and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -39,3 +41,5 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	input_package.queue_free()

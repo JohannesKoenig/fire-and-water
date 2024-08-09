@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2hruii1pnk2u"]
+[gd_scene load_steps=6 format=3 uid="uid://c2hruii1pnk2u"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_b4wwt"]
 [ext_resource type="PackedScene" uid="uid://b1lm6sv4v5brl" path="res://scenes/player_visuals.tscn" id="2_6ksa6"]
 [ext_resource type="Script" path="res://scripts/Rig.gd" id="3_dkkbr"]
+[ext_resource type="Script" path="res://scripts/player_input.gd" id="4_05o6e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqnov"]
 radius = 7.0
@@ -19,6 +20,10 @@ shape = SubResource("CapsuleShape2D_cqnov")
 position = Vector2(5, -15)
 script = ExtResource("3_dkkbr")
 
-[node name="PlayerVisuals" parent="." node_paths=PackedStringArray("rig") instance=ExtResource("2_6ksa6")]
+[node name="PlayerVisuals" parent="." node_paths=PackedStringArray("rig", "player_input") instance=ExtResource("2_6ksa6")]
 position = Vector2(0, -16)
 rig = NodePath("../Rig")
+player_input = NodePath("../PlayerInput")
+
+[node name="PlayerInput" type="Node" parent="."]
+script = ExtResource("4_05o6e")
