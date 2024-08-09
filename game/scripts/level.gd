@@ -19,8 +19,14 @@ func _ready():
 	placeholder.text = level_name
 
 func _process(delta):
+	if Engine.is_editor_hint():
+		return
 	if finish_condition and finish_condition.is_satisfied():
 		finished = true
+
+func _physics_process(delta):
+	if Engine.is_editor_hint():
+		return
 
 func get_spawn_points() -> SpawnPointPackage:
 	return SpawnPointPackage.constructor(
