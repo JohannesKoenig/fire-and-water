@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbnajwfi1i3lt"]
+
+[ext_resource type="PackedScene" uid="uid://c2hruii1pnk2u" path="res://scenes/player_character.tscn" id="1_lxmcy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbddn"]
+size = Vector2(508, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1nxe"]
+size = Vector2(93, 14)
+
+[node name="CharacterTestingEnv" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 134)
+shape = SubResource("RectangleShape2D_qbddn")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_lxmcy")]
+position = Vector2(0, -2)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-206, 84)
+shape = SubResource("RectangleShape2D_y1nxe")
+
+[node name="PlayerCharacter2" parent="." instance=ExtResource("1_lxmcy")]
+
+[node name="PlayerInput" parent="PlayerCharacter2" index="3"]
+player_id = 1
+
+[editable path="PlayerCharacter2"]

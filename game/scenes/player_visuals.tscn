@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1lm6sv4v5brl"]
+[gd_scene load_steps=16 format=3 uid="uid://b1lm6sv4v5brl"]
 
+[ext_resource type="Script" path="res://scripts/player_visuals.gd" id="1_i6iuw"]
 [ext_resource type="Texture2D" uid="uid://cdljafmtm8qvy" path="res://assets/sprite_animations/player_idle.png" id="1_lrc5s"]
 [ext_resource type="Texture2D" uid="uid://xermfdeegbt4" path="res://assets/sprite_animations/player_walk.png" id="2_7h13v"]
 
@@ -90,14 +91,16 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 10.0
+"speed": 15.0
 }]
 
 [node name="PlayerVisuals" type="Node2D"]
+position = Vector2(0, -6)
+script = ExtResource("1_i6iuw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_vtj8n")
 animation = &"walk"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.417831
+frame_progress = 0.0949438
