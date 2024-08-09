@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2hruii1pnk2u"]
+
+[ext_resource type="Script" path="res://scripts/player_character.gd" id="1_b4wwt"]
+[ext_resource type="PackedScene" uid="uid://b1lm6sv4v5brl" path="res://scenes/player_visuals.tscn" id="2_6ksa6"]
+[ext_resource type="Script" path="res://scripts/Rig.gd" id="3_dkkbr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqnov"]
+radius = 7.0
+height = 22.0
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+script = ExtResource("1_b4wwt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_cqnov")
+
+[node name="Rig" type="Marker2D" parent="."]
+position = Vector2(5, -15)
+script = ExtResource("3_dkkbr")
+
+[node name="PlayerVisuals" parent="." node_paths=PackedStringArray("rig") instance=ExtResource("2_6ksa6")]
+position = Vector2(0, -16)
+rig = NodePath("../Rig")
