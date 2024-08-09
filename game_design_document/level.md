@@ -7,3 +7,4 @@
 - exit (win condition)
 - fixed window size 
 - fixed camera zoom
+- feedback after level completion 
