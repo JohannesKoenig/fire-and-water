@@ -12,12 +12,16 @@ config_version=5
 
 config/name="Fire and Water"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://assets/splash_screen.png"
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=512
 window/size/viewport_height=288
+window/size/window_width_override=2048
+window/size/window_height_override=1152
 window/stretch/mode="viewport"
 
 [rendering]
