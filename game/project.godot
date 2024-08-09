@@ -25,6 +25,11 @@ window/size/window_width_override=2048
 window/size/window_height_override=1152
 window/stretch/mode="viewport"
 
+[layer_names]
+
+2d_physics/layer_10="exit"
+2d_physics/layer_11="can-exit"
+
 [input]
 
 left_0={
