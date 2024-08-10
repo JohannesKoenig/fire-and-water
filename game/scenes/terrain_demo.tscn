@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://djwa6w5ny08gl"]
+[gd_scene load_steps=20 format=3 uid="uid://djwa6w5ny08gl"]
 
 [ext_resource type="Texture2D" uid="uid://bi156k0qloptu" path="res://assets/tilesets/tiles.png" id="1_ddc6t"]
 
@@ -196,6 +196,14 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 
+[sub_resource type="Environment" id="Environment_m5tdf"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.46
+glow_bloom = 0.16
+adjustment_enabled = true
+
 [node name="TerrainDemo" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -234,3 +242,6 @@ color = Color(1, 0.164706, 0.407843, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1rdhr")
 texture_scale = 1.71
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m5tdf")
