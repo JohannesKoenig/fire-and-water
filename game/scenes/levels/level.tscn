@@ -8,6 +8,8 @@ script = ExtResource("1_8nnjv")
 
 [node name="FireSpawnPoint" type="Marker2D" parent="."]
 
+[node name="FocusPoint" type="Marker2D" parent="."]
+
 [node name="WaterSpawnPoint" type="Marker2D" parent="."]
 
 [node name="Placeholder" type="Label" parent="."]
