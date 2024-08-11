@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbk6gw0yvmspf"]
+
+[ext_resource type="Script" path="res://scripts/puzzle_elements/pull_up_door/pull_up_door.gd" id="1_hnw1u"]
+[ext_resource type="Texture2D" uid="uid://21bmfvdqyw6d" path="res://assets/puzzle_elements/pull_up_door/pull_up_door.png" id="1_ik01r"]
+
+[sub_resource type="Animation" id="Animation_ylqfp"]
+resource_name = "closing"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -32), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_sabv4"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -32)]
+}
+
+[sub_resource type="Animation" id="Animation_12pjj"]
+resource_name = "closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rkvqs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fg58f"]
+resource_name = "opening"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(2.08165e-12, -32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twymo"]
+_data = {
+"RESET": SubResource("Animation_rkvqs"),
+"closed": SubResource("Animation_12pjj"),
+"closing": SubResource("Animation_ylqfp"),
+"open": SubResource("Animation_sabv4"),
+"opening": SubResource("Animation_fg58f")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pptg8"]
+size = Vector2(16, 48)
+
+[node name="PullUpDoor" type="Node2D"]
+script = ExtResource("1_hnw1u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_twymo")
+}
+
+[node name="Rig" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rig"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rig/StaticBody2D"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_pptg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rig"]
+position = Vector2(0, -24)
+texture = ExtResource("1_ik01r")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://djwa6w5ny08gl"]
+[gd_scene load_steps=5 format=3 uid="uid://djwa6w5ny08gl"]
 
 [ext_resource type="Texture2D" uid="uid://bi156k0qloptu" path="res://assets/tilesets/tiles.png" id="1_ddc6t"]
+[ext_resource type="PackedScene" uid="uid://bbk6gw0yvmspf" path="res://scenes/puzzle_elements/pull_up_door/pull_up_door.tscn" id="2_apwpl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pi4ul"]
 texture = ExtResource("1_ddc6t")
@@ -151,3 +152,6 @@ layer_3/tile_data = PackedInt32Array(1114118, 196608, 5, 1114119, 131072, 4, 111
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(256, 144)
+
+[node name="PullUpDoor" parent="." instance=ExtResource("2_apwpl")]
+position = Vector2(208, 246)
