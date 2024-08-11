@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://djwa6w5ny08gl"]
+[gd_scene load_steps=7 format=3 uid="uid://djwa6w5ny08gl"]
 
 [ext_resource type="Texture2D" uid="uid://bi156k0qloptu" path="res://assets/tilesets/tiles.png" id="1_ddc6t"]
 [ext_resource type="PackedScene" uid="uid://bbk6gw0yvmspf" path="res://scenes/puzzle_elements/pull_up_door/pull_up_door.tscn" id="2_apwpl"]
+[ext_resource type="PackedScene" uid="uid://cqw6044qgk00u" path="res://scenes/puzzle_elements/button/button.tscn" id="3_44ful"]
+[ext_resource type="Script" path="res://scripts/signal_or_combination.gd" id="4_u5o35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pi4ul"]
 texture = ExtResource("1_ddc6t")
@@ -154,4 +156,21 @@ layer_3/tile_data = PackedInt32Array(1114118, 196608, 5, 1114119, 131072, 4, 111
 position = Vector2(256, 144)
 
 [node name="PullUpDoor" parent="." instance=ExtResource("2_apwpl")]
+z_index = -1
 position = Vector2(208, 246)
+
+[node name="Button" parent="." instance=ExtResource("3_44ful")]
+position = Vector2(96, 246)
+
+[node name="Button2" parent="." instance=ExtResource("3_44ful")]
+position = Vector2(336, 246)
+
+[node name="SignalOrCombination" type="Node" parent="."]
+script = ExtResource("4_u5o35")
+
+[connection signal="button_active" from="Button" to="SignalOrCombination" method="on_signal"]
+[connection signal="button_inactive" from="Button" to="SignalOrCombination" method="off_signal"]
+[connection signal="button_active" from="Button2" to="SignalOrCombination" method="on_signal"]
+[connection signal="button_inactive" from="Button2" to="SignalOrCombination" method="off_signal"]
+[connection signal="off" from="SignalOrCombination" to="PullUpDoor" method="close"]
+[connection signal="on" from="SignalOrCombination" to="PullUpDoor" method="open"]

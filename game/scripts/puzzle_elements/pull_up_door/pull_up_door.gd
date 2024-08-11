@@ -9,19 +9,22 @@ var start_next = true
 func _process(delta):
 	if start_next:
 		start_next = false
+		animation_player.play(current_animation)
 	if not animation_player.is_playing():
 		match current_animation:
 			"closing":
 				current_animation = "closed"
-				start_next = true
+				#start_next = true
 			"opening":
 				current_animation = "open"
-				start_next = true
+				#start_next = true
 
 	
 
 func close():
 	var remaining = 0
+	if current_animation == "closed":
+		return
 	if current_animation == "opening":
 		remaining = current_animation_remaining_time()
 	current_animation = "closing"
@@ -30,6 +33,8 @@ func close():
 
 func open():
 	var remaining = 0
+	if current_animation == "open":
+		return
 	if current_animation == "closing":
 		remaining = current_animation_remaining_time()
 	current_animation = "opening"

@@ -60,8 +60,8 @@ jump_1={
 
 [layer_names]
 
-2d_physics/layer_10="exit"
-2d_physics/layer_11="can-exit"
+2d_physics/layer_10="action"
+2d_physics/layer_11="actionable"
 
 [rendering]
 
