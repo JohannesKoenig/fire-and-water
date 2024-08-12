@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ej6lgkpbihc7"]
+[gd_scene load_steps=4 format=3 uid="uid://ej6lgkpbihc7"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_8nnjv"]
 [ext_resource type="PackedScene" uid="uid://dpwmu6xqdrlj1" path="res://scenes/exit/exit.tscn" id="2_46yte"]
+[ext_resource type="PackedScene" uid="uid://b3nxepkuua6vw" path="res://scenes/kill_zone.tscn" id="4_j2gnw"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8nnjv")
@@ -17,3 +18,5 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Exit" parent="." instance=ExtResource("2_46yte")]
+
+[node name="KillZone" parent="." instance=ExtResource("4_j2gnw")]
