@@ -1,10 +1,7 @@
-
-[gd_scene load_steps=20 format=3 uid="uid://djwa6w5ny08gl"]
-
-[ext_resource type="PackedScene" uid="uid://dqjsv5xo7je51" path="res://scenes/puzzle_elements/spikes/spikes.tscn" id="2_1tddb"]
-
+[gd_scene load_steps=24 format=3 uid="uid://djwa6w5ny08gl"]
 
 [ext_resource type="Texture2D" uid="uid://bi156k0qloptu" path="res://assets/tilesets/tiles.png" id="1_ddc6t"]
+[ext_resource type="PackedScene" uid="uid://dqjsv5xo7je51" path="res://scenes/puzzle_elements/spikes/spikes.tscn" id="2_1tddb"]
 [ext_resource type="PackedScene" uid="uid://bbk6gw0yvmspf" path="res://scenes/puzzle_elements/pull_up_door/pull_up_door.tscn" id="2_apwpl"]
 [ext_resource type="PackedScene" uid="uid://cqw6044qgk00u" path="res://scenes/puzzle_elements/button/button.tscn" id="3_44ful"]
 [ext_resource type="Script" path="res://scripts/signal_or_combination.gd" id="4_u5o35"]
@@ -47,7 +44,6 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jllga"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
->>>>>>> main
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pi4ul"]
 texture = ExtResource("1_ddc6t")
@@ -232,7 +228,7 @@ layer_3/tile_data = PackedInt32Array(1114118, 196608, 5, 1114119, 131072, 4, 111
 position = Vector2(256, 144)
 
 [node name="Spikes" parent="." instance=ExtResource("2_1tddb")]
-position = Vector2(336, 246)
+position = Vector2(160, 246)
 
 [node name="PullUpDoor" parent="." instance=ExtResource("2_apwpl")]
 z_index = -1
@@ -247,13 +243,6 @@ position = Vector2(336, 246)
 [node name="SignalOrCombination" type="Node" parent="."]
 script = ExtResource("4_u5o35")
 
-[connection signal="button_active" from="Button" to="SignalOrCombination" method="on_signal"]
-[connection signal="button_inactive" from="Button" to="SignalOrCombination" method="off_signal"]
-[connection signal="button_active" from="Button2" to="SignalOrCombination" method="on_signal"]
-[connection signal="button_inactive" from="Button2" to="SignalOrCombination" method="off_signal"]
-[connection signal="off" from="SignalOrCombination" to="PullUpDoor" method="close"]
-[connection signal="on" from="SignalOrCombination" to="PullUpDoor" method="open"]
-
 [node name="DirectionalLightShadows" type="DirectionalLight2D" parent="."]
 rotation = 0.111701
 energy = 0.4
@@ -264,7 +253,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLightBackground" type="DirectionalLight2D" parent="."]
 rotation = 0.111701
-scale = Vector2(1, 1)
 energy = 0.8
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -276,3 +264,10 @@ texture_scale = 1.71
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m5tdf")
+
+[connection signal="button_active" from="Button" to="SignalOrCombination" method="on_signal"]
+[connection signal="button_inactive" from="Button" to="SignalOrCombination" method="off_signal"]
+[connection signal="button_active" from="Button2" to="SignalOrCombination" method="on_signal"]
+[connection signal="button_inactive" from="Button2" to="SignalOrCombination" method="off_signal"]
+[connection signal="off" from="SignalOrCombination" to="PullUpDoor" method="close"]
+[connection signal="on" from="SignalOrCombination" to="PullUpDoor" method="open"]
