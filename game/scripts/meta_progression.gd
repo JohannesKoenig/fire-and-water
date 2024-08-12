@@ -25,6 +25,9 @@ func _ready():
 	load_level(current_level)
 
 func _process(delta):
+	if Input.is_action_just_pressed("restart"):
+		reset_level()
+	
 	if current_level_scene and current_level_scene.is_finished():
 		var next_level_name = level_transitions.get_next_level(current_level_scene.level_name)[0]
 		load_level(next_level_name)
