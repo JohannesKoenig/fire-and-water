@@ -11,6 +11,7 @@ const JUMP_VELOCITY = -300.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal dead
 
 func _process(delta):
 	var input_package = player_input.get_input()
@@ -46,3 +47,6 @@ func _physics_process(delta):
 
 func set_player_id(id: int):
 	player_input.player_id = id
+
+func kill():
+	dead.emit()
