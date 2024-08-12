@@ -34,29 +34,21 @@ texture = ExtResource("1_qafyh")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:0/0/physics_layer_0/polygon_0/one_way = true
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.625, -8, 8, -4.6875, 8, 5.8125, 4.75, 8, -8, 8, -8, -8)
-1:0/0/physics_layer_0/polygon_0/one_way = true
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.625, -8, -8, -4.6875, -8, 5.8125, -4.75, 8, 8, 8, 8, -8)
-0:1/0/physics_layer_0/polygon_0/one_way = true
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.75, -8, 8, -5.4375, 8, 4.3125, 5.5625, 8, -4.375, 8, -8, 5.25, -8, -4.3125, -5.375, -8)
-1:1/0/physics_layer_0/polygon_0/one_way = true
 
 [sub_resource type="TileSet" id="TileSet_t162g"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rjarb")
 
-[node name="Platform" type="Node2D"]
+[node name="Platform" type="AnimatableBody2D"]
 position = Vector2(20, 6)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -76,3 +68,6 @@ autoplay = "RESET"
 tile_set = SubResource("TileSet_t162g")
 format = 2
 layer_0/tile_data = PackedInt32Array(720915, 0, 1, 720916, 0, 0, 720917, 0, 0, 720918, 65536, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(305, 179, 308, 176, 365, 176, 368, 179, 368, 189, 365, 192, 307, 192, 304, 189, 304, 179)
