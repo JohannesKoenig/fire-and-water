@@ -10,17 +10,20 @@ level_name = "Level 1"
 [node name="FireSpawnPoint" parent="." index="0"]
 position = Vector2(321, 77)
 
-[node name="WaterSpawnPoint" parent="." index="1"]
-position = Vector2(349, 68)
+[node name="FocusPoint" parent="." index="1"]
+position = Vector2(258, 145)
 
-[node name="Placeholder" parent="." index="2"]
-text = "Level 1"
+[node name="WaterSpawnPoint" parent="." index="2"]
+position = Vector2(349, 68)
 
 [node name="TerrainDemo" parent="." index="3" instance=ExtResource("3_7nth7")]
 
-[node name="Exit" parent="." index="4"]
-position = Vector2(408, 92)
+[node name="Placeholder" parent="." index="4"]
+text = "Level 1"
 
 [node name="ExitFinishCondition" type="Node" parent="." index="5" node_paths=PackedStringArray("exit")]
 script = ExtResource("3_mqb13")
 exit = NodePath("../Exit")
+
+[node name="Exit" parent="." index="6"]
+position = Vector2(408, 92)
