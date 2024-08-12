@@ -54,6 +54,7 @@ func load_level(level_name: String):
 	current_level_scene.position = level_rig.position
 	# level_rig.call_deferred("add_child", current_level_scene)
 	level_rig.add_child(current_level_scene)
+	current_level = level_name
 	
 	var spawn_points = current_level_scene.get_spawn_points()
 	water_player.position = spawn_points.water_spawn_point

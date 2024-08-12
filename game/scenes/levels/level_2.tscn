@@ -1,9 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cs7ivftqycpbx"]
 
-
 [ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_kns2y"]
 [ext_resource type="Script" path="res://scripts/finish_condition.gd" id="2_gagyd"]
-[ext_resource type="PackedScene" uid="uid://c2hruii1pnk2u" path="res://scenes/player_character.tscn" id="3_171ot"]
 [ext_resource type="PackedScene" uid="uid://djwa6w5ny08gl" path="res://scenes/terrain_demo.tscn" id="4_ijquy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmfnv"]
@@ -12,11 +10,26 @@ size = Vector2(4000, 20)
 [node name="Level" instance=ExtResource("1_kns2y")]
 level_name = "Level 2"
 
+[node name="FireSpawnPoint" parent="." index="0"]
+position = Vector2(11, 230)
+
+[node name="FocusPoint" parent="." index="1"]
+position = Vector2(234, 153)
+
+[node name="WaterSpawnPoint" parent="." index="2"]
+position = Vector2(53, 230)
+
 [node name="FinishCondition" type="Node" parent="." index="3"]
 script = ExtResource("2_gagyd")
 
 [node name="Placeholder" parent="." index="4"]
 text = "Level 2"
+
+[node name="Exit" parent="." index="5"]
+position = Vector2(408, 92)
+
+[node name="KillZone" parent="." index="6"]
+position = Vector2(242, 632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" index="0"]
 shape = SubResource("RectangleShape2D_fmfnv")
@@ -25,4 +38,3 @@ shape = SubResource("RectangleShape2D_fmfnv")
 
 [editable path="TerrainDemo"]
 [editable path="TerrainDemo/Platform"]
-
