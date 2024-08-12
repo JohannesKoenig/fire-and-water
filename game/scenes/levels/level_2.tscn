@@ -35,6 +35,3 @@ position = Vector2(242, 632)
 shape = SubResource("RectangleShape2D_fmfnv")
 
 [node name="TerrainDemo" parent="." index="7" instance=ExtResource("4_ijquy")]
-
-[editable path="TerrainDemo"]
-[editable path="TerrainDemo/Platform"]
