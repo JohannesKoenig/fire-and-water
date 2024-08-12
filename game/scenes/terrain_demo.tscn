@@ -225,10 +225,9 @@ layer_3/tile_data = PackedInt32Array(1114118, 196608, 5, 1114119, 131072, 4, 111
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(256, 144)
 
-<<<<<<< HEAD
 [node name="Spikes" parent="." instance=ExtResource("2_1tddb")]
 position = Vector2(336, 246)
-=======
+
 [node name="DirectionalLightShadows" type="DirectionalLight2D" parent="."]
 rotation = 0.111701
 energy = 0.4
@@ -248,10 +247,6 @@ color = Color(1, 0.164706, 0.407843, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1rdhr")
 texture_scale = 1.71
-<<<<<<< HEAD
->>>>>>> 4dff183 (add lighting)
-=======
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m5tdf")
->>>>>>> a35010f (add color correction)
