@@ -18,6 +18,7 @@ var reset = false
 func _ready():
 	current_level = level_transitions.get_first_level()
 	water_player = player_packed_scene.instantiate()
+	water_player.modulate = Color.AQUA
 	add_child(water_player)
 	water_player.dead.connect(reset_level)
 	water_player.set_player_id(0)
