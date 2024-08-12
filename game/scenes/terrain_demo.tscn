@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://djwa6w5ny08gl"]
+[gd_scene load_steps=25 format=3 uid="uid://djwa6w5ny08gl"]
 
 [ext_resource type="Texture2D" uid="uid://bi156k0qloptu" path="res://assets/tilesets/tiles.png" id="1_ddc6t"]
 [ext_resource type="PackedScene" uid="uid://dqjsv5xo7je51" path="res://scenes/puzzle_elements/spikes/spikes.tscn" id="2_1tddb"]
 [ext_resource type="PackedScene" uid="uid://bbk6gw0yvmspf" path="res://scenes/puzzle_elements/pull_up_door/pull_up_door.tscn" id="2_apwpl"]
 [ext_resource type="PackedScene" uid="uid://cqw6044qgk00u" path="res://scenes/puzzle_elements/button/button.tscn" id="3_44ful"]
 [ext_resource type="Script" path="res://scripts/signal_or_combination.gd" id="4_u5o35"]
-[ext_resource type="PackedScene" uid="uid://c2hruii1pnk2u" path="res://scenes/player_character.tscn" id="6_orj0o"]
 [ext_resource type="PackedScene" uid="uid://cleoamcjwfmj2" path="res://scenes/platform.tscn" id="6_scpff"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ltvs2"]
@@ -266,8 +265,6 @@ texture_scale = 1.71
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m5tdf")
-
-[node name="PlayerCharacter" parent="." instance=ExtResource("6_orj0o")]
 
 [node name="Platform" parent="." instance=ExtResource("6_scpff")]
 
