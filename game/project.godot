@@ -60,6 +60,10 @@ jump_1={
 
 [layer_names]
 
+2d_physics/layer_6="enemy-hitbox"
+2d_physics/layer_7="enemy-hurtbox"
+2d_physics/layer_8="player-hitbox"
+2d_physics/layer_9="player-hurtbox"
 2d_physics/layer_10="exit"
 2d_physics/layer_11="can-exit"
 

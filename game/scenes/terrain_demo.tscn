@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://djwa6w5ny08gl"]
+[gd_scene load_steps=5 format=3 uid="uid://djwa6w5ny08gl"]
 
 [ext_resource type="Texture2D" uid="uid://bi156k0qloptu" path="res://assets/tilesets/tiles.png" id="1_ddc6t"]
+[ext_resource type="PackedScene" uid="uid://dqjsv5xo7je51" path="res://scenes/puzzle_elements/spikes/spikes.tscn" id="2_1tddb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pi4ul"]
 texture = ExtResource("1_ddc6t")
@@ -151,3 +152,6 @@ layer_3/tile_data = PackedInt32Array(1114118, 196608, 5, 1114119, 131072, 4, 111
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(256, 144)
+
+[node name="Spikes" parent="." instance=ExtResource("2_1tddb")]
+position = Vector2(336, 246)
