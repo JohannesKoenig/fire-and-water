@@ -6,6 +6,7 @@ class_name Level extends Node2D
 @onready var fire_spawn_point = $FireSpawnPoint
 @onready var water_spawn_point = $WaterSpawnPoint
 @onready var placeholder = $Placeholder
+@onready var focus_point = $FocusPoint
 
 var finish_condition: FinishCondition
 
@@ -41,3 +42,6 @@ func is_finished() -> bool:
 		return true
 	else:
 		return false
+
+func get_focus_point() -> Vector2:
+	return focus_point.global_position
