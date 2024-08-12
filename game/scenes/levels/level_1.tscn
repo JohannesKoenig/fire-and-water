@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbrwecry4ng43"]
+[gd_scene load_steps=5 format=3 uid="uid://dbrwecry4ng43"]
 
 [ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_enqyd"]
 [ext_resource type="PackedScene" uid="uid://djwa6w5ny08gl" path="res://scenes/terrain_demo.tscn" id="3_7nth7"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="3_mqb13"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctyc8"]
+size = Vector2(4000, 20)
 
 [node name="Level" instance=ExtResource("1_enqyd")]
 level_name = "Level 1"
@@ -27,3 +30,10 @@ exit = NodePath("../Exit")
 
 [node name="Exit" parent="." index="6"]
 position = Vector2(408, 92)
+
+[node name="KillZone" parent="." index="7"]
+position = Vector2(224, 488)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" index="0"]
+position = Vector2(0, 164)
+shape = SubResource("RectangleShape2D_ctyc8")

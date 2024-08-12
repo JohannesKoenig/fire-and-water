@@ -13,6 +13,8 @@ var current_level_scene: Level
 var water_player: PlayerCharacter
 var fire_player: PlayerCharacter
 
+var reset = false
+
 func _ready():
 	current_level = level_transitions.get_first_level()
 	water_player = player_packed_scene.instantiate()
@@ -33,7 +35,11 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("restart"):
-		reset_level()
+		reset = true
+	
+	if reset:
+		reset = false
+		load_level(current_level)
 	
 	if current_level_scene and current_level_scene.is_finished():
 		var next_level_name = level_transitions.get_next_level(current_level_scene.level_name)[0]
@@ -46,6 +52,7 @@ func load_level(level_name: String):
 		current_level_scene.queue_free()
 	current_level_scene = level_scene.instantiate()
 	current_level_scene.position = level_rig.position
+	# level_rig.call_deferred("add_child", current_level_scene)
 	level_rig.add_child(current_level_scene)
 	
 	var spawn_points = current_level_scene.get_spawn_points()
@@ -55,5 +62,5 @@ func load_level(level_name: String):
 
 
 func reset_level():
-	load_level(current_level)
+	reset = true
 

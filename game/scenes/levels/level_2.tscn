@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs7ivftqycpbx"]
+[gd_scene load_steps=4 format=3 uid="uid://cs7ivftqycpbx"]
 
 [ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_kns2y"]
 [ext_resource type="Script" path="res://scripts/finish_condition.gd" id="2_gagyd"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmfnv"]
+size = Vector2(4000, 20)
+
 [node name="Level" instance=ExtResource("1_kns2y")]
 level_name = "Level 2"
 
-[node name="Placeholder" parent="." index="2"]
-text = "Level 2"
-
 [node name="FinishCondition" type="Node" parent="." index="3"]
 script = ExtResource("2_gagyd")
+
+[node name="Placeholder" parent="." index="4"]
+text = "Level 2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" index="0"]
+shape = SubResource("RectangleShape2D_fmfnv")
