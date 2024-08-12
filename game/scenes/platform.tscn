@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bi156k0qloptu" path="res://assets/tilesets/tiles.png" id="1_eodj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swxok"]
-size = Vector2(40.5, 8.5)
+size = Vector2(40.5, 9)
 
 [sub_resource type="Animation" id="Animation_vxftx"]
 length = 2.0
@@ -52,10 +52,10 @@ position = Vector2(336, 185.25)
 scale = Vector2(1.81818, 1.75)
 texture = ExtResource("1_eodj4")
 region_enabled = true
-region_rect = Rect2(127.726, 16.0702, 22.7267, 6.14146)
+region_rect = Rect2(127.726, 16.0702, 22.274, 4.9298)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(335, 184)
+position = Vector2(335, 185.5)
 shape = SubResource("RectangleShape2D_swxok")
 one_way_collision = true
 
