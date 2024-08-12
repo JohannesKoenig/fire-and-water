@@ -4,15 +4,26 @@ class_name MetaProgression extends Node2D
 
 @onready var level_rig = $LevelRig
 @onready var level_transitions = $LevelTransitions
+@onready var player_packed_scene: PackedScene = preload("res://scenes/player_character.tscn")
 var current_level_scene: Level
 
+var water_player: PlayerCharacter
+var fire_player: PlayerCharacter
+
 func _ready():
+	water_player = player_packed_scene.instantiate()
+	add_child(water_player)
+	water_player.set_player_id(0)
+	fire_player = player_packed_scene.instantiate()
+	add_child(fire_player)
+	fire_player.set_player_id(1)
+
 	var first_level_name = level_transitions.get_first_level()
 	load_level(first_level_name)
 
 func _process(delta):
 	if current_level_scene and current_level_scene.is_finished():
-		var next_level_name = level_transitions.get_next_level(current_level_scene.level_name)
+		var next_level_name = level_transitions.get_next_level(current_level_scene.level_name)[0]
 		load_level(next_level_name)
 
 func load_level(level_name: String):
@@ -23,3 +34,8 @@ func load_level(level_name: String):
 	current_level_scene = level_scene.instantiate()
 	current_level_scene.position = level_rig.position
 	level_rig.add_child(current_level_scene)
+	
+	var spawn_points = current_level_scene.get_spawn_points()
+	water_player.position = spawn_points.water_spawn_point
+	fire_player.position = spawn_points.fire_spawn_point
+	

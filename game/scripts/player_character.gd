@@ -1,11 +1,11 @@
-extends CharacterBody2D
+class_name PlayerCharacter extends CharacterBody2D
 
 
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -300.0
 
-@onready var player_input = $PlayerInput
+@onready var player_input: PlayerInput = $PlayerInput
 @onready var rig = $Rig
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -43,3 +43,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	input_package.queue_free()
+
+func set_player_id(id: int):
+	player_input.player_id = id

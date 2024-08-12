@@ -7,7 +7,7 @@ func get_input() -> ExitInputPackage:
 	
 	input_package.actions.append("Idle")
 	
-	if area_2d.has_overlapping_areas():
+	if len(area_2d.get_overlapping_areas()) >= 2:
 		input_package.actions.append("TransitionToExit")
 
 	return input_package
