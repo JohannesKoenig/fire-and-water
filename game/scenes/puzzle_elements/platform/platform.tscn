@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cleoamcjwfmj2"]
+
+[ext_resource type="Script" path="res://scripts/puzzle_elements/platform/platform.gd" id="1_8ps0h"]
+[ext_resource type="Texture2D" uid="uid://tl881ennquah" path="res://assets/tilesets/platform_tiles.png" id="1_qafyh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjarb"]
+texture = ExtResource("1_qafyh")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_t162g"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rjarb")
+
+[node name="Platform" type="AnimatableBody2D"]
+script = ExtResource("1_8ps0h")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_t162g")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65535, 65536, 0, -65536, 0, 0, -1, 0, 0, -2, 0, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-337, -192)
+polygon = PackedVector2Array(305, 179, 308, 176, 365, 176, 368, 179, 368, 189, 365, 192, 307, 192, 304, 189, 304, 179)
