@@ -64,8 +64,8 @@ jump_1={
 2d_physics/layer_7="enemy-hurtbox"
 2d_physics/layer_8="player-hitbox"
 2d_physics/layer_9="player-hurtbox"
-2d_physics/layer_10="exit"
-2d_physics/layer_11="can-exit"
+2d_physics/layer_10="action"
+2d_physics/layer_11="actionable"
 
 [rendering]
 
