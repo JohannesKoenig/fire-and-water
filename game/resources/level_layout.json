@@ -5,13 +5,31 @@
 		},
 		"Level 2": {
 			"file": "res://scenes/levels/level_2.tscn"
-		}
+		},
+		"Level 3": {
+			"file": "res://scenes/levels/level_3.tscn"
+		},
+		"Level 4": {
+			"file": "res://scenes/levels/level_4.tscn"
+		},
 	},
 	"first_level": "Level 1",
 	"transitions": [
 		{
 			"from": "Level 1",
 			"to": "Level 2"
+		},
+		{
+			"from": "Level 2",
+			"to": "Level 3"
+		},
+		{
+			"from": "Level 3",
+			"to": "Level 4"
+		},
+		{
+			"from": "Level 4",
+			"to": "Level 1"
 		}
 	]
 }
