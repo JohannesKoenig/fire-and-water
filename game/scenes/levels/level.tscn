@@ -40,8 +40,7 @@ rotation = 0.111701
 energy = 0.4
 shadow_enabled = true
 
-[node name="DirectionalLightBackground" type="DirectionalLight2D" parent="."]
-rotation = 0.111701
+[node name="DirectionalLightBackground" type="DirectionalLight2D" parent="DirectionalLightShadows"]
 energy = 0.8
 
 [node name="TileMap" type="TileMap" parent="."]
