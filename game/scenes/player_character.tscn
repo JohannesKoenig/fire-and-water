@@ -7,22 +7,22 @@
 [ext_resource type="Script" path="res://scripts/HurtBox.gd" id="5_q3v0x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqnov"]
-radius = 7.0
-height = 22.0
+radius = 5.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1y1r"]
-radius = 7.0
+radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qohb8"]
-radius = 7.0
-height = 22.0
+radius = 5.0
+height = 24.0
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_b4wwt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_cqnov")
 
 [node name="Rig" type="Marker2D" parent="."]
@@ -30,7 +30,6 @@ position = Vector2(5, -15)
 script = ExtResource("3_dkkbr")
 
 [node name="PlayerVisuals" parent="." node_paths=PackedStringArray("rig", "player_input") instance=ExtResource("2_6ksa6")]
-position = Vector2(0, -16)
 rig = NodePath("../Rig")
 player_input = NodePath("../PlayerInput")
 
@@ -42,7 +41,7 @@ collision_layer = 1024
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitSensor"]
-position = Vector2(0, -10)
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_q1y1r")
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("agent")]
@@ -52,7 +51,7 @@ script = ExtResource("5_q3v0x")
 agent = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, -11)
+position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_qohb8")
 
 [node name="CojoteTimer" type="Timer" parent="."]
