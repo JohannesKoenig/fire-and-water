@@ -6,5 +6,6 @@
 tile_set = ExtResource("1_himcy")
 format = 2
 layer_0/name = "background"
+layer_0/modulate = Color(0.384314, 0.384314, 0.384314, 1)
 layer_1/name = "terrain"
 layer_1/tile_data = PackedInt32Array()

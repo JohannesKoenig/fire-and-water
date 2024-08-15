@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ej6lgkpbihc7"]
+[gd_scene load_steps=7 format=3 uid="uid://ej6lgkpbihc7"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_8nnjv"]
 [ext_resource type="PackedScene" uid="uid://dpwmu6xqdrlj1" path="res://scenes/exit/exit.tscn" id="2_46yte"]
 [ext_resource type="PackedScene" uid="uid://prwtmusmjhn0" path="res://scenes/tile_map.tscn" id="4_f5mhp"]
 [ext_resource type="PackedScene" uid="uid://b3nxepkuua6vw" path="res://scenes/kill_zone.tscn" id="4_j2gnw"]
+[ext_resource type="TileSet" uid="uid://fwwvv2ohyb2n" path="res://resources/tile_map_no_collision.tres" id="5_r41o2"]
 
 [sub_resource type="Environment" id="Environment_m5tdf"]
 background_mode = 3
@@ -43,5 +44,8 @@ shadow_enabled = true
 
 [node name="DirectionalLightBackground" type="DirectionalLight2D" parent="DirectionalLightShadows"]
 energy = 0.8
+
+[node name="DecorTileMap" parent="." instance=ExtResource("4_f5mhp")]
+tile_set = ExtResource("5_r41o2")
 
 [node name="TileMap" parent="." instance=ExtResource("4_f5mhp")]
