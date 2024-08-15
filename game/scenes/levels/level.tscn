@@ -49,3 +49,5 @@ energy = 0.8
 tile_set = ExtResource("5_r41o2")
 
 [node name="TileMap" parent="." instance=ExtResource("4_f5mhp")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
