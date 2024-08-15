@@ -1,140 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://ivxuqnc018vf"]
+[gd_scene load_steps=5 format=3 uid="uid://ivxuqnc018vf"]
 
 [ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_enqyd"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="3_mqb13"]
 [ext_resource type="TileSet" uid="uid://brcf8o3fnd5x3" path="res://resources/levels/level_1/level_1_tile_set.tres" id="3_pebn5"]
-[ext_resource type="Texture2D" uid="uid://d0tradgbxv5uo" path="res://assets/tilesets/elements-demo.png" id="4_qujn8"]
-[ext_resource type="Texture2D" uid="uid://1bkgg1wmm6ph" path="res://assets/tilesets/elements-demo_normals.png" id="5_qmlg2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w0u3"]
 size = Vector2(2246, 20)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mr56o"]
-polygon = PackedVector2Array(8, 8, 4, 8, 4, -8, 8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xd036"]
-polygon = PackedVector2Array(8, 8, 4, 8, 4, -8, 8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hrm6i"]
-polygon = PackedVector2Array(8, 8, 4, 8, 4, 4, 8, 4)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8g5lc"]
-polygon = PackedVector2Array(8, -8, 4, -8, 4, -4, 8, -4)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qddgn"]
-polygon = PackedVector2Array(-8, 8, -4, 8, -4, -8, -8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i3q4r"]
-polygon = PackedVector2Array(-8, 8, -4, 8, -4, -8, -8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_agy0o"]
-polygon = PackedVector2Array(-8, 8, -8, 4, 8, 4, 8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mwnmm"]
-polygon = PackedVector2Array(-8, -8, -8, -4, 8, -4, 8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wk144"]
-polygon = PackedVector2Array(-8, 8, -8, 4, 8, 4, 8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qg2uw"]
-polygon = PackedVector2Array(-8, -8, -8, -4, 8, -4, 8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tywwr"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nvq5u"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_er4cp"]
-polygon = PackedVector2Array(-8, 8, -8, 4, 8, 4, 8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i3opa"]
-polygon = PackedVector2Array(-8, -8, -8, -4, 8, -4, 8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mcjoq"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mfjda"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c14s3"]
-polygon = PackedVector2Array(-8, 8, -8, 4, 8, 4, 8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_50o38"]
-polygon = PackedVector2Array(-8, -8, -8, -4, 8, -4, 8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wvtru"]
-polygon = PackedVector2Array(-8, 8, -4, 8, -4, 4, -8, 4)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_52dsx"]
-polygon = PackedVector2Array(-8, -8, -4, -8, -4, -4, -8, -4)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d2y8s"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_e0g13"]
-diffuse_texture = ExtResource("4_qujn8")
-normal_texture = ExtResource("5_qmlg2")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wg7dj"]
-texture = SubResource("CanvasTexture_e0g13")
-5:3/0 = 0
-5:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_tywwr")
-6:3/0 = 0
-6:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_mcjoq")
-5:4/0 = 0
-5:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_nvq5u")
-6:4/0 = 0
-6:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_mfjda")
-2:6/0 = 0
-2:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_hrm6i")
-3:6/0 = 0
-3:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_agy0o")
-4:6/0 = 0
-4:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_wk144")
-5:6/0 = 0
-5:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_er4cp")
-6:6/0 = 0
-6:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_c14s3")
-7:6/0 = 0
-7:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_wvtru")
-3:8/0 = 0
-3:8/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_mwnmm")
-4:8/0 = 0
-4:8/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_qg2uw")
-5:8/0 = 0
-5:8/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_i3opa")
-6:8/0 = 0
-6:8/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_50o38")
-2:3/0 = 0
-2:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_mr56o")
-3:3/0 = 0
-3:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_qddgn")
-3:4/0 = 0
-3:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_i3q4r")
-2:4/0 = 0
-2:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_xd036")
-7:8/0 = 0
-7:8/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_52dsx")
-2:8/0 = 0
-2:8/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_8g5lc")
-8:3/0 = 0
-8:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d2y8s")
-8:4/0 = 0
-8:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d2y8s")
-9:4/0 = 0
-9:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d2y8s")
-9:3/0 = 0
-9:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d2y8s")
-11:3/0 = 0
-11:5/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-12:5/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_nhnol"]
-occlusion_layer_0/light_mask = 1
-sources/1 = SubResource("TileSetAtlasSource_wg7dj")
 
 [node name="Level 1" instance=ExtResource("1_enqyd")]
 level_name = "Level 1"
@@ -175,7 +46,6 @@ height = 0.5
 energy = 0.27
 
 [node name="TileMap" parent="." index="9"]
-visible = false
 tile_set = ExtResource("3_pebn5")
 layer_0/tile_data = PackedInt32Array(851979, 655360, 1, 851980, 458752, 1, 589835, 524288, 1, 589836, 589824, 1, 655371, 655360, 1, 720907, 655360, 1, 786443, 655360, 1, 655372, 458752, 1, 720908, 458752, 1, 786444, 458752, 1, 458769, 524288, 1, 458770, 589824, 1, 524306, 458752, 1, 589842, 458752, 1, 655378, 458752, 1, 720914, 458752, 1, 786450, 458752, 1, 851986, 458752, 1, 524305, 655360, 1, 589841, 655360, 1, 655377, 655360, 1, 720913, 655360, 1, 786449, 655360, 1, 851985, 655360, 1, 917521, 655360, 1, 983057, 655360, 1)
 layer_1/tile_data = PackedInt32Array(851972, 131072, 1, 917508, 262144, 1, 983044, 262144, 1, 1048580, 262144, 1, 1114116, 131072, 2, 851973, 131072, 3, 917509, 0, 1, 983045, 0, 1, 1048581, 0, 1, 1114117, 196608, 0, 851974, 131072, 3, 917510, 0, 1, 983046, 0, 1, 1048582, 0, 1, 1114118, 196608, 0, 851975, 131072, 3, 917511, 0, 1, 983047, 0, 1, 1048583, 0, 1, 1114119, 196608, 0, 851976, 131072, 3, 917512, 0, 1, 983048, 0, 1, 1048584, 0, 1, 1114120, 196608, 0, 851977, 131072, 3, 917513, 0, 1, 983049, 0, 1, 1048585, 0, 1, 1114121, 196608, 0, 851978, 131072, 3, 917514, 0, 1, 983050, 0, 1, 1048586, 0, 1, 1114122, 196608, 0, 851979, 131072, 3, 917515, 0, 1, 983051, 0, 1, 1048587, 0, 1, 1114123, 196608, 0, 851980, 131072, 3, 917516, 0, 1, 983052, 0, 1, 1048588, 0, 1, 1114124, 196608, 0, 851981, 131072, 3, 917517, 0, 1, 983053, 0, 1, 1048589, 0, 1, 1114125, 196608, 0, 851982, 131072, 3, 917518, 0, 1, 983054, 0, 1, 1048590, 0, 1, 1114126, 196608, 0, 851983, 131072, 3, 917519, 0, 1, 983055, 0, 1, 1048591, 0, 1, 1114127, 196608, 0, 851984, 131072, 3, 917520, 0, 1, 983056, 0, 1, 1048592, 0, 1, 1114128, 196608, 0, 851985, 131072, 3, 917521, 0, 1, 983057, 0, 1, 1048593, 0, 1, 1114129, 196608, 0, 851986, 131072, 3, 917522, 0, 1, 983058, 0, 1, 1048594, 0, 1, 1114130, 196608, 0, 851987, 131072, 3, 917523, 0, 1, 983059, 0, 1, 1048595, 0, 1, 1114131, 196608, 0, 851988, 131072, 3, 917524, 0, 1, 983060, 0, 1, 1048596, 0, 1, 1114132, 196608, 0, 851989, 131072, 3, 917525, 0, 1, 983061, 0, 1, 1048597, 0, 1, 1114133, 196608, 0, 851990, 131072, 3, 917526, 0, 1, 983062, 0, 1, 1048598, 0, 1, 1114134, 196608, 0, 851991, 131072, 3, 917527, 0, 1, 983063, 0, 1, 1048599, 0, 1, 1114135, 196608, 0, 851992, 131072, 3, 917528, 0, 1, 983064, 0, 1, 1048600, 0, 1, 1114136, 196608, 0, 851993, 131072, 3, 917529, 0, 1, 983065, 0, 1, 1048601, 0, 1, 1114137, 196608, 0, 851994, 196608, 1, 917530, 65536, 1, 983066, 65536, 1, 1048602, 65536, 1, 1114138, 196608, 2)
@@ -185,12 +55,3 @@ layer_3/tile_data = PackedInt32Array(720920, 0, 4, 786456, 0, 5, 720921, 65536, 
 [node name="ExitFinishCondition" type="Node" parent="." index="10" node_paths=PackedStringArray("exit")]
 script = ExtResource("3_mqb13")
 exit = NodePath("../Exit")
-
-[node name="TileMap2" type="TileMap" parent="." index="11"]
-position = Vector2(0, -23)
-tile_set = SubResource("TileSet_nhnol")
-format = 2
-layer_0/name = "background"
-layer_0/tile_data = PackedInt32Array(131086, 720897, 5, 196622, 720897, 6, 262158, 720897, 5, 327694, 720897, 5, 131087, 720897, 3, 196623, 720897, 3, 262159, 720897, 3, 327695, 720897, 3, 131088, 720897, 3, 196624, 720897, 3, 262160, 720897, 3, 327696, 720897, 3, 131089, 720897, 3, 196625, 720897, 3, 262161, 720897, 3, 327697, 720897, 3, 131090, 786433, 5, 196626, 786433, 6, 262162, 786433, 5, 327698, 786433, 5)
-layer_1/name = "tiles"
-layer_1/tile_data = PackedInt32Array(655365, 131073, 3, 720901, 393217, 3, 655366, 524289, 3, 720902, 524289, 4, 655368, 524289, 3, 720904, 524289, 4, 655369, 393217, 3, 720905, 393217, 3, 589829, 131073, 6, 589830, 196609, 6, 589831, 262145, 6, 589832, 327681, 6, 589833, 458753, 6, 655367, 589825, 3, 720903, 589825, 4, 786437, 196609, 8, 786438, 262145, 8, 786439, 327681, 8, 786440, 393217, 8, 786441, 393217, 8, 655361, 131073, 6, 655362, 327681, 6, 655363, 393217, 6, 655364, 458753, 6, 720897, 131073, 3, 720898, 524289, 3, 720899, 524289, 3, 720900, 327681, 3, 786434, 262145, 8, 786435, 393217, 8, 786436, 196609, 8, 786433, 131073, 8, 786442, 262145, 8, 786443, 327681, 8, 786444, 393217, 8, 786445, 262145, 8, 786446, 327681, 8, 786447, 393217, 8, 786448, 262145, 8, 786449, 262145, 8, 786450, 262145, 8, 786451, 393217, 8, 786452, 196609, 8, 786453, 458753, 8, 393227, 524289, 4, 458763, 524289, 4, 524299, 524289, 4, 589835, 524289, 4, 655371, 524289, 4, 720907, 524289, 4, 393228, 524289, 4, 458764, 524289, 4, 524300, 524289, 4, 589836, 524289, 4, 655372, 524289, 4, 720908, 524289, 4, 393229, 524289, 4, 458765, 524289, 4, 524301, 524289, 4, 589837, 524289, 4, 655373, 524289, 4, 720909, 524289, 4, 393230, 524289, 4, 458766, 524289, 4, 524302, 524289, 4, 589838, 524289, 4, 655374, 524289, 4, 720910, 524289, 4, 393231, 524289, 4, 458767, 524289, 4, 524303, 524289, 4, 589839, 524289, 4, 655375, 524289, 4, 720911, 524289, 4, 393232, 524289, 4, 458768, 524289, 4, 524304, 524289, 4, 589840, 524289, 4, 655376, 524289, 4, 720912, 524289, 4, 393233, 524289, 4, 458769, 524289, 4, 524305, 524289, 4, 589841, 524289, 4, 655377, 524289, 4, 720913, 524289, 4, 393234, 524289, 4, 458770, 524289, 4, 524306, 524289, 4, 589842, 524289, 4, 655378, 524289, 4, 720914, 524289, 4, 393235, 524289, 4, 458771, 524289, 4, 524307, 524289, 4, 589843, 524289, 4, 655379, 524289, 4, 720915, 524289, 4, 393236, 524289, 4, 458772, 524289, 4, 524308, 524289, 4, 589844, 524289, 4, 655380, 524289, 4, 720916, 524289, 4, 655370, 393217, 4, 720906, 327681, 4, 393226, 131073, 3, 458762, 131073, 4, 524298, 131073, 4, 589834, 131073, 4, 393237, 196609, 4, 458773, 196609, 3, 524309, 196609, 4, 589845, 196609, 3, 655381, 196609, 3, 720917, 196609, 3, 327701, 458753, 6, 327690, 131073, 6, 327691, 327681, 6, 327692, 393217, 6, 327693, 327681, 6, 327694, 327681, 6, 327695, 393217, 6, 327696, 262145, 6, 327697, 196609, 6, 327698, 262145, 6, 327699, 196609, 6, 327700, 196609, 6, 65549, 131073, 6, 65550, 393217, 6, 65551, 458753, 6, 65553, 131073, 6, 65554, 196609, 6, 65555, 458753, 6, 131085, 131073, 8, 131091, 458753, 8, 131086, 327681, 8, 131087, 458753, 8, 131089, 131073, 8, 131090, 327681, 8)
