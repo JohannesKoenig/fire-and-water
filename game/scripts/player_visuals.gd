@@ -5,8 +5,12 @@ extends Node2D
 
 @export var player_input : PlayerInput
 
+var _player_state_machine: PlayerStateMachine
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func accept_model(player_state_machine: PlayerStateMachine):
+	_player_state_machine = player_state_machine
+
+
 func _process(delta):
 	var input_package = player_input.get_input()
 	var direction = input_package.direction
@@ -16,8 +20,6 @@ func _process(delta):
 	else: 
 		scale.x = -1
 		
-	if direction == 0:
-		animated_sprite_2d.play("idle")
-	else: 
-		animated_sprite_2d.play("walk")
+	animated_sprite_2d.play(_player_state_machine.current_state)
+	
 	input_package.queue_free()

@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2hruii1pnk2u"]
+[gd_scene load_steps=15 format=3 uid="uid://c2hruii1pnk2u"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_b4wwt"]
 [ext_resource type="PackedScene" uid="uid://b1lm6sv4v5brl" path="res://scenes/player_visuals.tscn" id="2_6ksa6"]
 [ext_resource type="Script" path="res://scripts/Rig.gd" id="3_dkkbr"]
 [ext_resource type="Script" path="res://scripts/player_input.gd" id="4_05o6e"]
 [ext_resource type="Script" path="res://scripts/HurtBox.gd" id="5_q3v0x"]
+[ext_resource type="Script" path="res://scripts/player/player_state_machine.gd" id="6_7g412"]
+[ext_resource type="Script" path="res://scripts/player/states/idle_player_state.gd" id="7_66sfx"]
+[ext_resource type="Script" path="res://scripts/player/states/walk_player_state.gd" id="8_hswm3"]
+[ext_resource type="Script" path="res://scripts/player/states/falling_player_state.gd" id="9_w0isi"]
+[ext_resource type="Script" path="res://scripts/player/states/jump_player_state.gd" id="10_vqxs3"]
+[ext_resource type="Script" path="res://scripts/player/states/landing_player_state.gd" id="11_v0cha"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqnov"]
 radius = 5.0
@@ -57,5 +63,23 @@ shape = SubResource("CapsuleShape2D_qohb8")
 [node name="CojoteTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="PlayerStateMachine" type="Node" parent="."]
+script = ExtResource("6_7g412")
+
+[node name="Idle" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("7_66sfx")
+
+[node name="Walk" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("8_hswm3")
+
+[node name="Falling" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("9_w0isi")
+
+[node name="Jump" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("10_vqxs3")
+
+[node name="Landing" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("11_v0cha")
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
