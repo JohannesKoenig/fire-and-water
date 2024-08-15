@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ej6lgkpbihc7"]
+[gd_scene load_steps=6 format=3 uid="uid://ej6lgkpbihc7"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_8nnjv"]
 [ext_resource type="PackedScene" uid="uid://dpwmu6xqdrlj1" path="res://scenes/exit/exit.tscn" id="2_46yte"]
+[ext_resource type="PackedScene" uid="uid://prwtmusmjhn0" path="res://scenes/tile_map.tscn" id="4_f5mhp"]
 [ext_resource type="PackedScene" uid="uid://b3nxepkuua6vw" path="res://scenes/kill_zone.tscn" id="4_j2gnw"]
 
 [sub_resource type="Environment" id="Environment_m5tdf"]
@@ -43,12 +44,4 @@ shadow_enabled = true
 [node name="DirectionalLightBackground" type="DirectionalLight2D" parent="DirectionalLightShadows"]
 energy = 0.8
 
-[node name="TileMap" type="TileMap" parent="."]
-format = 2
-layer_0/name = "background"
-layer_1/name = "terrain"
-layer_1/tile_data = PackedInt32Array()
-layer_2/name = "grass"
-layer_2/tile_data = PackedInt32Array()
-layer_3/name = "detail"
-layer_3/tile_data = PackedInt32Array()
+[node name="TileMap" parent="." instance=ExtResource("4_f5mhp")]
