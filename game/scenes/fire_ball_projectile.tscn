@@ -1,11 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://cceflqxavm88r"]
+[gd_scene load_steps=21 format=3 uid="uid://cceflqxavm88r"]
 
 [ext_resource type="PackedScene" uid="uid://jg6tlewtywe5" path="res://scenes/projectile.tscn" id="1_brkkg"]
 [ext_resource type="Script" path="res://scripts/fire_ball_projectile.gd" id="2_3xcbw"]
 [ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="2_k8b8m"]
 [ext_resource type="Texture2D" uid="uid://belpra8rmykf0" path="res://resources/particle.tres" id="3_pfdxa"]
 [ext_resource type="Script" path="res://scripts/trail_2d.gd" id="6_jbrs3"]
-[ext_resource type="Texture2D" uid="uid://d2l3atc0mirpt" path="res://assets/explosion.png" id="7_o4ixe"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oyo3q"]
 light_mode = 1
@@ -36,96 +35,8 @@ collision_bounce = 0.0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ni8ju"]
-atlas = ExtResource("7_o4ixe")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_laq23"]
-atlas = ExtResource("7_o4ixe")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxq52"]
-atlas = ExtResource("7_o4ixe")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mkyvi"]
-atlas = ExtResource("7_o4ixe")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mxysb"]
-atlas = ExtResource("7_o4ixe")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h4a6k"]
-atlas = ExtResource("7_o4ixe")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_58v7w"]
-atlas = ExtResource("7_o4ixe")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sqrlu"]
-atlas = ExtResource("7_o4ixe")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhpdg"]
-atlas = ExtResource("7_o4ixe")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gwmcb"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ni8ju")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_laq23")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxq52")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mkyvi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mxysb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h4a6k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_58v7w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sqrlu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rhpdg")
-}],
-"loop": false,
-"name": &"explode",
-"speed": 15.0
-}]
-
 [sub_resource type="Animation" id="Animation_h6a1q"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"explode"]
-}
 
 [sub_resource type="Animation" id="Animation_aejfe"]
 resource_name = "explode"
@@ -133,36 +44,10 @@ length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("PointLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"explode"]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"explode"],
-"method": &"play"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PointLight2D:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -241,18 +126,12 @@ width_curve = SubResource("Curve_sadsg")
 default_color = Color(1, 0.529412, 0.329412, 1)
 script = ExtResource("6_jbrs3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
-visible = false
-sprite_frames = SubResource("SpriteFrames_gwmcb")
-animation = &"explode"
-autoplay = "default"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 libraries = {
 "": SubResource("AnimationLibrary_aeip2")
 }
 
-[node name="ExplosionParticles" type="GPUParticles2D" parent="." index="7"]
+[node name="ExplosionParticles" type="GPUParticles2D" parent="." index="6"]
 emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_n1m4g")
