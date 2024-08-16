@@ -40,6 +40,7 @@ func _on_body_entered(body):
 
 func collide():
 	if !collided:
+		sleeping = true
 		sprite_2d.visible = false
 		collided = true
 		collision_time = Time.get_unix_time_from_system()
