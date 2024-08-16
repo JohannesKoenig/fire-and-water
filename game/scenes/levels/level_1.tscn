@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://ivxuqnc018vf"]
+[gd_scene load_steps=16 format=3 uid="uid://ivxuqnc018vf"]
 
 [ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_enqyd"]
 [ext_resource type="Texture2D" uid="uid://c4ujglvswhjqo" path="res://assets/background_clouds.png" id="3_fwgfu"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="3_mqb13"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="4_aq10i"]
 [ext_resource type="Script" path="res://scripts/auto_scrolling_parallax_layer.gd" id="4_nnft6"]
+[ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="6_brcmh"]
+[ext_resource type="Script" path="res://scripts/cloud_shadow_parallax_layer.gd" id="7_7q0ir"]
+[ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="8_vnib5"]
+[ext_resource type="Texture2D" uid="uid://y6n0b3aemigf" path="res://assets/front_hills.png" id="9_7fr1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w0u3"]
 size = Vector2(2246, 20)
@@ -25,6 +29,15 @@ metadata/_snap_enabled = true
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k4aoy"]
 light_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_guxgk"]
+resource_local_to_scene = true
+shader = ExtResource("8_vnib5")
+shader_parameter/ShadowColor = Color(0, 0, 0, 0.152941)
+shader_parameter/ClippingMaskOffset = 0.0
+shader_parameter/AlphaTheshold = 0.024
+shader_parameter/ClippingMask = ExtResource("6_brcmh")
+shader_parameter/Diffuse = ExtResource("4_aq10i")
 
 [node name="Level 1" instance=ExtResource("1_enqyd")]
 level_name = "Level 1"
@@ -53,7 +66,10 @@ color = Color(0.309804, 0.309804, 0.309804, 1)
 
 [node name="DirectionalLightShadows" parent="." index="7"]
 position = Vector2(2.08165e-12, 2.08165e-12)
-skew = -0.298451
+rotation = 3.48787e-16
+skew = -0.558505
+range_item_cull_mask = 3
+shadow_item_cull_mask = 3
 
 [node name="DecorTileMap" parent="." index="8"]
 layer_0/modulate = Color(0.482353, 0.482353, 0.482353, 1)
@@ -71,15 +87,15 @@ exit = NodePath("../Exit")
 [node name="Exit" parent="." index="11"]
 position = Vector2(400, 199)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 motion_offset = Vector2(2.08165e-12, 2.08165e-12)
 motion_mirroring = Vector2(2048, 2.08165e-12)
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" index="0"]
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Sky" index="0"]
 material = SubResource("CanvasItemMaterial_xwa4a")
-offset_top = -222.0
+offset_top = -338.0
 offset_right = 2048.0
-offset_bottom = 930.0
+offset_bottom = 814.0
 texture = SubResource("GradientTexture2D_jt7sp")
 
 [node name="BackgroundClouds" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
@@ -87,10 +103,11 @@ motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1024, 2.08165e-12)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/BackgroundClouds" index="0"]
+texture_filter = 2
 material = SubResource("CanvasItemMaterial_k4aoy")
-offset_top = -140.0
+offset_top = -225.0
 offset_right = 1024.0
-offset_bottom = 436.0
+offset_bottom = 351.0
 texture = ExtResource("3_fwgfu")
 stretch_mode = 1
 
@@ -98,18 +115,83 @@ stretch_mode = 1
 motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(1024, 2.08165e-12)
 script = ExtResource("4_nnft6")
-velocity = Vector2(10, 2.08165e-12)
+velocity = Vector2(4, 2.08165e-12)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Clouds" index="0"]
+texture_filter = 2
 material = SubResource("CanvasItemMaterial_k4aoy")
 offset_left = 2.0
-offset_top = -140.0
+offset_top = -240.0
 offset_right = 1026.0
-offset_bottom = 436.0
+offset_bottom = 336.0
 texture = ExtResource("4_aq10i")
 stretch_mode = 1
 
-[node name="Foliage" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+[node name="Hills" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+light_mask = 2
+motion_scale = Vector2(0.5, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Hills" index="0"]
+modulate = Color(0.741176, 0.835294, 0.905882, 1)
+light_mask = 2
+offset_top = -19.0
+offset_right = 1060.0
+offset_bottom = 557.0
+texture = ExtResource("6_brcmh")
+stretch_mode = 1
+
+[node name="CloudShadows" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+motion_scale = Vector2(0.5, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+script = ExtResource("7_7q0ir")
+clipping_mask_width = 1024
+clipping_mask = ExtResource("6_brcmh")
+velocity = Vector2(4, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/CloudShadows" index="0"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_guxgk")
+offset_top = -18.0
+offset_right = 1024.0
+offset_bottom = 558.0
+texture = ExtResource("4_aq10i")
+stretch_mode = 1
+
+[node name="FrontHills" type="ParallaxLayer" parent="ParallaxBackground" index="5"]
+light_mask = 2
+motion_scale = Vector2(0.4, 0.6)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/FrontHills" index="0"]
+modulate = Color(0.501961, 0.635294, 0.654902, 1)
+light_mask = 2
+offset_left = 2.0
+offset_top = 21.0
+offset_right = 1062.0
+offset_bottom = 597.0
+texture = ExtResource("9_7fr1m")
+stretch_mode = 1
+
+[node name="FrontCloudShadows" type="ParallaxLayer" parent="ParallaxBackground" index="6"]
+motion_scale = Vector2(0.4, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+script = ExtResource("7_7q0ir")
+clipping_mask_width = 1024
+clipping_mask = ExtResource("9_7fr1m")
+velocity = Vector2(4, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/FrontCloudShadows" index="0"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_guxgk")
+offset_left = 2.0
+offset_top = 20.0
+offset_right = 1026.0
+offset_bottom = 596.0
+texture = ExtResource("4_aq10i")
+stretch_mode = 1
+
+[node name="Foliage" type="ParallaxLayer" parent="ParallaxBackground" index="7"]
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Foliage" index="0"]
 offset_right = 40.0

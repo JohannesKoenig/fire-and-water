@@ -25,9 +25,6 @@ position = Vector2(43, 240)
 [node name="Placeholder" parent="." index="3"]
 text = "Level 3"
 
-[node name="Exit" parent="." index="4"]
-position = Vector2(384, 150)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" index="0"]
 position = Vector2(195, 438)
 shape = SubResource("RectangleShape2D_ial11")
@@ -54,6 +51,9 @@ script = ExtResource("6_nvdwu")
 [node name="PullUpDoor" parent="." index="16" instance=ExtResource("7_0yjtf")]
 z_index = -1
 position = Vector2(200, 240)
+
+[node name="Exit" parent="." index="17"]
+position = Vector2(384, 150)
 
 [connection signal="button_active" from="Button" to="SignalOrCombination" method="on_signal"]
 [connection signal="button_inactive" from="Button" to="SignalOrCombination" method="off_signal"]

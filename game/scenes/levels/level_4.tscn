@@ -28,9 +28,6 @@ position = Vector2(46, 217)
 [node name="Placeholder" parent="." index="3"]
 text = "Level 4"
 
-[node name="Exit" parent="." index="4"]
-position = Vector2(574, 86)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" index="0"]
 position = Vector2(304, 423)
 shape = SubResource("RectangleShape2D_5eukd")
@@ -47,3 +44,6 @@ curve = SubResource("Curve2D_otuv2")
 z_index = 3
 position = Vector2(195, 164)
 path = NodePath("../Path2D")
+
+[node name="Exit" parent="." index="13"]
+position = Vector2(574, 86)
