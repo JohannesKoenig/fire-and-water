@@ -1,8 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1lm6sv4v5brl"]
+[gd_scene load_steps=22 format=3 uid="uid://b1lm6sv4v5brl"]
 
 [ext_resource type="Script" path="res://scripts/player_visuals.gd" id="1_i6iuw"]
 [ext_resource type="Texture2D" uid="uid://kqetjy8cujj1" path="res://assets/sprite_animations/elemental-catalyst_idle.png" id="2_4mvmr"]
 [ext_resource type="Texture2D" uid="uid://bkelu0bu3qc34" path="res://assets/sprite_animations/elemental-catalyst_walk.png" id="3_tygi1"]
+[ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="4_5jrv7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7m88c"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_08fjo"]
 atlas = ExtResource("2_4mvmr")
@@ -127,7 +131,15 @@ position = Vector2(0, -6)
 script = ExtResource("1_i6iuw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_7m88c")
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_vtj8n")
 animation = &"walk"
 autoplay = "idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -7)
+color = Color(1, 0.529412, 0.329412, 1)
+energy = 2.4
+texture = ExtResource("4_5jrv7")
+height = 3.0
