@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2hruii1pnk2u"]
+[gd_scene load_steps=17 format=3 uid="uid://c2hruii1pnk2u"]
 
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="1_b4wwt"]
 [ext_resource type="PackedScene" uid="uid://b1lm6sv4v5brl" path="res://scenes/player_visuals.tscn" id="2_6ksa6"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://scripts/player/states/falling_player_state.gd" id="9_w0isi"]
 [ext_resource type="Script" path="res://scripts/player/states/jump_player_state.gd" id="10_vqxs3"]
 [ext_resource type="Script" path="res://scripts/player/states/landing_player_state.gd" id="11_v0cha"]
+[ext_resource type="Script" path="res://scripts/player/states/shoot_player_state.gd" id="12_1clcs"]
+[ext_resource type="Script" path="res://scripts/elemental_ball_projectile_emitter.gd" id="12_xiibj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqnov"]
 radius = 5.0
@@ -25,6 +27,8 @@ height = 24.0
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_b4wwt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,8 +36,12 @@ position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_cqnov")
 
 [node name="Rig" type="Marker2D" parent="."]
-position = Vector2(5, -15)
+position = Vector2(0, -11)
 script = ExtResource("3_dkkbr")
+
+[node name="ElementalBallProjectileEmitter" type="Node2D" parent="Rig"]
+position = Vector2(10, -3)
+script = ExtResource("12_xiibj")
 
 [node name="PlayerVisuals" parent="." node_paths=PackedStringArray("rig", "player_input") instance=ExtResource("2_6ksa6")]
 rig = NodePath("../Rig")
@@ -81,5 +89,8 @@ script = ExtResource("10_vqxs3")
 
 [node name="Landing" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("11_v0cha")
+
+[node name="Shoot" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("12_1clcs")
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]

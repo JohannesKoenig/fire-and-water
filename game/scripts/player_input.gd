@@ -15,6 +15,9 @@ func get_input() -> InputPackage:
 	if Input.is_action_just_pressed(_contextualize_input_name("jump")):
 		input_package.actions.append("Jump")
 	
+	if Input.is_action_just_pressed(_contextualize_input_name("special")):
+		input_package.actions.append("Shoot")
+	
 	input_package.actions.append("Idle")
 	return input_package
 	

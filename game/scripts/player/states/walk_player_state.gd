@@ -9,6 +9,8 @@ func transition(input: InputPackage) -> String:
 
 	if "Jump" in input.actions:
 		return "Jump"
+	elif "Shoot" in input.actions:
+		return "Shoot"
 	elif name in input.actions:
 		return name
 	else:

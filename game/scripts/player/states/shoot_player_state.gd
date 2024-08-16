@@ -1,21 +1,29 @@
-class_name JumpPlayerState extends PlayerState
+class_name ShootPlayerState extends PlayerState
 
-const SPEED = 120
-const JUMP_VELOCITY = -300.0
+const SPEED: float = 120.0
+const PROJECTILE_VELOCITY: float = 200.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var transition_time: float = 0.3
 
 func transition(input: InputPackage) -> String:
-	if "Shoot" in input.actions:
-		return "Shoot"
 	if has_passed(transition_time):
-		return "Falling"
+		if player.is_on_floor():
+			return "Idle"
+		else:
+			return "Falling"
 	return name
 
 func on_enter():
-	player.velocity.y = JUMP_VELOCITY
+	var projectile_direction = Vector2.LEFT
+	if player.rig.facing_right:
+		projectile_direction = Vector2.RIGHT
+		
+		
+	player.elemental_ball_projectile_emitter.emit_elemental_ball(
+		player.current_element, projectile_direction * PROJECTILE_VELOCITY
+	)
 	super()
 
 func update(input: InputPackage, delta: float):

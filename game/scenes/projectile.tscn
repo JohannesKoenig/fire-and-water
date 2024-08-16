@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://jg6tlewtywe5"]
+
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_3q1fk"]
+
+[sub_resource type="Gradient" id="Gradient_psc42"]
+offsets = PackedFloat32Array(0.295775, 0.360563)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7y2os"]
+gradient = SubResource("Gradient_psc42")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dryx"]
+radius = 4.0
+
+[node name="Projectile" type="RigidBody2D"]
+collision_layer = 4
+gravity_scale = 1.66533e-16
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_3q1fk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_7y2os")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4dryx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

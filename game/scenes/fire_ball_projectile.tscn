@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://cceflqxavm88r"]
+
+[ext_resource type="PackedScene" uid="uid://jg6tlewtywe5" path="res://scenes/projectile.tscn" id="1_brkkg"]
+[ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="2_k8b8m"]
+[ext_resource type="Texture2D" uid="uid://belpra8rmykf0" path="res://resources/particle.tres" id="3_pfdxa"]
+[ext_resource type="Script" path="res://scripts/custom_point_light_2d.gd" id="3_pyr7i"]
+[ext_resource type="Script" path="res://scripts/custom_gpu_particles_2d.gd" id="4_y5efc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8ocv"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oyo3q"]
+light_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5b6qu"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 2.08165e-12, 2.08165e-12)
+spread = 10.0
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 4.587
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="FireBallProjectile" instance=ExtResource("1_brkkg")]
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 0.529412, 0.329412, 1)
+material = SubResource("CanvasItemMaterial_k8ocv")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="2"]
+color = Color(1, 0.529412, 0.329412, 1)
+energy = 2.4
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 13.3
+texture = ExtResource("2_k8b8m")
+script = ExtResource("3_pyr7i")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
+modulate = Color(1, 0.529412, 0.329412, 1)
+material = SubResource("CanvasItemMaterial_oyo3q")
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_5b6qu")
+texture = ExtResource("3_pfdxa")
+collision_base_size = 10.0
+script = ExtResource("4_y5efc")
+
+[connection signal="has_collided" from="." to="PointLight2D" method="deactivate"]
+[connection signal="has_collided" from="." to="GPUParticles2D" method="stop_emitting"]
