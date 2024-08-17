@@ -16,17 +16,22 @@ metadata/_snap_enabled = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_4dryx"]
 radius = 4.0
 
-[node name="Projectile" type="RigidBody2D"]
-collision_layer = 4
-gravity_scale = 1.66533e-16
-max_contacts_reported = 1
-contact_monitor = true
+[node name="Projectile" type="Node2D"]
 script = ExtResource("1_3q1fk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_7y2os")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Physics" type="Node" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Physics"]
+collision_layer = 4
+collision_mask = 5
+gravity_scale = 1.66533e-16
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/RigidBody2D"]
 shape = SubResource("CircleShape2D_4dryx")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Physics/RigidBody2D" to="." method="_on_body_entered"]
