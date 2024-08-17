@@ -10,6 +10,8 @@ func transition(input: InputPackage) -> String:
 	if player_started_on_floor and not has_passed(cojote_timer):
 		if "Jump" in input.actions:
 			return "Jump"
+	if "Shoot" in input.actions:
+		return "Shoot"
 	if player.is_on_floor():
 		return "Landing"
 	return name

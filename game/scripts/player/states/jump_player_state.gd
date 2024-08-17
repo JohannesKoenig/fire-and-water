@@ -8,6 +8,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var transition_time: float = 0.3
 
 func transition(input: InputPackage) -> String:
+	if "Shoot" in input.actions:
+		return "Shoot"
 	if has_passed(transition_time):
 		return "Falling"
 	return name

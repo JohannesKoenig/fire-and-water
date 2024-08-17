@@ -8,6 +8,8 @@ func transition(input: InputPackage) -> String:
 		return "Jump"
 	if "Walk" in input.actions:
 		return "Walk"
+	if "Shoot" in input.actions:
+		return "Shoot"
 	return name
 
 func on_enter():

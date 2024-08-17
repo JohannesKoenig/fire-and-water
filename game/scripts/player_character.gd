@@ -5,7 +5,9 @@ class_name PlayerCharacter extends CharacterBody2D
 @onready var cojote_timer = $CojoteTimer
 @onready var player_visuals = $PlayerVisuals
 @onready var player_state_machine = $PlayerStateMachine
+@onready var elemental_ball_projectile_emitter = $Rig/ElementalBallProjectileEmitter
 
+var current_element: String = "Fire"
 
 signal dead
 
@@ -18,8 +20,10 @@ func _process(delta):
 	var direction = input_package.direction
 	if direction > 0:
 		rig.facing_right = true
+		rig.scale.x = 1
 	elif direction < 0:
 		rig.facing_right = false
+		rig.scale.x = -1
 	input_package.queue_free()
 
 func _physics_process(delta):
