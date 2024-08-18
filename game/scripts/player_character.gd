@@ -7,7 +7,7 @@ class_name PlayerCharacter extends CharacterBody2D
 @onready var player_state_machine = $PlayerStateMachine
 @onready var elemental_ball_projectile_emitter = $Rig/ElementalBallProjectileEmitter
 
-var current_element: String = "Fire"
+@export var current_element: String = "Fire"
 
 signal dead
 

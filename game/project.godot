@@ -17,6 +17,10 @@ boot_splash/image="res://assets/splash_screen.png"
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+WaterViewport="*res://scenes/water_viewport.tscn"
+
 [display]
 
 window/size/viewport_width=512
@@ -75,6 +79,7 @@ special_1={
 
 [layer_names]
 
+2d_render/layer_2="Water"
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Projectiles"
@@ -88,4 +93,4 @@ special_1={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.2, 0.545098, 1, 1)
+environment/defaults/default_clear_color=Color(0.2, 0.545098, 1, 0)
