@@ -8,6 +8,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var transition_time: float = 0.5
 @export var shooting_delay: float = 0.2
 
+signal shoot
+
 var has_shot: bool = false
 
 func transition(input: InputPackage) -> String:
@@ -30,6 +32,7 @@ func update(input: InputPackage, delta: float):
 		player.elemental_ball_projectile_emitter.emit_elemental_ball(
 			player.current_element, projectile_direction * PROJECTILE_VELOCITY
 		)
+		shoot.emit()
 		has_shot = true
 	var direction = input.direction
 	if direction:
