@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://jg6tlewtywe5"]
+[gd_scene load_steps=6 format=3 uid="uid://jg6tlewtywe5"]
 
 [ext_resource type="Script" path="res://scripts/projectile.gd" id="1_3q1fk"]
+[ext_resource type="Script" path="res://scripts/ProjectileRigidBody.gd" id="2_qtkex"]
 
 [sub_resource type="Gradient" id="Gradient_psc42"]
 offsets = PackedFloat32Array(0.295775, 0.360563)
@@ -24,14 +25,16 @@ texture = SubResource("GradientTexture2D_7y2os")
 
 [node name="Physics" type="Node" parent="."]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Physics"]
+[node name="ProjectileRigidBody" type="RigidBody2D" parent="Physics"]
 collision_layer = 4
 collision_mask = 5
 gravity_scale = 1.66533e-16
 max_contacts_reported = 1
 contact_monitor = true
+script = ExtResource("2_qtkex")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/ProjectileRigidBody"]
 shape = SubResource("CircleShape2D_4dryx")
 
-[connection signal="body_entered" from="Physics/RigidBody2D" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Physics/ProjectileRigidBody" to="Physics/ProjectileRigidBody" method="_on_body_entered"]
+[connection signal="collision" from="Physics/ProjectileRigidBody" to="." method="_on_projectile_rigid_body_collision"]
