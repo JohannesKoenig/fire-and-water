@@ -3,7 +3,8 @@ class_name DangerZone extends Node2D
 
 var polygon_2d: Polygon2D
 var _current_points: PackedVector2Array
-var fire_shader_material: Material = preload("res://resources/puzzle_elements/danger_zone/danger_zone_material.tres")
+var fire_shader_material: Material = preload("res://resources/puzzle_elements/danger_zone/fire_danger_zone_material.tres")
+var water_shader_material: Material = preload("res://resources/puzzle_elements/danger_zone/water_danger_zone_material.tres")
 @export var element: String = "Fire"
 
 @onready var collision_polygon_2d = $HitBox/CollisionPolygon2D
@@ -25,6 +26,8 @@ func _update_polygon():
 		match element:
 			"Fire":
 				polygon_2d.material = fire_shader_material
+			"Water":
+				polygon_2d.material = water_shader_material
 			"":
 				polygon_2d.material = null
 		_update_polygon_uvs()
@@ -40,7 +43,7 @@ func _process(delta):
 			polygon_2d != null 
 			and _current_points != polygon_2d.polygon
 		):
-			_update_polygon_uvs()
+			_update_polygon()
 		return
 
 func _physics_process(delta):
