@@ -1,6 +1,7 @@
 class_name PullUpDoor extends Node2D
 
 @onready var animation_player = $AnimationPlayer
+@onready var sprite_animation_player = $SpriteAnimationPlayer
 @export var current_animation = "closed"
 
 
@@ -10,14 +11,19 @@ func _process(delta):
 	if start_next:
 		start_next = false
 		animation_player.play(current_animation)
+		if (
+			current_animation == "closed" 
+			or current_animation == "open"
+		):
+			sprite_animation_player.play("inactive")
 	if not animation_player.is_playing():
 		match current_animation:
 			"closing":
 				current_animation = "closed"
-				#start_next = true
+				start_next = true
 			"opening":
 				current_animation = "open"
-				#start_next = true
+				start_next = true
 
 	
 
@@ -30,6 +36,7 @@ func close():
 	current_animation = "closing"
 	animation_player.play(current_animation)
 	animation_player.advance(remaining)
+	sprite_animation_player.play("deactivate")
 
 func open():
 	var remaining = 0
@@ -40,6 +47,7 @@ func open():
 	current_animation = "opening"
 	animation_player.play(current_animation)
 	animation_player.advance(remaining)
+	sprite_animation_player.play("activate")
 
 func current_animation_remaining_time():
 	var current_animation_progress = animation_player.current_animation_position
