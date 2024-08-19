@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b1lm6sv4v5brl" path="res://scenes/player_visuals.tscn" id="2_6ksa6"]
 [ext_resource type="Script" path="res://scripts/Rig.gd" id="3_dkkbr"]
 [ext_resource type="Script" path="res://scripts/player_input.gd" id="4_05o6e"]
-[ext_resource type="Script" path="res://scripts/HurtBox.gd" id="5_q3v0x"]
 [ext_resource type="Script" path="res://scripts/player/player_state_machine.gd" id="6_7g412"]
+[ext_resource type="Script" path="res://scripts/hurt_box.gd" id="6_b2xcm"]
 [ext_resource type="Script" path="res://scripts/player/states/idle_player_state.gd" id="7_66sfx"]
 [ext_resource type="Script" path="res://scripts/player/states/walk_player_state.gd" id="8_hswm3"]
 [ext_resource type="Script" path="res://scripts/player/states/falling_player_state.gd" id="9_w0isi"]
@@ -26,7 +26,7 @@ radius = 5.0
 height = 24.0
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
-z_index = 5
+z_index = 1
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_b4wwt")
@@ -61,7 +61,7 @@ shape = SubResource("CircleShape2D_q1y1r")
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("agent")]
 collision_layer = 256
 collision_mask = 32
-script = ExtResource("5_q3v0x")
+script = ExtResource("6_b2xcm")
 agent = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]

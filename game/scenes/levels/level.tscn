@@ -50,6 +50,7 @@ energy = 0.27
 tile_set = ExtResource("5_r41o2")
 
 [node name="TileMap" parent="." instance=ExtResource("4_f5mhp")]
+z_index = 3
 
 [node name="Exit" parent="." instance=ExtResource("2_46yte")]
 
