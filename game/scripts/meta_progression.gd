@@ -21,7 +21,6 @@ var reset = false
 func _ready():
 	current_level = level_transitions.get_first_level()
 	water_player = player_packed_scene.instantiate()
-	water_player.modulate = Color.AQUA
 	water_player.current_element = "Water"
 	add_child(water_player)
 	water_player.dead.connect(reset_level)
@@ -29,6 +28,7 @@ func _ready():
 	fire_player = player_packed_scene.instantiate()
 	add_child(fire_player)
 	fire_player.dead.connect(reset_level)
+	fire_player.current_element = "Fire"
 	fire_player.set_player_id(1)
 
 	load_level(current_level)
