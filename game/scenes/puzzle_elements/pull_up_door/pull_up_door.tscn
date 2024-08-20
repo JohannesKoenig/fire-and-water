@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://bbk6gw0yvmspf"]
+[gd_scene load_steps=36 format=3 uid="uid://bbk6gw0yvmspf"]
 
 [ext_resource type="Script" path="res://scripts/puzzle_elements/pull_up_door/pull_up_door.gd" id="1_hnw1u"]
 [ext_resource type="Texture2D" uid="uid://cmwjt75cd27yp" path="res://assets/puzzle_elements/pull_up_door/pull_up_door.tres" id="2_0i4iw"]
 [ext_resource type="Texture2D" uid="uid://belpra8rmykf0" path="res://resources/particle.tres" id="3_60el7"]
+[ext_resource type="AudioStream" uid="uid://bn0soq0kcbw8y" path="res://assets/sound_effects/grinding_stone.mp3" id="4_a0qvi"]
 
 [sub_resource type="Animation" id="Animation_rkvqs"]
 length = 0.001
@@ -417,3 +418,7 @@ libraries = {
 "": SubResource("AnimationLibrary_absnn")
 }
 autoplay = "inactive"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a0qvi")
+max_polyphony = 2

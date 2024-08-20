@@ -3,6 +3,7 @@ class_name PullUpDoor extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_animation_player = $SpriteAnimationPlayer
 @export var current_animation = "closed"
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 
 var start_next = true
@@ -16,9 +17,11 @@ func _process(delta):
 			"closing":
 				current_animation = "closed"
 				start_next = true
+				audio_stream_player_2d.stop()
 			"opening":
 				current_animation = "open"
 				start_next = true
+				audio_stream_player_2d.stop()
 
 	
 
@@ -32,6 +35,7 @@ func close():
 	animation_player.play(current_animation)
 	animation_player.advance(remaining)
 	sprite_animation_player.play("deactivate")
+	audio_stream_player_2d.play()
 
 func open():
 	var remaining = 0
@@ -43,6 +47,7 @@ func open():
 	animation_player.play(current_animation)
 	animation_player.advance(remaining)
 	sprite_animation_player.play("activate")
+	audio_stream_player_2d.play()
 
 func current_animation_remaining_time():
 	var current_animation_progress = animation_player.current_animation_position

@@ -27,8 +27,8 @@ func _play_fire_ball():
 
 func play_step_sound():
 	var pitch = randf_range(0.9, 1.1)
-	stream_playback.play_stream(step_sound,0, -19, pitch)
+	stream_playback.play_stream(step_sound,0, -30, pitch)
 	
 func play_landing_sound():
-	stream_playback.play_stream(step_sound,0, -15)
+	stream_playback.play_stream(step_sound,0, -25)
 	
