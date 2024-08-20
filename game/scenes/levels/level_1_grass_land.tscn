@@ -15,7 +15,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfyn4"]
 size = Vector2(2246, 20)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fuull"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ac7d5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_scoft"]
 resource_local_to_scene = true
@@ -66,7 +66,7 @@ element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="DangerZone2" index="0"]
 material = ExtResource("3_wft5a")
-texture = SubResource("NoiseTexture2D_fuull")
+texture = SubResource("NoiseTexture2D_ac7d5")
 polygon = PackedVector2Array(166, 245, 166, 270, 299, 268, 297, 245)
 uv = PackedVector2Array(166, 245, 166, 270, 299, 268, 297, 245)
 
