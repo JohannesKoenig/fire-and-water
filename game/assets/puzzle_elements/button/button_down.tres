@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://bm8rfs5l72x31"]
+
+[ext_resource type="Texture2D" uid="uid://c8rermw72011" path="res://assets/puzzle_elements/button/button_down.png" id="1_1frua"]
+[ext_resource type="Texture2D" uid="uid://jm54uhkadkp3" path="res://assets/puzzle_elements/button/button_down_normals.png" id="2_qeev6"]
+
+[resource]
+diffuse_texture = ExtResource("1_1frua")
+normal_texture = ExtResource("2_qeev6")
