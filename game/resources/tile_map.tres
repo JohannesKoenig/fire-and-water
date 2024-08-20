@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=75 format=3 uid="uid://dars6nlgoywy4"]
+[gd_resource type="TileSet" load_steps=77 format=3 uid="uid://dars6nlgoywy4"]
 
 [ext_resource type="Texture2D" uid="uid://htcw5thwwq15" path="res://assets/tilesets/tileset_test.png" id="1_dxdfd"]
 [ext_resource type="Texture2D" uid="uid://b5ej2fpqmet1i" path="res://assets/tilesets/tileset_test_normal.png" id="2_1wd5r"]
+[ext_resource type="Texture2D" uid="uid://yvypj0dohs0e" path="res://assets/tilesets/platform.png" id="3_nasrp"]
 [ext_resource type="Texture2D" uid="uid://dq0bhdgc5x328" path="res://resources/temple_tileset_canvas_texture.tres" id="3_w7858"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gejqx"]
@@ -1219,6 +1220,24 @@ texture = ExtResource("3_w7858")
 2:5/0/terrains_peering_bit/top_side = 1
 2:5/0/terrains_peering_bit/top_right_corner = 1
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jli67"]
+texture = ExtResource("3_nasrp")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -1, 8, -1, 8, 3, -4, 3)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1, 8, -1, 8, 3, -8, 3)
+1:0/0/physics_layer_0/polygon_0/one_way = true
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -1, -8, -1, -8, 3, 4, 3)
+2:0/0/physics_layer_0/polygon_0/one_way = true
+
 [resource]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
@@ -1228,4 +1247,5 @@ terrain_set_0/terrain_0/color = Color(0.301961, 0.313726, 0.764706, 1)
 terrain_set_0/terrain_1/name = "temple"
 terrain_set_0/terrain_1/color = Color(0.803922, 0.14902, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_h4nx2")
+sources/2 = SubResource("TileSetAtlasSource_jli67")
 sources/1 = SubResource("TileSetAtlasSource_00j6l")
