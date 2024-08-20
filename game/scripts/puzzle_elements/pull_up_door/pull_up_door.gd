@@ -11,11 +11,6 @@ func _process(delta):
 	if start_next:
 		start_next = false
 		animation_player.play(current_animation)
-		if (
-			current_animation == "closed" 
-			or current_animation == "open"
-		):
-			sprite_animation_player.play("inactive")
 	if not animation_player.is_playing():
 		match current_animation:
 			"closing":

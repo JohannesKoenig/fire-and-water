@@ -7,12 +7,17 @@ class_name PlayerCharacter extends CharacterBody2D
 @onready var player_state_machine = $PlayerStateMachine
 @onready var elemental_ball_projectile_emitter = $Rig/ElementalBallProjectileEmitter
 
-@export var current_element: String = "Fire"
+@export var current_element: String = "Fire":
+	set(value):
+		current_element = value
+		element_changed.emit(value)
+signal element_changed(new_element: String)
 
 signal dead
 
 func _ready():
 	player_visuals.accept_model(player_state_machine)
+	player_visuals.accept_player(self)
 	player_state_machine.accept_player(self)
 
 func _process(delta):

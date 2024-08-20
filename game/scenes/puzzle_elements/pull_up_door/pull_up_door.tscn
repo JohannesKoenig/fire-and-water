@@ -288,8 +288,8 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
-[sub_resource type="Animation" id="Animation_qlaam"]
-resource_name = "inactive"
+[sub_resource type="Animation" id="Animation_wu0c1"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -332,21 +332,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_wu0c1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rig/AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"inactive"]
-}
-
 [sub_resource type="Animation" id="Animation_aw85a"]
 resource_name = "deactivate"
 tracks/0/type = "value"
@@ -374,6 +359,21 @@ tracks/1/keys = {
 "args": [&"deactivate"],
 "method": &"play"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_qlaam"]
+resource_name = "inactive"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"inactive"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_absnn"]
