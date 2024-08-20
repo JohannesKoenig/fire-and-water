@@ -10,6 +10,50 @@ light_mode = 1
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_8278i"]
 
+[sub_resource type="Animation" id="Animation_7hhmf"]
+resource_name = "Falling"
+
+[sub_resource type="Animation" id="Animation_40rj8"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_5h8mh"]
+resource_name = "Jump"
+
+[sub_resource type="Animation" id="Animation_ahb6s"]
+resource_name = "Landing"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAudio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00304108),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_landing_sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qyftw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+
+[sub_resource type="Animation" id="Animation_1kfhr"]
+resource_name = "Shoot"
+
 [sub_resource type="Animation" id="Animation_rkthj"]
 resource_name = "Walk"
 length = 0.5
@@ -43,50 +87,6 @@ tracks/1/keys = {
 "method": &"play_step_sound"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_qyftw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Walk"]
-}
-
-[sub_resource type="Animation" id="Animation_40rj8"]
-resource_name = "Idle"
-
-[sub_resource type="Animation" id="Animation_5h8mh"]
-resource_name = "Jump"
-
-[sub_resource type="Animation" id="Animation_ahb6s"]
-resource_name = "Landing"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAudio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.00304108),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_landing_sound"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_1kfhr"]
-resource_name = "Shoot"
-
-[sub_resource type="Animation" id="Animation_7hhmf"]
-resource_name = "Falling"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8cpd4"]
 _data = {

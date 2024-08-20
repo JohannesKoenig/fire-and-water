@@ -22,6 +22,7 @@ func accept_player(player: PlayerCharacter):
 	_player = player
 	player.element_changed.connect(update_element)
 	update_element(player.current_element)
+	player_audio.accept_player(player)
 
 func _process(delta):
 	var input_package = player_input.get_input()

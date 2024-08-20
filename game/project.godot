@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 WaterViewport="*res://scenes/water_viewport.tscn"
-ElementalReactions="*res://scripts/elemental_reactions.gd"
+ElementalReactions="*res://scenes/elemental_reactions.tscn"
 
 [display]
 

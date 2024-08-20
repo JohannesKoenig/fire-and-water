@@ -50,7 +50,8 @@ script = ExtResource("4_i3jek")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_0m3jt")
-volume_db = -4.952
+volume_db = -10.0
+autoplay = true
 
 [node name="LevelRig" type="Node2D" parent="."]
 

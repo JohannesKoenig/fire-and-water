@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/puzzle_elements/pull_up_door/pull_up_door.gd" id="1_hnw1u"]
 [ext_resource type="Texture2D" uid="uid://cmwjt75cd27yp" path="res://assets/puzzle_elements/pull_up_door/pull_up_door.tres" id="2_0i4iw"]
 [ext_resource type="Texture2D" uid="uid://belpra8rmykf0" path="res://resources/particle.tres" id="3_60el7"]
-[ext_resource type="AudioStream" uid="uid://bn0soq0kcbw8y" path="res://assets/sound_effects/grinding_stone.mp3" id="4_a0qvi"]
+[ext_resource type="AudioStream" uid="uid://dg6m76gbi3lu" path="res://assets/sound_effects/grinding_stone.wav" id="4_y32ug"]
 
 [sub_resource type="Animation" id="Animation_rkvqs"]
 length = 0.001
@@ -420,5 +420,6 @@ libraries = {
 autoplay = "inactive"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_a0qvi")
+stream = ExtResource("4_y32ug")
+volume_db = 20.0
 max_polyphony = 2
