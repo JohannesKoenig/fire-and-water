@@ -5,6 +5,8 @@ extends Node2D
 @onready var water_sprite_frames = preload("res://resources/player_sprite_frames_water.tres")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var player_audio = $PlayerAudio
+@onready var animation_player = $AnimationPlayer
+
 
 @export var rig: Rig
 @export var player_input : PlayerInput
@@ -32,10 +34,10 @@ func _process(delta):
 		
 	animated_sprite_2d.play(_player_state_machine.current_state)
 	
+	animation_player.play(_player_state_machine.current_state)
 	input_package.queue_free()
 
 func update_element(element: String):
-	print("element")
 	match element:
 		"Fire":
 			animated_sprite_2d.sprite_frames = fire_sprite_frames
