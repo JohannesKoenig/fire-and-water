@@ -102,11 +102,12 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
-[node name="Projectile" instance=ExtResource("1_a1iik")]
+[node name="WaterBallProjectile" instance=ExtResource("1_a1iik")]
 visibility_layer = 2
 z_index = 1
 script = ExtResource("2_ipoi0")
 time_until_queue_free = 0.8
+element = "Water"
 
 [node name="Sprite2D" parent="." index="0"]
 visibility_layer = 2

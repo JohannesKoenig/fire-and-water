@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dyxtuv3ivdxjn"]
+
+[ext_resource type="Shader" uid="uid://bccbqkhv8pvbb" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_shader.tres" id="1_veiuq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kfhy3"]
+frequency = 0.0104
+fractal_type = 3
+fractal_lacunarity = 2.08165e-12
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d86a4"]
+seamless = true
+bump_strength = 14.0
+noise = SubResource("FastNoiseLite_kfhy3")
+
+[resource]
+shader = ExtResource("1_veiuq")
+shader_parameter/PrimaryColor = Color(0, 0.545098, 0.815686, 0.690196)
+shader_parameter/Secondary = Color(0.196078, 0.286275, 1, 0.509804)
+shader_parameter/ColorMix = 0.49
+shader_parameter/scroll_speed = 0.04
+shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")

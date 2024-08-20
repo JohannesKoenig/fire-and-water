@@ -1,17 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmcfmxcfi8ro2"]
+[gd_scene load_steps=13 format=3 uid="uid://bmcfmxcfi8ro2"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_m2iko"]
 [ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="2_3gfga"]
 [ext_resource type="PackedScene" uid="uid://dlkv7a6o0va36" path="res://scenes/puzzle_elements/danger_zone/danger_zone.tscn" id="2_gqh5w"]
+[ext_resource type="Material" uid="uid://dyxtuv3ivdxjn" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_material.tres" id="3_f3uv5"]
 [ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="3_ffhdt"]
-[ext_resource type="Material" uid="uid://byk6n5aqfdoc3" path="res://resources/puzzle_elements/danger_zone/danger_zone_material.tres" id="3_hltac"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="4_t6dxe"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="5_ejbyq"]
+[ext_resource type="PackedScene" uid="uid://cqw6044qgk00u" path="res://scenes/puzzle_elements/button/button.tscn" id="8_3hqdo"]
+[ext_resource type="PackedScene" uid="uid://bbk6gw0yvmspf" path="res://scenes/puzzle_elements/pull_up_door/pull_up_door.tscn" id="9_20l8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfyn4"]
 size = Vector2(2246, 20)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tvtmm"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u0dxr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_scoft"]
 resource_local_to_scene = true
@@ -52,15 +54,16 @@ layer_2/modulate = Color(0.482353, 0.482353, 0.482353, 1)
 layer_2/tile_data = PackedInt32Array(786443, 589825, 1, 720907, 589825, 0, 786442, 1, 3, 720906, 65537, 3, 786441, 524289, 1, 720905, 524289, 0, 1769471, 196609, 4, 1703935, 196609, 4, 1638399, 196609, 4, 1769470, 196609, 4, 1703934, 196609, 4, 1638398, 196609, 4, 1769469, 196609, 4, 1703933, 196609, 4, 1638397, 196609, 4, 1769468, 196609, 4, 1703932, 196609, 4, 1638396, 196609, 4, 1769467, 196609, 4, 1703931, 196609, 4, 1638395, 196609, 4, 1769466, 196609, 4, 1703930, 196609, 4, 1638394, 196609, 4, 1769465, 196609, 4, 1703929, 196609, 4, 1638393, 196609, 4, 1769464, 131073, 3, 1703928, 1, 2, 1638392, 1, 2, 1769472, 589825, 1, 1703936, 65537, 2, 1638400, 65537, 2, 1572864, 65537, 2, 1507328, 589825, 0, 1835007, 1, 3, 1572863, 65537, 3, 1835006, 196609, 2, 1572862, 196609, 3, 1835005, 196609, 4, 1572861, 196609, 4, 1835004, 196609, 4, 1572860, 196609, 4, 1835003, 196609, 4, 1572859, 196609, 4, 1572858, 196609, 4, 1572857, 196609, 4, 1835000, 196609, 4, 1572856, 131073, 2, 2293748, 131073, 1, 2228212, 131073, 1, 2162676, 131073, 1, 2097140, 131073, 1, 2031604, 131073, 1, 1966068, 131073, 1, 1900532, 131073, 1, 1834996, 393217, 3, 2293750, 131073, 1, 2228214, 131073, 1, 2162678, 131073, 1, 2097142, 131073, 1, 2031606, 131073, 1, 1966070, 131073, 1, 1900534, 1, 0, 2293752, 131073, 1, 2228216, 131073, 1, 2162680, 131073, 1, 2097144, 131073, 1, 2031608, 131073, 1, 1966072, 131073, 1, 1900536, 65537, 5, 2883572, 393217, 1, 2818036, 131073, 1, 2752500, 131073, 1, 2686964, 131073, 1, 2621428, 131073, 1, 2555892, 131073, 1, 2490356, 131073, 1, 2424820, 131073, 1, 2359284, 131073, 1, 2883574, 393217, 1, 2818038, 131073, 1, 2752502, 131073, 1, 2686966, 131073, 1, 2621430, 131073, 1, 2555894, 131073, 1, 2490358, 131073, 1, 2424822, 131073, 1, 2359286, 131073, 1, 2883576, 393217, 1, 2818040, 131073, 1, 2752504, 131073, 1, 2686968, 131073, 1, 2621432, 131073, 1, 2555896, 131073, 1, 2490360, 131073, 1, 2424824, 131073, 1, 2359288, 131073, 1, 1507320, 65537, 3, 1572855, 524289, 1, 1507319, 262145, 2, 1507318, 393217, 0, 1834997, 589825, 1, 1769461, 458753, 2, 1703925, 327681, 1, 1900535, 262145, 3, 1834999, 1, 2, 1769463, 524289, 0, 1769460, 524289, 0, 1900542, 589825, 1, 1900541, 1, 3, 1900540, 1, 3, 1900539, 1, 3, 1507326, 589825, 0, 1507325, 65537, 3, 1507324, 65537, 3, 1507323, 65537, 3, 1507322, 65537, 3, 1507321, 65537, 3, 1900538, 1, 3, 1835002, 196609, 4, 1900537, 1, 3, 1835001, 196609, 4)
 
 [node name="DangerZone2" parent="." index="9" instance=ExtResource("2_gqh5w")]
+element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="DangerZone2" index="0"]
-material = ExtResource("3_hltac")
-texture = SubResource("NoiseTexture2D_tvtmm")
+material = ExtResource("3_f3uv5")
+texture = SubResource("NoiseTexture2D_u0dxr")
 polygon = PackedVector2Array(166, 245, 166, 270, 299, 268, 297, 245)
 uv = PackedVector2Array(166, 245, 166, 270, 299, 268, 297, 245)
 
 [node name="HitBox" parent="DangerZone2" index="1"]
-element = "Fire"
+element = "Water"
 
 [node name="CollisionPolygon2D" parent="DangerZone2/HitBox" index="0"]
 polygon = PackedVector2Array(166, 245, 166, 270, 299, 268, 297, 245)
@@ -85,5 +88,16 @@ material = SubResource("ShaderMaterial_scoft")
 [node name="ExitFinishCondition" type="Node" parent="." index="13" node_paths=PackedStringArray("exit")]
 script = ExtResource("5_ejbyq")
 exit = NodePath("../Exit")
+
+[node name="Button" parent="." index="14" instance=ExtResource("8_3hqdo")]
+z_index = 2
+position = Vector2(42, 213)
+
+[node name="PullUpDoor" parent="." index="15" instance=ExtResource("9_20l8v")]
+z_index = 2
+position = Vector2(134, 213)
+
+[connection signal="button_active" from="Button" to="PullUpDoor" method="open"]
+[connection signal="button_inactive" from="Button" to="PullUpDoor" method="close"]
 
 [editable path="DangerZone2"]

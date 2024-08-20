@@ -6,9 +6,18 @@ class_name FireBallProjectile extends Projectile
 @onready var animation_player = $AnimationPlayer
 @onready var explosion_particles = $ExplosionParticles
 
-func collide():
+
+func time_out():
 	if !collided:
 		gpu_particles_2d.emitting = false
 		animation_player.play("explode")
 		explosion_particles.emitting = true
 		super()
+
+
+func collide(body):
+	if !collided:
+		gpu_particles_2d.emitting = false
+		animation_player.play("explode")
+		explosion_particles.emitting = true
+		super(body)
