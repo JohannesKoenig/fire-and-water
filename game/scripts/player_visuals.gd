@@ -1,12 +1,12 @@
 extends Node2D
 
-@export var rig: Rig
-@onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var point_light_2d = $PointLight2D
-
 @onready var fire_sprite_frames = preload("res://resources/player_sprite_frames_fire.tres")
 @onready var water_sprite_frames = preload("res://resources/player_sprite_frames_water.tres")
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var player_audio = $PlayerAudio
 
+@export var rig: Rig
 @export var player_input : PlayerInput
 
 var _player_state_machine: PlayerStateMachine
@@ -14,6 +14,7 @@ var _player: PlayerCharacter
 
 func accept_model(player_state_machine: PlayerStateMachine):
 	_player_state_machine = player_state_machine
+	player_audio.accept_model(player_state_machine)
 
 func accept_player(player: PlayerCharacter):
 	_player = player

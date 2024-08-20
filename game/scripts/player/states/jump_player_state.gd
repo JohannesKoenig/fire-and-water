@@ -5,6 +5,8 @@ const JUMP_VELOCITY = -300.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal jump
+
 @export var transition_time: float = 0.3
 
 func transition(input: InputPackage) -> String:
@@ -16,6 +18,7 @@ func transition(input: InputPackage) -> String:
 
 func on_enter():
 	player.velocity.y = JUMP_VELOCITY
+	jump.emit()
 	super()
 
 func update(input: InputPackage, delta: float):
