@@ -99,6 +99,7 @@ collision_bounce = 0.0
 [node name="FireBallProjectile" instance=ExtResource("1_brkkg")]
 script = ExtResource("2_3xcbw")
 time_until_queue_free = 2.0
+element = "Fire"
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(1, 0.529412, 0.329412, 1)
