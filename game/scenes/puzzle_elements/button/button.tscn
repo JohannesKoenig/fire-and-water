@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://cqw6044qgk00u"]
 
 [ext_resource type="Script" path="res://scripts/puzzle_elements/button/button.gd" id="1_73jq6"]
-[ext_resource type="Texture2D" uid="uid://c8vv27b0by8hr" path="res://assets/puzzle_elements/button/button.png" id="1_gjdi4"]
-[ext_resource type="Texture2D" uid="uid://c8rermw72011" path="res://assets/puzzle_elements/button/button_down.png" id="2_u7j54"]
+[ext_resource type="Texture2D" uid="uid://cyvilryjy5ey3" path="res://assets/puzzle_elements/button/button.tres" id="2_06msv"]
+[ext_resource type="Texture2D" uid="uid://bm8rfs5l72x31" path="res://assets/puzzle_elements/button/button_down.tres" id="3_qmg1q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66wbc"]
 size = Vector2(16, 20)
@@ -11,19 +11,19 @@ size = Vector2(16, 20)
 radius = 4.0
 height = 16.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6x6c8"]
-atlas = ExtResource("1_gjdi4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s076s"]
+atlas = ExtResource("2_06msv")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vd2ol"]
-atlas = ExtResource("2_u7j54")
+[sub_resource type="AtlasTexture" id="AtlasTexture_atxcc"]
+atlas = ExtResource("3_qmg1q")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4772i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6x6c8")
+"texture": SubResource("AtlasTexture_s076s")
 }],
 "loop": true,
 "name": &"button",
@@ -31,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vd2ol")
+"texture": SubResource("AtlasTexture_atxcc")
 }],
 "loop": true,
 "name": &"button_down",
