@@ -1,4 +1,4 @@
-class_name Platform extends AnimatableBody2D
+class_name Platform extends Node2D
 
 @export var path: Path2D
 @export var duration: float = 4
@@ -11,7 +11,7 @@ var _curve_length: float
 var start_position: Vector2
 
 func _ready():
-	start_position = position
+	start_position = global_position
 	_curve = path.get_curve()
 	_curve_length = _curve.get_baked_length()
 	time = Time.get_unix_time_from_system()
@@ -24,7 +24,7 @@ func _process(delta):
 
 	var curve_offset = _get_offset()
 	var current_position = _curve.sample_baked(curve_offset)
-	position = current_position + start_position
+	global_position = current_position# + start_position
 
 func _get_offset() -> float:
 	var current_time = Time.get_unix_time_from_system()
