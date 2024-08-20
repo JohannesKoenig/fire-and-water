@@ -38,9 +38,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_ouj62"]
-resource_name = "button"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_bqqha"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,8 +65,9 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_bqqha"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ouj62"]
+resource_name = "button"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
