@@ -1,7 +1,9 @@
 class_name ShootPlayerState extends PlayerState
 
 const SPEED: float = 120.0
-const PROJECTILE_VELOCITY: float = 200.0
+const FIRE_PROJECTILE_VELOCITY: float = 220.0
+const WATER_PROJECTILE_VELOCITY: float = 120.0
+
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -29,8 +31,14 @@ func update(input: InputPackage, delta: float):
 		var projectile_direction = Vector2.LEFT
 		if player.rig.facing_right:
 			projectile_direction = Vector2.RIGHT
+		var projectile_velocity: Vector2 = projectile_direction
+		match player.current_element:
+			"Fire":
+				projectile_velocity *= FIRE_PROJECTILE_VELOCITY
+			"Water":
+				projectile_velocity *= WATER_PROJECTILE_VELOCITY
 		player.elemental_ball_projectile_emitter.emit_elemental_ball(
-			player.current_element, projectile_direction * PROJECTILE_VELOCITY
+			player.current_element, projectile_velocity
 		)
 		shoot.emit()
 		has_shot = true

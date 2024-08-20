@@ -1,20 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://7hfjwlvoetv2"]
+[gd_scene load_steps=8 format=3 uid="uid://7hfjwlvoetv2"]
 
 [ext_resource type="Script" path="res://scripts/meta_progression.gd" id="1_5j0tq"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_g7kmn"]
+[ext_resource type="Shader" uid="uid://ddjknlty02ucr" path="res://resources/meta_ball_2d.tres" id="3_di07h"]
 [ext_resource type="PackedScene" uid="uid://6aiifjgk6hr7" path="res://scenes/menu/in_game_menu.tscn" id="3_wy7o0"]
 [ext_resource type="Script" path="res://scripts/GameCamera.gd" id="4_i3jek"]
 [ext_resource type="AudioStream" uid="uid://dbnuy1h8mpm48" path="res://assets/music/Theme.mp3" id="5_0m3jt"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7yg6p"]
+shader = ExtResource("3_di07h")
+shader_parameter/Clamp = 0.192
+
 [node name="MetaProgression" type="Node2D"]
 script = ExtResource("1_5j0tq")
-
-[node name="LevelRig" type="Node2D" parent="."]
 
 [node name="LevelTransitions" type="Node" parent="."]
 script = ExtResource("2_g7kmn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_7yg6p")
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="ToggleMenuButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
@@ -38,9 +46,13 @@ position = Vector2(256, 144)
 position_smoothing_speed = 2.0
 script = ExtResource("4_i3jek")
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="GameCamera"]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_0m3jt")
 volume_db = -4.952
 autoplay = true
+
+[node name="LevelRig" type="Node2D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/ToggleMenuButton" to="CanvasLayer/InGameMenu" method="open"]

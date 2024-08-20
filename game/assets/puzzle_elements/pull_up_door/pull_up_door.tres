@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://cmwjt75cd27yp"]
+
+[ext_resource type="Texture2D" uid="uid://21bmfvdqyw6d" path="res://assets/puzzle_elements/pull_up_door/pull_up_door.png" id="1_4mr3i"]
+[ext_resource type="Texture2D" uid="uid://bewqy6ji42mdr" path="res://assets/puzzle_elements/pull_up_door/pull_up_door_normals.png" id="2_8p43c"]
+
+[resource]
+diffuse_texture = ExtResource("1_4mr3i")
+normal_texture = ExtResource("2_8p43c")

@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://cyvilryjy5ey3"]
+
+[ext_resource type="Texture2D" uid="uid://c8vv27b0by8hr" path="res://assets/puzzle_elements/button/button.png" id="1_qsjv8"]
+[ext_resource type="Texture2D" uid="uid://p22758f01wsm" path="res://assets/puzzle_elements/button/button_normals.png" id="2_euhfp"]
+
+[resource]
+diffuse_texture = ExtResource("1_qsjv8")
+normal_texture = ExtResource("2_euhfp")
