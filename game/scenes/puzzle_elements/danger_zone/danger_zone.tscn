@@ -11,5 +11,7 @@ script = ExtResource("1_epcsj")
 collision_layer = 32
 collision_mask = 256
 script = ExtResource("3_gagix")
+element = "Fire"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+visible = false

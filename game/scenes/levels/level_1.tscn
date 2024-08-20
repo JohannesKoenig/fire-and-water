@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/cloud_shadow_parallax_layer.gd" id="7_7q0ir"]
 [ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="8_vnib5"]
 [ext_resource type="Texture2D" uid="uid://y6n0b3aemigf" path="res://assets/front_hills.png" id="9_7fr1m"]
-[ext_resource type="Material" uid="uid://byk6n5aqfdoc3" path="res://resources/puzzle_elements/danger_zone/danger_zone_material.tres" id="11_q7iex"]
+[ext_resource type="Material" uid="uid://byk6n5aqfdoc3" path="res://resources/puzzle_elements/danger_zone/fire_danger_zone_material.tres" id="11_q7iex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w0u3"]
 size = Vector2(2246, 20)
