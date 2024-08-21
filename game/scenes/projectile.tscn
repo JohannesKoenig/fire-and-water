@@ -36,5 +36,7 @@ script = ExtResource("2_qtkex")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/ProjectileRigidBody"]
 shape = SubResource("CircleShape2D_4dryx")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="Physics/ProjectileRigidBody" to="Physics/ProjectileRigidBody" method="_on_body_entered"]
 [connection signal="collision" from="Physics/ProjectileRigidBody" to="." method="_on_projectile_rigid_body_collision"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/hit_box.gd" id="3_gagix"]
 
 [node name="DangerZone" type="Node2D"]
-z_index = 2
+z_index = 5
 script = ExtResource("1_epcsj")
 
 [node name="HitBox" type="Area2D" parent="."]

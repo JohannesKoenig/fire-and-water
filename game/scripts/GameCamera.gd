@@ -14,13 +14,13 @@ func _process(delta):
 	for player in players:
 		positions.append(player.global_position)
 		
-	if current_level:
-		positions.append(current_level.get_focus_point())
+	#if current_level:
+	#	positions.append(current_level.get_focus_point())
 	
 	var sum = positions.reduce(func(a,b): return a + b)
 	var average = sum / len(positions)
 	if global_position.distance_to(average) > 10:
-		global_position = lerp(global_position,average,delta * 5)
+		global_position = round(lerp(global_position,average,delta * 5))
 	
 		
 	

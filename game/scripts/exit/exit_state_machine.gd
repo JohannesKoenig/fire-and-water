@@ -24,7 +24,6 @@ func switch_state(input_package: ExitInputPackage):
 	var next_state = current_state_node.transition(input_package)
 	if next_state == current_state:
 		return
-	print(next_state)
 	current_state_node.exit_state()
 	current_state = next_state
 	var next_state_node: ExitState = states[next_state]

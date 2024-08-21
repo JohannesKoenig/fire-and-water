@@ -1,0 +1,238 @@
+[gd_scene load_steps=25 format=3 uid="uid://cxtpaia8dtd3t"]
+
+[ext_resource type="Script" path="res://scripts/power_line.gd" id="1_o0ayi"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_1pm5i"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_3ihhb"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_3iwuo"]
+parameter_name = "ScrollingSpeed"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_y2boq"]
+function = 17
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_xhrsc"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_skumb"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_0pwow"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_mvl3e"]
+default_input_values = [0, 0.18, 1, 0.0]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_hdww1"]
+parameter_name = "BackgroundColor"
+default_value_enabled = true
+default_value = Color(0.129025, 0.119858, 0.119858, 1)
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_ed5yn"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
+op_type = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_fovh5"]
+parameter_name = "NoiseTexture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_uarys"]
+source = 5
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_rdd06"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_dtwja"]
+parameter_name = "GlowingColor"
+default_value_enabled = true
+default_value = Color(0.555286, 0.843624, 1, 1)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_irpr3"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_nkbkd"]
+parameter_name = "Alpha"
+hint = 1
+default_value_enabled = true
+default_value = 0.5
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_p286d"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_gy4c5"]
+input_name = "time"
+
+[sub_resource type="VisualShader" id="VisualShader_ahhqa"]
+code = "shader_type canvas_item;
+render_mode blend_mix, unshaded;
+
+uniform vec4 BackgroundColor : source_color = vec4(0.129025, 0.119858, 0.119858, 1.000000);
+uniform vec4 GlowingColor : source_color = vec4(0.555286, 0.843624, 1.000000, 1.000000);
+uniform sampler2D NoiseTexture;
+uniform float ScrollingSpeed = 1;
+uniform float Alpha : hint_range(0, 1) = 0.5;
+
+
+
+void fragment() {
+// ColorParameter:18
+	vec4 n_out18p0 = BackgroundColor;
+
+
+// ColorParameter:5
+	vec4 n_out5p0 = GlowingColor;
+
+
+// Input:4
+	vec4 n_out4p0 = COLOR;
+
+
+// VectorDecompose:15
+	float n_out15p0 = n_out4p0.x;
+	float n_out15p1 = n_out4p0.y;
+	float n_out15p2 = n_out4p0.z;
+	float n_out15p3 = n_out4p0.w;
+
+
+// VectorCompose:16
+	vec2 n_out16p0 = vec2(n_out15p0, n_out15p0);
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(NoiseTexture, n_out16p0);
+
+
+// VectorDecompose:14
+	float n_out14p0 = n_out3p0.x;
+	float n_out14p1 = n_out3p0.y;
+	float n_out14p2 = n_out3p0.z;
+	float n_out14p3 = n_out3p0.w;
+
+
+// Input:9
+	float n_out9p0 = TIME;
+
+
+// FloatParameter:12
+	float n_out12p0 = ScrollingSpeed;
+
+
+// FloatOp:11
+	float n_out11p0 = n_out9p0 * n_out12p0;
+
+
+// VectorOp:10
+	vec4 n_out10p0 = vec4(n_out14p0) + vec4(n_out11p0);
+
+
+// FloatFunc:13
+	float n_out13p0 = fract(n_out10p0.x);
+
+
+// VectorOp:6
+	vec4 n_out6p0 = n_out5p0 * vec4(n_out13p0);
+
+
+// FloatParameter:7
+	float n_out7p0 = Alpha;
+
+
+// FloatOp:8
+	float n_out8p0 = n_out7p0 * n_out13p0;
+
+
+// Step:17
+	float n_in17p0 = 0.18000;
+	float n_out17p0 = step(n_in17p0, n_out8p0);
+
+
+// Mix:19
+	vec4 n_out19p0 = mix(n_out18p0, n_out6p0, vec4(n_out17p0));
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out19p0.xyz);
+
+
+}
+"
+mode = 1
+flags/unshaded = true
+flags/light_only = false
+nodes/fragment/0/position = Vector2(2440, -260)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_fovh5")
+nodes/fragment/2/position = Vector2(-740, -80)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_uarys")
+nodes/fragment/3/position = Vector2(-20, 260)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_rdd06")
+nodes/fragment/4/position = Vector2(-1520, 580)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorParameter_dtwja")
+nodes/fragment/5/position = Vector2(-40, -520)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_irpr3")
+nodes/fragment/6/position = Vector2(1460, -140)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_nkbkd")
+nodes/fragment/7/position = Vector2(800, 740)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_p286d")
+nodes/fragment/8/position = Vector2(1440, 540)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_gy4c5")
+nodes/fragment/9/position = Vector2(-580, 920)
+nodes/fragment/10/node = SubResource("VisualShaderNodeVectorOp_1pm5i")
+nodes/fragment/10/position = Vector2(700, 280)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatOp_3ihhb")
+nodes/fragment/11/position = Vector2(140, 1080)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatParameter_3iwuo")
+nodes/fragment/12/position = Vector2(-500, 1260)
+nodes/fragment/13/node = SubResource("VisualShaderNodeFloatFunc_y2boq")
+nodes/fragment/13/position = Vector2(1000, 280)
+nodes/fragment/14/node = SubResource("VisualShaderNodeVectorDecompose_xhrsc")
+nodes/fragment/14/position = Vector2(340, 20)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVectorDecompose_skumb")
+nodes/fragment/15/position = Vector2(-780, 540)
+nodes/fragment/16/node = SubResource("VisualShaderNodeVectorCompose_0pwow")
+nodes/fragment/16/position = Vector2(-300, 580)
+nodes/fragment/17/node = SubResource("VisualShaderNodeStep_mvl3e")
+nodes/fragment/17/position = Vector2(1740, 580)
+nodes/fragment/18/node = SubResource("VisualShaderNodeColorParameter_hdww1")
+nodes/fragment/18/position = Vector2(80, -920)
+nodes/fragment/19/node = SubResource("VisualShaderNodeMix_ed5yn")
+nodes/fragment/19/position = Vector2(1870.17, -268.775)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 11, 0, 12, 0, 11, 1, 10, 0, 13, 0, 13, 0, 8, 1, 3, 0, 14, 0, 14, 0, 10, 0, 4, 0, 15, 0, 16, 0, 3, 0, 15, 0, 16, 1, 15, 0, 16, 0, 13, 0, 6, 1, 11, 0, 10, 1, 8, 0, 17, 1, 18, 0, 19, 0, 6, 0, 19, 1, 17, 0, 19, 2, 19, 0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k7pcf"]
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2l8jg"]
+seamless = true
+noise = SubResource("FastNoiseLite_k7pcf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5owu"]
+shader = SubResource("VisualShader_ahhqa")
+shader_parameter/BackgroundColor = Color(0.137255, 0.137255, 0.137255, 1)
+shader_parameter/GlowingColor = Color(0.137255, 0.137255, 0.137255, 1)
+shader_parameter/ScrollingSpeed = 0.2
+shader_parameter/Alpha = 0.19
+shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_2l8jg")
+
+[sub_resource type="Gradient" id="Gradient_mq3d5"]
+
+[node name="Line2D" type="Line2D"]
+z_index = 6
+material = SubResource("ShaderMaterial_u5owu")
+width = 2.0
+gradient = SubResource("Gradient_mq3d5")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_o0ayi")
+glowing_color = Color(0.32549, 0.823529, 1, 1)
+background_color = Color(0.137255, 0.137255, 0.137255, 1)

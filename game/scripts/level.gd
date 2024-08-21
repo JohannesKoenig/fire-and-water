@@ -5,7 +5,6 @@ class_name Level extends Node2D
 
 @onready var fire_spawn_point = $FireSpawnPoint
 @onready var water_spawn_point = $WaterSpawnPoint
-@onready var placeholder = $Placeholder
 @onready var focus_point = $FocusPoint
 
 var finish_condition: FinishCondition
@@ -15,7 +14,6 @@ func _ready():
 		if child is FinishCondition:
 			finish_condition = child
 			break
-	placeholder.text = level_name
 
 func _process(delta):
 	if Engine.is_editor_hint():

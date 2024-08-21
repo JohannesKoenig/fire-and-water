@@ -1,15 +1,103 @@
-[gd_scene load_steps=44 format=3 uid="uid://b1lm6sv4v5brl"]
+[gd_scene load_steps=15 format=3 uid="uid://b1lm6sv4v5brl"]
 
 [ext_resource type="Script" path="res://scripts/player_visuals.gd" id="1_i6iuw"]
 [ext_resource type="SpriteFrames" uid="uid://b5dmp4dsse40r" path="res://resources/player_sprite_frames_fire.tres" id="2_ignej"]
 [ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="4_5jrv7"]
-[ext_resource type="Texture2D" uid="uid://cy5jfvlig3ars" path="res://assets/sprite_animations/elemental-catalyst_shoot_fire_ball.png" id="4_mamay"]
 [ext_resource type="Script" path="res://scripts/PlayerAudio.gd" id="7_rsjsq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7m88c"]
 light_mode = 1
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_8278i"]
+
+[sub_resource type="Animation" id="Animation_7hhmf"]
+resource_name = "Falling"
+
+[sub_resource type="Animation" id="Animation_40rj8"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_5h8mh"]
+resource_name = "Jump"
+
+[sub_resource type="Animation" id="Animation_ahb6s"]
+resource_name = "Landing"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAudio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00304108),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_landing_sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qyftw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+
+[sub_resource type="Animation" id="Animation_1kfhr"]
+resource_name = "Shoot"
+
+[sub_resource type="Animation" id="Animation_rkthj"]
+resource_name = "Walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAudio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0807013, 0.330253),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_step_sound"
+}, {
+"args": [],
+"method": &"play_step_sound"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8cpd4"]
+_data = {
+"Falling": SubResource("Animation_7hhmf"),
+"Idle": SubResource("Animation_40rj8"),
+"Jump": SubResource("Animation_5h8mh"),
+"Landing": SubResource("Animation_ahb6s"),
+"RESET": SubResource("Animation_qyftw"),
+"Shoot": SubResource("Animation_1kfhr"),
+"Walk": SubResource("Animation_rkthj")
+}
 
 [node name="PlayerVisuals" type="Node2D"]
 position = Vector2(0, -6)
@@ -19,7 +107,7 @@ script = ExtResource("1_i6iuw")
 material = SubResource("CanvasItemMaterial_7m88c")
 position = Vector2(0, -9)
 sprite_frames = ExtResource("2_ignej")
-animation = &"Idle"
+animation = &"Walk"
 autoplay = "Idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -33,3 +121,8 @@ height = 3.0
 stream = SubResource("AudioStreamPolyphonic_8278i")
 max_polyphony = 10
 script = ExtResource("7_rsjsq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8cpd4")
+}

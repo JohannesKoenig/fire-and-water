@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://inkegpndr82t"]
+
+[ext_resource type="Script" path="res://scripts/elemental_reactions.gd" id="1_hm241"]
+
+[node name="ElementalReactions" type="Node2D"]
+script = ExtResource("1_hm241")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

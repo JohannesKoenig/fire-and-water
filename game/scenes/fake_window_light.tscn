@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfdd3jbx4chlh"]
+
+[ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="1_82kxi"]
+
+[node name="FakeWindowLight" type="PointLight2D"]
+z_index = 4
+position = Vector2(183, 177)
+color = Color(0.721569, 0.890196, 1, 1)
+energy = 1.1
+shadow_filter = 2
+shadow_filter_smooth = 13.3
+texture = ExtResource("1_82kxi")
+texture_scale = 4.36
+height = 10.0

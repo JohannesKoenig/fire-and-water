@@ -4,7 +4,7 @@ const SPEED = 120
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player_started_on_floor: bool = false
 
-@export var cojote_timer: float = 0.15
+@export var cojote_timer: float = 0.25
 
 func transition(input: InputPackage) -> String:
 	if player_started_on_floor and not has_passed(cojote_timer):

@@ -3,6 +3,8 @@ class_name Projectile extends Node2D
 @onready var sprite_2d = $Sprite2D
 @onready var projectile_rigid_body = $Physics/ProjectileRigidBody
 @onready var physics = $Physics
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 
 @export var time_until_queue_free: float = 1
 @export var time_to_live: float = 1

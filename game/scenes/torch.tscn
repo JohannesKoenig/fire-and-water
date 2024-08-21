@@ -1,0 +1,137 @@
+[gd_scene load_steps=22 format=3 uid="uid://ck7np6asmhc24"]
+
+[ext_resource type="Script" path="res://scripts/torch.gd" id="1_g2ugy"]
+[ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="1_p2bri"]
+[ext_resource type="Texture2D" uid="uid://c3sfj740816sh" path="res://assets/sprite_animations/torch.png" id="2_6pwl1"]
+[ext_resource type="Texture2D" uid="uid://belpra8rmykf0" path="res://resources/particle.tres" id="2_bn5lo"]
+
+[sub_resource type="Gradient" id="Gradient_jrjtr"]
+colors = PackedColorArray(0.925963, 0.269119, 0, 1, 1, 0.980685, 0.919053, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yk7cv"]
+gradient = SubResource("Gradient_jrjtr")
+
+[sub_resource type="Curve" id="Curve_wo6sh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_r1558"]
+curve = SubResource("Curve_wo6sh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eeanq"]
+particle_flag_disable_z = true
+direction = Vector3(2.08165e-12, -1, 2.08165e-12)
+spread = 15.0
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_r1558")
+color_ramp = SubResource("GradientTexture1D_yk7cv")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy81i"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8ef3"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2budu"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vbwr"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1a2h"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4ik8"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cb7t"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmur8"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eshm"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77t45"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lldg"]
+atlas = ExtResource("2_6pwl1")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivd2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy81i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8ef3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2budu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vbwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1a2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4ik8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cb7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmur8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eshm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77t45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lldg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Torch" type="Node2D"]
+script = ExtResource("1_g2ugy")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_eeanq")
+texture = ExtResource("2_bn5lo")
+preprocess = 1.0
+explosiveness = 0.36
+randomness = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.584314, 0.388235, 1)
+energy = 2.5
+texture = ExtResource("1_p2bri")
+texture_scale = 1.79418
+height = 5.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ivd2d")
+autoplay = "default"
+frame_progress = 0.0565863

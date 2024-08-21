@@ -7,10 +7,10 @@
 			"file": "res://scenes/levels/level_2_grass_land.tscn"
 		},
 		"Level 3": {
-			"file": "res://scenes/levels/level_3.tscn"
+			"file": "res://scenes/levels/level_3_grass_land.tscn"
 		},
 		"Level 4": {
-			"file": "res://scenes/levels/level_4.tscn"
+			"file": "res://scenes/levels/level_4_grass_land.tscn"
 		},
 	},
 	"first_level": "Level 1",

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://wtpnjpwe3fky"]
+
+[ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="1_p11ac"]
+
+[node name="FakeDirectionalLight" type="PointLight2D"]
+z_index = 4
+position = Vector2(680, 157)
+color = Color(0.533333, 0.823529, 1, 1)
+energy = 2.4
+shadow_enabled = true
+shadow_filter_smooth = 13.3
+texture = ExtResource("1_p11ac")
+texture_scale = 3.4
