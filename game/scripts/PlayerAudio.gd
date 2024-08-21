@@ -38,8 +38,8 @@ func _play_elemental_ball():
 			stream_playback.play_stream(water_ball_sound, 0, 30)
 
 func play_step_sound():
-	var pitch = randf_range(0.9, 1.1)
-	stream_playback.play_stream(step_sound,0, 15, pitch)
+	var pitch = randf_range(3.9, 4.1)
+	stream_playback.play_stream(step_sound,0, 8, pitch)
 	
 func play_landing_sound():
 	stream_playback.play_stream(step_sound,0, 15)

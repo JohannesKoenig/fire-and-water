@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqw6044qgk00u"]
+[gd_scene load_steps=18 format=3 uid="uid://cqw6044qgk00u"]
 
 [ext_resource type="Script" path="res://scripts/puzzle_elements/button/button.gd" id="1_73jq6"]
 [ext_resource type="Texture2D" uid="uid://cyvilryjy5ey3" path="res://assets/puzzle_elements/button/button.tres" id="2_06msv"]
 [ext_resource type="Texture2D" uid="uid://bm8rfs5l72x31" path="res://assets/puzzle_elements/button/button_down.tres" id="3_qmg1q"]
+[ext_resource type="Texture2D" uid="uid://belpra8rmykf0" path="res://resources/particle.tres" id="4_5cue7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66wbc"]
 size = Vector2(16, 20)
@@ -128,6 +129,31 @@ _data = {
 "button_down": SubResource("Animation_k3kw4")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gbklw"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_ouj70"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a0a7n"]
+curve = SubResource("Curve_ouj70")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2gkrd"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(6, 1, 1)
+direction = Vector3(2.08165e-12, -1, 2.08165e-12)
+spread = 10.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_a0a7n")
+color = Color(0, 0.894118, 0.996078, 1)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
 [node name="Button" type="Node2D"]
 script = ExtResource("1_73jq6")
 
@@ -156,3 +182,14 @@ autoplay = "button"
 libraries = {
 "": SubResource("AnimationLibrary_yowo8")
 }
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_gbklw")
+position = Vector2(0, -3)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_2gkrd")
+texture = ExtResource("4_5cue7")
+lifetime = 2.0
+preprocess = 2.0
+randomness = 1.0
+collision_base_size = 5.0

@@ -19,6 +19,8 @@ func _ready():
 func _update_polygon():
 	for child in get_children():
 		if child is Polygon2D:
+			if child == polygon_2d:
+				return
 			polygon_2d = child
 			break
 	if polygon_2d != null:
@@ -32,6 +34,7 @@ func _update_polygon():
 				polygon_2d.material = null
 		_update_polygon_uvs()
 		collision_polygon_2d.polygon = polygon_2d.polygon
+		
 
 func _update_polygon_uvs():
 	polygon_2d.uv = polygon_2d.polygon

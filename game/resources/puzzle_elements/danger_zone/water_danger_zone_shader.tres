@@ -66,7 +66,7 @@ output_port_for_preview = 0
 
 [resource]
 code = "shader_type canvas_item;
-render_mode blend_mix;
+render_mode blend_mix, unshaded;
 
 uniform vec4 PrimaryColor : source_color = vec4(0.000000, 0.597173, 0.884555, 0.509804);
 uniform vec4 Secondary : source_color = vec4(0.000040, 0.263960, 0.766208, 0.509804);
@@ -154,8 +154,8 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-671.349, 677.164)
 mode = 1
+flags/unshaded = true
 flags/light_only = false
 nodes/fragment/0/position = Vector2(2100, 920)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_2nhuv")
@@ -192,4 +192,4 @@ nodes/fragment/18/node = SubResource("VisualShaderNodeFloatParameter_xcbi0")
 nodes/fragment/18/position = Vector2(-1420, 2220)
 nodes/fragment/19/node = SubResource("VisualShaderNodeFloatOp_gkxku")
 nodes/fragment/19/position = Vector2(1240, 960)
-nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 4, 0, 5, 2, 6, 0, 10, 0, 8, 0, 11, 0, 11, 0, 5, 0, 13, 0, 12, 1, 5, 0, 14, 0, 3, 3, 15, 0, 14, 0, 15, 1, 7, 0, 12, 0, 10, 1, 11, 1, 10, 0, 8, 0, 12, 0, 8, 1, 17, 0, 0, 0, 16, 0, 17, 1, 2, 0, 17, 0, 3, 3, 0, 1, 18, 0, 19, 0, 14, 0, 19, 1, 19, 0, 17, 2, 17, 0, 0, 6, 17, 0, 0, 5)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 4, 0, 5, 2, 6, 0, 10, 0, 8, 0, 11, 0, 11, 0, 5, 0, 13, 0, 12, 1, 5, 0, 14, 0, 3, 3, 15, 0, 14, 0, 15, 1, 7, 0, 12, 0, 10, 1, 11, 1, 10, 0, 8, 0, 12, 0, 8, 1, 17, 0, 0, 0, 16, 0, 17, 1, 2, 0, 17, 0, 3, 3, 0, 1, 18, 0, 19, 0, 14, 0, 19, 1, 19, 0, 17, 2, 17, 0, 0, 5, 17, 0, 0, 6)

@@ -66,7 +66,7 @@ output_port_for_preview = 0
 
 [resource]
 code = "shader_type canvas_item;
-render_mode blend_mix;
+render_mode blend_mix, unshaded;
 
 uniform vec4 PrimaryColor : source_color = vec4(0.819608, 0.298039, 0.000000, 0.509804);
 uniform vec4 Secondary : source_color = vec4(0.628672, 0.000000, 0.015221, 0.509804);
@@ -155,6 +155,7 @@ void fragment() {
 }
 "
 mode = 1
+flags/unshaded = true
 flags/light_only = false
 nodes/fragment/0/position = Vector2(2100, 920)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_j12le")
