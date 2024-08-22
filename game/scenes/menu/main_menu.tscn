@@ -1,7 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfi7x5713lob3"]
+[gd_scene load_steps=12 format=3 uid="uid://bfi7x5713lob3"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_x357e"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_og3uh"]
+[ext_resource type="Texture2D" uid="uid://c48yfk5foit2u" path="res://assets/menu/hero-pose-fire-elemental.png" id="3_wjpjc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p34r"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(0, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtvpe"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(288, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pepr"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(576, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1iwy"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(864, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vxo2"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(1152, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr6ru"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(1440, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5kdh"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(1728, 0, 288, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shjun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p34r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtvpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pepr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1iwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vxo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr6ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5kdh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_x357e")
@@ -39,6 +97,18 @@ text = "Start"
 [node name="ExitButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="FireElementalCatalyst" type="AnimatedSprite2D" parent="."]
+position = Vector2(162, 210)
+sprite_frames = SubResource("SpriteFrames_shjun")
+autoplay = "default"
+
+[node name="WaterElementalCatalyst" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0.921569, 0.92549, 1)
+position = Vector2(352, 210)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_shjun")
+autoplay = "default"
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="transition_to_level"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="close_application"]
