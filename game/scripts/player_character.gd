@@ -1,12 +1,12 @@
 class_name PlayerCharacter extends CharacterBody2D
 
+@onready var has_key = false
 @onready var player_input: PlayerInput = $PlayerInput
 @onready var rig = $Rig
 @onready var cojote_timer = $CojoteTimer
 @onready var player_visuals = $PlayerVisuals
 @onready var player_state_machine = $PlayerStateMachine
 @onready var elemental_ball_projectile_emitter = $Rig/ElementalBallProjectileEmitter
-
 @export var current_element: String = "Fire":
 	set(value):
 		current_element = value
@@ -39,6 +39,15 @@ func _physics_process(delta):
 
 func set_player_id(id: int):
 	player_input.player_id = id
+	
+func set_key_collection():
+	if(has_key == false):
+		has_key = true
+	else: 
+		has_key = false
+	
 
 func kill():
 	dead.emit()
+	
+	
