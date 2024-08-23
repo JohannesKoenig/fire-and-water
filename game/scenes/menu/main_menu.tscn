@@ -1,8 +1,345 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfi7x5713lob3"]
+[gd_scene load_steps=52 format=3 uid="uid://bfi7x5713lob3"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_x357e"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_og3uh"]
 [ext_resource type="AudioStream" uid="uid://55yyl3btbg7w" path="res://assets/music/fire-and-water-main-theme - 22.08.24, 14.47.mp3" id="3_651bc"]
+[ext_resource type="Texture2D" uid="uid://b5xrlsrr1se3y" path="res://assets/menu/hill_menu.png" id="3_mcw31"]
+[ext_resource type="Texture2D" uid="uid://c48yfk5foit2u" path="res://assets/menu/hero-pose-fire-elemental.png" id="3_wjpjc"]
+[ext_resource type="Texture2D" uid="uid://cj7h5q0vdhqbe" path="res://assets/menu/hill_sky_menu.png" id="4_364to"]
+[ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="4_tmeon"]
+[ext_resource type="Texture2D" uid="uid://c4ujglvswhjqo" path="res://assets/background_clouds.png" id="5_o8rir"]
+[ext_resource type="Script" path="res://scripts/auto_scrolling_parallax_layer.gd" id="6_aymwq"]
+[ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="7_rq5id"]
+[ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="8_2i1tm"]
+[ext_resource type="Script" path="res://scripts/cloud_shadow_parallax_layer.gd" id="9_c03rh"]
+[ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="10_a4pwc"]
+[ext_resource type="Texture2D" uid="uid://y6n0b3aemigf" path="res://assets/front_hills.png" id="11_lycie"]
+[ext_resource type="Texture2D" uid="uid://bjqbygqfqm5co" path="res://assets/menu/hill_stones_menu.png" id="13_g8fkw"]
+[ext_resource type="Texture2D" uid="uid://3lsddp7fy5qc" path="res://assets/menu/back_mountain_2_left_menu.png" id="13_k5omu"]
+[ext_resource type="Texture2D" uid="uid://860tligktx03" path="res://assets/menu/back_mountain_2_menu.png" id="14_nkv4l"]
+[ext_resource type="Texture2D" uid="uid://vodcfmpycltx" path="res://assets/menu/back_mountain_1_left_menu.png" id="15_keusf"]
+[ext_resource type="Texture2D" uid="uid://2rj2cglyuw8n" path="res://assets/menu/back_mountain_1_right_menu.png" id="16_luous"]
+[ext_resource type="Shader" uid="uid://c1cnoxevljp20" path="res://resources/fog_shader.tres" id="18_1crwt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4evfx"]
+
+[sub_resource type="Animation" id="Animation_6rlqt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/CenterContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 144)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground/BackgroundMountain2/Mountain2Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 144)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/BackgroundMountain2/Mountain2Right:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 144)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ParallaxBackground/Background1/HillLeft:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 144)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ParallaxBackground/Background1/HillRight:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 144)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PointLight2D/Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_ugsf5"]
+resource_name = "intro"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/CenterContainer:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5.9, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 100), Vector2(256, 144)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground/BackgroundMountain2/Mountain2Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 144), Vector2(236, 144)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/BackgroundMountain2/Mountain2Right:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 144), Vector2(276, 144)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ParallaxBackground/Background1/HillLeft:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 144), Vector2(246, 144)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ParallaxBackground/Background1/HillRight:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 144), Vector2(266, 144)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PointLight2D/Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1.6, 1.6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhoyx"]
+_data = {
+"RESET": SubResource("Animation_6rlqt"),
+"intro": SubResource("Animation_ugsf5")
+}
+
+[sub_resource type="Gradient" id="Gradient_j07td"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_errdi"]
+gradient = SubResource("Gradient_j07td")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lkqns"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hsrtb"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_282q8"]
+offsets = PackedFloat32Array(0.2, 0.552113)
+colors = PackedColorArray(0.223216, 0.438075, 1, 1, 0.662837, 0.827758, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mj73d"]
+gradient = SubResource("Gradient_282q8")
+width = 2048
+height = 1152
+fill_to = Vector2(0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ew7u2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3030b"]
+resource_local_to_scene = true
+shader = ExtResource("10_a4pwc")
+shader_parameter/ShadowColor = Color(0, 0, 0, 0.152941)
+shader_parameter/ClippingMaskOffset = 0.0
+shader_parameter/AlphaTheshold = 0.024
+shader_parameter/ClippingMask = ExtResource("8_2i1tm")
+shader_parameter/Diffuse = ExtResource("7_rq5id")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s5hwi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ws067"]
+shader = ExtResource("18_1crwt")
+shader_parameter/XScrollSpeed = -0.2
+shader_parameter/YScrollSpeed = 2.08165e-12
+shader_parameter/Color = Color(0.552941, 0.760784, 0.901961, 1)
+shader_parameter/Opacity = 0.327
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7y0ty"]
+noise_type = 0
+frequency = 0.0019
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g5wqb"]
+seamless = true
+seamless_blend_skirt = 0.825
+noise = SubResource("FastNoiseLite_7y0ty")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p34r"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(0, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtvpe"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(288, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pepr"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(576, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1iwy"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(864, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vxo2"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(1152, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr6ru"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(1440, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5kdh"]
+atlas = ExtResource("3_wjpjc")
+region = Rect2(1728, 0, 288, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shjun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p34r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtvpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pepr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1iwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vxo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr6ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5kdh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xftei"]
+polygon = PackedVector2Array(7, -95, 8, -86, 7, -75, 11, -65, 14, -50, 9, -40, 3, -18, -10, -12, -16, -18, -14, -70, -9, -77, -14, -90, -14, -99, -8, -104, 2, -104)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_aeviy"]
+polygon = PackedVector2Array(120, 21, 123, 24, 124, 22, 123, 18)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_smeeu"]
+polygon = PackedVector2Array(156, 20, 155, 22, 158, 23, 159, 21)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1mpc3"]
+polygon = PackedVector2Array(123, 21, 124, 26, 121, 25, 120, 23, 123, 22)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pwis2"]
+polygon = PackedVector2Array(158, 24, 159, 26, 157, 27, 155, 24)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qpiso"]
+polygon = PackedVector2Array(-92, 67, -80, 71, -65, 75, -60, 78, -60, 86, -66, 91, -76, 94, -83, 101, -91, 97, -106, 90, -119, 93, -126, 87, -120, 74, -108, 67)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xt0j1"]
+polygon = PackedVector2Array(46, 80, 48, 75, 55, 70, 67, 70, 76, 79, 72, 85, 65, 85, 58, 87, 54, 91, 46, 91, 44, 87)
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_x357e")
@@ -13,9 +350,12 @@ script = ExtResource("2_og3uh")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = -87.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -25,8 +365,14 @@ alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Fire and Water"
 horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4evfx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -45,6 +391,278 @@ text = "Exit"
 stream = ExtResource("3_651bc")
 volume_db = -13.703
 autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vhoyx")
+}
+autoplay = "intro"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = 1
+position = Vector2(262, 173)
+energy = 1.29
+range_layer_min = -1
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.9
+texture = SubResource("GradientTexture2D_errdi")
+texture_scale = 1.98333
+
+[node name="Sprite2D" type="Sprite2D" parent="PointLight2D"]
+material = SubResource("CanvasItemMaterial_lkqns")
+position = Vector2(2, 12)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_tmeon")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_offset = Vector2(2.08165e-12, 2.08165e-12)
+motion_mirroring = Vector2(2048, 2.08165e-12)
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/Sky"]
+z_index = -2
+z_as_relative = false
+position = Vector2(256, 144)
+texture = ExtResource("4_364to")
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Sky"]
+visible = false
+material = SubResource("CanvasItemMaterial_hsrtb")
+offset_top = -338.0
+offset_right = 2048.0
+offset_bottom = 814.0
+texture = SubResource("GradientTexture2D_mj73d")
+
+[node name="BackgroundClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/BackgroundClouds"]
+modulate = Color(1, 1, 1, 0.52549)
+texture_filter = 2
+material = SubResource("CanvasItemMaterial_ew7u2")
+offset_top = -225.0
+offset_right = 1024.0
+offset_bottom = 351.0
+texture = ExtResource("5_o8rir")
+stretch_mode = 1
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+script = ExtResource("6_aymwq")
+velocity = Vector2(4, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Clouds"]
+modulate = Color(1, 1, 1, 0.368627)
+texture_filter = 2
+material = SubResource("CanvasItemMaterial_ew7u2")
+offset_left = 2.0
+offset_top = -240.0
+offset_right = 1026.0
+offset_bottom = 336.0
+texture = ExtResource("7_rq5id")
+stretch_mode = 1
+
+[node name="Hills" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+light_mask = 2
+motion_scale = Vector2(0.5, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Hills"]
+modulate = Color(0.741176, 0.835294, 0.905882, 1)
+light_mask = 2
+offset_top = -19.0
+offset_right = 1060.0
+offset_bottom = 557.0
+texture = ExtResource("8_2i1tm")
+stretch_mode = 1
+
+[node name="CloudShadows" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2(0.5, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+script = ExtResource("9_c03rh")
+clipping_mask_width = 1024
+clipping_mask = ExtResource("8_2i1tm")
+velocity = Vector2(4, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/CloudShadows"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_3030b")
+offset_top = -18.0
+offset_right = 1024.0
+offset_bottom = 558.0
+texture = ExtResource("7_rq5id")
+stretch_mode = 1
+
+[node name="FrontHills" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+light_mask = 2
+motion_scale = Vector2(0.4, 0.6)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/FrontHills"]
+modulate = Color(0.501961, 0.635294, 0.654902, 1)
+light_mask = 2
+offset_left = 2.0
+offset_top = 21.0
+offset_right = 1062.0
+offset_bottom = 597.0
+texture = ExtResource("11_lycie")
+stretch_mode = 1
+
+[node name="FrontCloudShadows" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2(0.4, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+script = ExtResource("9_c03rh")
+clipping_mask_width = 1024
+clipping_mask = ExtResource("11_lycie")
+velocity = Vector2(4, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/FrontCloudShadows"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_3030b")
+offset_left = 2.0
+offset_top = 20.0
+offset_right = 1026.0
+offset_bottom = 596.0
+texture = ExtResource("7_rq5id")
+stretch_mode = 1
+
+[node name="BackgroundMountain2" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.898039, 0.968627, 1, 1)
+z_index = 6
+z_as_relative = false
+motion_scale = Vector2(1, 1.4)
+
+[node name="Mountain2Left" type="Sprite2D" parent="ParallaxBackground/BackgroundMountain2"]
+modulate = Color(0.776471, 0.972549, 1, 1)
+material = SubResource("CanvasItemMaterial_s5hwi")
+position = Vector2(256, 144)
+texture = ExtResource("13_k5omu")
+
+[node name="Mountain2Right" type="Sprite2D" parent="ParallaxBackground/BackgroundMountain2"]
+modulate = Color(0.776471, 0.972549, 1, 1)
+material = SubResource("CanvasItemMaterial_s5hwi")
+position = Vector2(256, 144)
+texture = ExtResource("14_nkv4l")
+
+[node name="Background1" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 6
+z_as_relative = false
+
+[node name="HillLeft" type="Sprite2D" parent="ParallaxBackground/Background1"]
+modulate = Color(0.776471, 0.972549, 1, 1)
+material = SubResource("CanvasItemMaterial_s5hwi")
+position = Vector2(256, 144)
+texture = ExtResource("15_keusf")
+
+[node name="HillRight" type="Sprite2D" parent="ParallaxBackground/Background1"]
+modulate = Color(0.776471, 0.972549, 1, 1)
+material = SubResource("CanvasItemMaterial_s5hwi")
+position = Vector2(256, 144)
+texture = ExtResource("16_luous")
+
+[node name="Foreground" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 6
+z_as_relative = false
+motion_scale = Vector2(1, 0.4)
+
+[node name="Hill" type="Sprite2D" parent="ParallaxBackground/Foreground"]
+position = Vector2(263, 146)
+texture = ExtResource("3_mcw31")
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Foreground"]
+z_index = -1
+material = SubResource("ShaderMaterial_ws067")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 512.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_g5wqb")
+
+[node name="Characters" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0.8)
+
+[node name="CharacterRig" type="Node2D" parent="ParallaxBackground/Characters"]
+position = Vector2(2.08165e-12, 30)
+
+[node name="FireElementalCatalyst" type="AnimatedSprite2D" parent="ParallaxBackground/Characters/CharacterRig"]
+position = Vector2(194, 194)
+sprite_frames = SubResource("SpriteFrames_shjun")
+autoplay = "default"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="ParallaxBackground/Characters/CharacterRig/FireElementalCatalyst"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_xftei")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="ParallaxBackground/Characters/CharacterRig/FireElementalCatalyst"]
+occluder = SubResource("OccluderPolygon2D_aeviy")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="ParallaxBackground/Characters/CharacterRig/FireElementalCatalyst"]
+occluder = SubResource("OccluderPolygon2D_smeeu")
+
+[node name="WaterElementalCatalyst" type="AnimatedSprite2D" parent="ParallaxBackground/Characters/CharacterRig"]
+modulate = Color(0, 0.921569, 0.92549, 1)
+position = Vector2(323, 193)
+rotation = 3.14159
+scale = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_shjun")
+autoplay = "default"
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="ParallaxBackground/Characters/CharacterRig/WaterElementalCatalyst"]
+visible = false
+position = Vector2(0, 4.23193e-06)
+rotation = 3.14159
+scale = Vector2(-1, -1)
+occluder = SubResource("OccluderPolygon2D_xftei")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="ParallaxBackground/Characters/CharacterRig/WaterElementalCatalyst"]
+position = Vector2(0, 4.23193e-06)
+rotation = 3.14159
+scale = Vector2(-1, -1)
+occluder = SubResource("OccluderPolygon2D_1mpc3")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="ParallaxBackground/Characters/CharacterRig/WaterElementalCatalyst"]
+position = Vector2(0, 4.23193e-06)
+rotation = 3.14159
+scale = Vector2(-1, -1)
+occluder = SubResource("OccluderPolygon2D_pwis2")
+
+[node name="Foreground2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 6
+z_as_relative = false
+
+[node name="stones" type="Sprite2D" parent="ParallaxBackground/Foreground2"]
+z_index = 18
+position = Vector2(280, 175)
+texture = ExtResource("13_g8fkw")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="ParallaxBackground/Foreground2/stones"]
+occluder = SubResource("OccluderPolygon2D_qpiso")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="ParallaxBackground/Foreground2/stones"]
+occluder = SubResource("OccluderPolygon2D_xt0j1")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
+color = Color(0.847059, 0.847059, 0.847059, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(256, 144)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.286275, 0.286275, 0.286275, 1)
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="transition_to_level"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="close_application"]

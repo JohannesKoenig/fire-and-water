@@ -67,7 +67,7 @@ parameter_name = "YScrollSpeed"
 
 [resource]
 code = "shader_type canvas_item;
-render_mode blend_mix;
+render_mode blend_add;
 
 uniform float XScrollSpeed;
 uniform float YScrollSpeed;
@@ -162,6 +162,7 @@ void fragment() {
 }
 "
 mode = 1
+modes/blend = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(3480, 480)
 nodes/fragment/2/node = SubResource("VisualShaderNodeInput_p0deh")
