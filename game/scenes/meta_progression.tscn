@@ -19,6 +19,45 @@ script = ExtResource("2_g7kmn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 512.0
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+size = Vector2i(256, 288)
+
+[node name="GameCamera" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+position = Vector2(256, 144)
+position_smoothing_speed = 2.0
+script = ExtResource("4_i3jek")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CanvasLayer/SubViewportContainer/SubViewport/GameCamera"]
+
+[node name="LevelRig" type="Node2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(256, 288)
+render_target_update_mode = 4
+
+[node name="GameCamera" type="Camera2D" parent="CanvasLayer/SubViewportContainer2/SubViewport"]
+position = Vector2(256, 144)
+position_smoothing_speed = 2.0
+script = ExtResource("4_i3jek")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CanvasLayer/SubViewportContainer2/SubViewport/GameCamera"]
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_7yg6p")
 offset_right = 40.0
@@ -41,18 +80,9 @@ text = "Menu"
 [node name="InGameMenu" parent="CanvasLayer" instance=ExtResource("3_wy7o0")]
 visible = false
 
-[node name="GameCamera" type="Camera2D" parent="."]
-position = Vector2(256, 144)
-position_smoothing_speed = 2.0
-script = ExtResource("4_i3jek")
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="GameCamera"]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_0m3jt")
 volume_db = -10.0
 autoplay = true
-
-[node name="LevelRig" type="Node2D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/ToggleMenuButton" to="CanvasLayer/InGameMenu" method="open"]
