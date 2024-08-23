@@ -19,13 +19,13 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_387ui"]
 light_mode = 1
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7g4wj"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nhjwq"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t5ue1"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sqfee"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_clx14"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lhb2n"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4a5in"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r48pr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijkv2"]
 resource_local_to_scene = true
@@ -40,10 +40,10 @@ shader_parameter/Diffuse = ExtResource("14_ivukj")
 level_name = "Level 5"
 
 [node name="FireSpawnPoint" parent="." index="0"]
-position = Vector2(736, 219)
+position = Vector2(183, 289)
 
 [node name="WaterSpawnPoint" parent="." index="2"]
-position = Vector2(781, 220)
+position = Vector2(425, 208)
 
 [node name="CanvasModulate" parent="." index="4"]
 color = Color(0.196078, 0.196078, 0.196078, 1)
@@ -145,9 +145,9 @@ position = Vector2(384, 332)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
 material = ExtResource("10_6bvwg")
-texture = SubResource("NoiseTexture2D_7g4wj")
+texture = SubResource("NoiseTexture2D_nhjwq")
 polygon = PackedVector2Array(106, -7, 106, 11, 44, 11, 45, -7)
-uv = PackedVector2Array(27, -22, 27, 22, -4, 22, -4, -22)
+uv = PackedVector2Array(106, -7, 106, 11, 44, 11, 45, -7)
 
 [node name="DangerZone2" parent="PuzzleElements" index="5" instance=ExtResource("9_vqlkh")]
 position = Vector2(370, 139)
@@ -156,9 +156,9 @@ element = "Water"
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
 material = ExtResource("11_dmwb4")
 position = Vector2(-2, 3)
-texture = SubResource("NoiseTexture2D_t5ue1")
+texture = SubResource("NoiseTexture2D_sqfee")
 polygon = PackedVector2Array(83, -22, 83, -10, -5, -10, -5, -22)
-uv = PackedVector2Array(27, -22, 27, 22, -4, 22, -4, -22)
+uv = PackedVector2Array(83, -22, 83, -10, -5, -10, -5, -22)
 
 [node name="DangerZone3" parent="PuzzleElements" index="6" instance=ExtResource("9_vqlkh")]
 position = Vector2(568, 230)
@@ -168,16 +168,16 @@ element = "Water"
 material = ExtResource("11_dmwb4")
 position = Vector2(25, 19)
 scale = Vector2(0.5, 0.411765)
-texture = SubResource("NoiseTexture2D_clx14")
+texture = SubResource("NoiseTexture2D_lhb2n")
 polygon = PackedVector2Array(34, -22, 34, 3.68893, 34, 29, 10.8428, 29, -12, 29, -12, -22)
-uv = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
+uv = PackedVector2Array(34, -22, 34, 3.68893, 34, 29, 10.8428, 29, -12, 29, -12, -22)
 
 [node name="DangerZone4" parent="PuzzleElements" index="7" instance=ExtResource("9_vqlkh")]
 position = Vector2(597, 173)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone4" index="1"]
 material = ExtResource("10_6bvwg")
-texture = SubResource("NoiseTexture2D_4a5in")
+texture = SubResource("NoiseTexture2D_r48pr")
 polygon = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 uv = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 
