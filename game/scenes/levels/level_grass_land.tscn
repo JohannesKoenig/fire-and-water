@@ -13,12 +13,12 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r5rub"]
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_282q8"]
+[sub_resource type="Gradient" id="Gradient_ybubc"]
 offsets = PackedFloat32Array(0.2, 0.552113)
 colors = PackedColorArray(0.223216, 0.438075, 1, 1, 0.662837, 0.827758, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8blgw"]
-gradient = SubResource("Gradient_282q8")
+gradient = SubResource("Gradient_ybubc")
 width = 2048
 height = 1152
 fill_to = Vector2(0, 1)
