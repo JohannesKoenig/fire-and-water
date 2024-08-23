@@ -1,12 +1,15 @@
 class_name PlayerCharacter extends CharacterBody2D
 
-@onready var has_key = false
+
 @onready var player_input: PlayerInput = $PlayerInput
 @onready var rig = $Rig
 @onready var cojote_timer = $CojoteTimer
 @onready var player_visuals = $PlayerVisuals
 @onready var player_state_machine = $PlayerStateMachine
 @onready var elemental_ball_projectile_emitter = $Rig/ElementalBallProjectileEmitter
+
+var has_key: bool = false
+
 @export var current_element: String = "Fire":
 	set(value):
 		current_element = value
