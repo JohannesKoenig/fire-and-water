@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://didul4dm6fd6m"]
+
+[ext_resource type="Script" path="res://scripts/puzzle_elements/lock_console/lock_console.gd" id="1_nmwy7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r72vx"]
+
+[sub_resource type="Animation" id="Animation_4g00o"]
+resource_name = "lock"
+
+[sub_resource type="Animation" id="Animation_dmbcm"]
+resource_name = "unlock"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83d5u"]
+_data = {
+"lock": SubResource("Animation_4g00o"),
+"unlock": SubResource("Animation_dmbcm")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqeie"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"lock",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"unlock",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"unlocked",
+"speed": 5.0
+}]
+
+[node name="LockConsole" type="Node2D"]
+script = ExtResource("1_nmwy7")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_r72vx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_83d5u")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bqeie")
+animation = &"unlocked"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
