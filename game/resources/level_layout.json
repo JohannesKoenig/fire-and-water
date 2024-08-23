@@ -12,6 +12,9 @@
 		"Level 4": {
 			"file": "res://scenes/levels/level_4_grass_land.tscn"
 		},
+		"Level 5": {
+			"file": "res://scenes/levels/level_5_grass_land.tscn"
+		},
 	},
 	"first_level": "Level 1",
 	"transitions": [
@@ -29,6 +32,10 @@
 		},
 		{
 			"from": "Level 4",
+			"to": "Level 5"
+		},
+		{
+			"from": "Level 5",
 			"to": "Level 1"
 		}
 	]
