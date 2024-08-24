@@ -27,9 +27,9 @@ func _update_polygon():
 		polygon_2d.texture = NoiseTexture2D.new()
 		match element:
 			"Fire":
-				polygon_2d.material = fire_shader_material
+				polygon_2d.material = fire_shader_material.duplicate()
 			"Water":
-				polygon_2d.material = water_shader_material
+				polygon_2d.material = water_shader_material.duplicate()
 			"":
 				polygon_2d.material = null
 		_update_polygon_uvs()
@@ -48,6 +48,15 @@ func _process(delta):
 		):
 			_update_polygon()
 		return
+	if hit_box.has_overlapping_areas():
+		for area in hit_box.get_overlapping_areas():
+			var parent = area.get_parent()
+			if parent is PlayerCharacter:
+				if parent.current_element == element:
+					var player_position = parent.global_position
+					polygon_2d.material.set_shader_parameter("PlayerPosition", player_position)
+	else:
+		polygon_2d.material.set_shader_parameter("PlayerPosition", Vector2(-10000,10000))
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
