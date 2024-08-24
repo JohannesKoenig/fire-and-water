@@ -53,7 +53,7 @@ func _process(delta):
 			var parent = area.get_parent()
 			if parent is PlayerCharacter:
 				if parent.current_element == element:
-					var player_position = parent.global_position
+					var player_position = area.global_position
 					polygon_2d.material.set_shader_parameter("PlayerPosition", player_position)
 	else:
 		polygon_2d.material.set_shader_parameter("PlayerPosition", Vector2(-10000,10000))
