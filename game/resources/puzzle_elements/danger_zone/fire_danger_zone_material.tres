@@ -31,6 +31,5 @@ shader_parameter/PrimaryColor = Color(0.741176, 0.345098, 0, 1)
 shader_parameter/Secondary = Color(0.788235, 0, 0.0235294, 1)
 shader_parameter/ColorMix = 0.49
 shader_parameter/scroll_speed = 0.04
-shader_parameter/Alpha = 0.5
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")

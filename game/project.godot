@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 WaterViewport="*res://scenes/water_viewport.tscn"
 ElementalReactions="*res://scenes/elemental_reactions.tscn"
+SaveGameManager="*res://scripts/save_game_manager.gd"
 
 [display]
 
