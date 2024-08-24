@@ -7,9 +7,14 @@ class_name MetaProgression extends Node2D
 @onready var player_packed_scene: PackedScene = preload("res://scenes/player_character.tscn")
 @onready var texture_rect = $CanvasLayer/TextureRect
 @onready var remote_transform_2d = $GameCamera/RemoteTransform2D
+@onready var current_level_resource: CurrentLevelResource = preload("res://resources/game_state/current_level_resource.tres")
 
-
-var current_level: String
+@onready var current_level: String:
+	set(value):
+		current_level_resource.current_level = value
+		current_level = value
+	get:
+		return current_level_resource.current_level
 
 var current_level_scene: Level
 
@@ -19,7 +24,11 @@ var fire_player: PlayerCharacter
 var reset = false
 
 func _ready():
-	current_level = level_transitions.get_first_level()
+	if current_level_resource and SaveGameManager.has_savegame():
+		SaveGameManager.load_savegame()
+		current_level = current_level_resource.current_level
+	else:
+		current_level = level_transitions.get_first_level()
 	water_player = player_packed_scene.instantiate()
 	water_player.current_element = "Water"
 	add_child(water_player)
@@ -61,6 +70,7 @@ func load_level(level_name: String):
 	current_level_scene.position = level_rig.position
 	level_rig.add_child(current_level_scene)
 	current_level = level_name
+	SaveGameManager.write_savegame()
 	
 	var spawn_points = current_level_scene.get_spawn_points()
 	water_player.position = spawn_points.water_spawn_point
