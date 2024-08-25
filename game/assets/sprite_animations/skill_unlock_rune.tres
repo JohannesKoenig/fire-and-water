@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://dkcghjr5dnddk"]
+
+[ext_resource type="Texture2D" uid="uid://k7r4gdpydrtv" path="res://assets/sprite_animations/Skill_unlock_rune.png" id="1_thjxn"]
+[ext_resource type="Texture2D" uid="uid://dt4xwrh4ao0yn" path="res://assets/sprite_animations/Skill_unlock_rune_normals.png" id="2_xem0o"]
+
+[resource]
+diffuse_texture = ExtResource("1_thjxn")
+normal_texture = ExtResource("2_xem0o")

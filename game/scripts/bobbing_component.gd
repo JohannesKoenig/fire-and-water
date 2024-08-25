@@ -1,9 +1,9 @@
-@tool
 class_name BobbingComponent extends Node
 
 @export var x_displacement: float = -4
 @export var duration: float = 1
 
+var active = true
 
 var tween: Tween
 var _parent: Node2D
@@ -27,6 +27,8 @@ func _process(delta):
 func tween_position():
 	if tween:
 		tween.kill()
+	if not active:
+		return
 	tween = create_tween().set_ease(
 		Tween.EASE_IN_OUT
 	)
@@ -46,4 +48,9 @@ func tween_position():
 	tween.play()
 		
 
-	
+func activate():
+	active = true
+	tween_position()
+
+func deactivate():
+	active = false
