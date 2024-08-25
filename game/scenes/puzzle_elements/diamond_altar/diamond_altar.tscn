@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://doxxubw6k1tbl"]
+
+[ext_resource type="Script" path="res://scripts/puzzle_elements/diamond_altar/diamond_altar.gd" id="1_e1fev"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vljv2"]
+
+[sub_resource type="Animation" id="Animation_hy2ek"]
+resource_name = "place_fire_diamond"
+
+[sub_resource type="Animation" id="Animation_a3w47"]
+resource_name = "place_water_diamond"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecepk"]
+_data = {
+"place_fire_diamond": SubResource("Animation_hy2ek"),
+"place_water_diamond": SubResource("Animation_a3w47")
+}
+
+[node name="DiamondAltar" type="Node2D"]
+script = ExtResource("1_e1fev")
+
+[node name="WaterDiamondArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDiamondArea"]
+shape = SubResource("CircleShape2D_vljv2")
+
+[node name="FireDiamondArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireDiamondArea"]
+shape = SubResource("CircleShape2D_vljv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ecepk")
+}
+
+[node name="WaterAudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="FireAudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="WaterDiamondArea" to="." method="_on_water_diamond_area_area_entered"]
+[connection signal="area_entered" from="FireDiamondArea" to="." method="_on_fire_diamond_area_area_entered"]
