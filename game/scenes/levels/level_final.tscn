@@ -65,6 +65,10 @@ offset_right = 3071.0
 offset_bottom = 1789.0
 texture = SubResource("NoiseTexture2D_4vl85")
 
+[node name="CPUParticles2D" parent="." index="12"]
+position = Vector2(495, 408)
+visibility_rect = Rect2(-2024.3, -1017.65, 4049.77, 2041.04)
+
 [node name="DiamondAltarFinishCondition" type="Node" parent="." index="13"]
 script = ExtResource("5_6hutx")
 
