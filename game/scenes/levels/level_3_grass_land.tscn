@@ -241,13 +241,13 @@ shader_parameter/ScrollingSpeed = 0.2
 shader_parameter/Alpha = 0.19
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_r4q0q")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mb6y5"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mimjq"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k0yvd"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l0gyw"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ht37e"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uwo3k"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l8a3p"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qnklk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijkv2"]
 resource_local_to_scene = true
@@ -361,7 +361,7 @@ position = Vector2(298, 48)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
 material = ExtResource("8_m2m7m")
-texture = SubResource("NoiseTexture2D_mb6y5")
+texture = SubResource("NoiseTexture2D_mimjq")
 polygon = PackedVector2Array(27, -22, 27, 22, -4, 22, -4, -22)
 uv = PackedVector2Array(27, -22, 27, 22, -4, 22, -4, -22)
 
@@ -371,7 +371,7 @@ element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
 material = ExtResource("9_6nv0o")
-texture = SubResource("NoiseTexture2D_k0yvd")
+texture = SubResource("NoiseTexture2D_l0gyw")
 polygon = PackedVector2Array(27, -22, 27, 22, -4, 22, -4, -22)
 uv = PackedVector2Array(27, -22, 27, 22, -4, 22, -4, -22)
 
@@ -381,7 +381,7 @@ element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone3" index="1"]
 material = ExtResource("9_6nv0o")
-texture = SubResource("NoiseTexture2D_ht37e")
+texture = SubResource("NoiseTexture2D_uwo3k")
 polygon = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 uv = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 
@@ -390,7 +390,7 @@ position = Vector2(597, 173)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone4" index="1"]
 material = ExtResource("8_m2m7m")
-texture = SubResource("NoiseTexture2D_l8a3p")
+texture = SubResource("NoiseTexture2D_qnklk")
 polygon = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 uv = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 

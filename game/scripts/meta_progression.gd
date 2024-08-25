@@ -8,6 +8,7 @@ class_name MetaProgression extends Node2D
 @onready var texture_rect = $CanvasLayer/TextureRect
 @onready var remote_transform_2d = $GameCamera/RemoteTransform2D
 @onready var current_level_resource: CurrentLevelResource = preload("res://resources/game_state/current_level_resource.tres")
+@onready var scene_fader = $CanvasLayer/SceneFader
 
 @onready var current_level: String:
 	set(value):
@@ -22,6 +23,8 @@ var water_player: PlayerCharacter
 var fire_player: PlayerCharacter
 
 var reset = false
+
+var loading_next_level = false
 
 func _ready():
 	if current_level_resource and SaveGameManager.has_savegame():
@@ -57,9 +60,16 @@ func _process(delta):
 		reset = false
 		load_level(current_level)
 	
-	if current_level_scene and current_level_scene.is_finished():
-		var next_level_name = level_transitions.get_next_level(current_level_scene.level_name)[0]
-		load_level(next_level_name)
+	if current_level_scene and current_level_scene.is_finished() and not loading_next_level:
+		call_deferred("load_next_level")
+
+func load_next_level():
+	loading_next_level = true
+	var next_level_name = level_transitions.get_next_level(current_level_scene.level_name)[0]
+	scene_fader.fade_out()
+	await scene_fader.fading_out_finished
+	load_level(next_level_name)
+	loading_next_level = false
 
 func load_level(level_name: String):
 	var first_level_path = level_transitions.get_level_path(level_name)
@@ -76,6 +86,7 @@ func load_level(level_name: String):
 	water_player.position = spawn_points.water_spawn_point
 	fire_player.position = spawn_points.fire_spawn_point
 	game_camera.current_level = current_level_scene
+	scene_fader.fade_in()
 
 
 func reset_level():

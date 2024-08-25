@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7hfjwlvoetv2"]
+[gd_scene load_steps=9 format=3 uid="uid://7hfjwlvoetv2"]
 
 [ext_resource type="Script" path="res://scripts/meta_progression.gd" id="1_5j0tq"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_g7kmn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6aiifjgk6hr7" path="res://scenes/menu/in_game_menu.tscn" id="3_wy7o0"]
 [ext_resource type="Script" path="res://scripts/GameCamera.gd" id="4_i3jek"]
 [ext_resource type="AudioStream" uid="uid://dbnuy1h8mpm48" path="res://assets/music/Theme.mp3" id="5_0m3jt"]
+[ext_resource type="PackedScene" uid="uid://bkorw2mrj85mw" path="res://scenes/SceneFader.tscn" id="5_iuykt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7yg6p"]
 shader = ExtResource("3_di07h")
@@ -40,6 +41,8 @@ text = "Menu"
 
 [node name="InGameMenu" parent="CanvasLayer" instance=ExtResource("3_wy7o0")]
 visible = false
+
+[node name="SceneFader" parent="CanvasLayer" instance=ExtResource("5_iuykt")]
 
 [node name="GameCamera" type="Camera2D" parent="."]
 position = Vector2(256, 144)
