@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmcfmxcfi8ro2"]
+[gd_scene load_steps=20 format=3 uid="uid://bmcfmxcfi8ro2"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_m2iko"]
 [ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="2_3gfga"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/bobbing_component.gd" id="5_bkogx"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="5_ejbyq"]
 [ext_resource type="PackedScene" uid="uid://ck7np6asmhc24" path="res://scenes/torch.tscn" id="5_kcs4y"]
+[ext_resource type="PackedScene" uid="uid://bsaui0hmnuj6f" path="res://scenes/pictogramms.tscn" id="14_7o7aq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfyn4"]
 size = Vector2(2246, 20)
@@ -20,9 +21,9 @@ size = Vector2(2246, 20)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p47ba"]
 light_mode = 1
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kqu4t"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_di6xq"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_itjgu"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tk068"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_scoft"]
 resource_local_to_scene = true
@@ -98,7 +99,7 @@ text = "Level 1"
 horizontal_alignment = 1
 
 [node name="Node2D2" type="Node2D" parent="Details" index="6"]
-position = Vector2(286, 250.33)
+position = Vector2(286, 240.675)
 
 [node name="Label3" type="Label" parent="Details/Node2D2" index="0"]
 z_index = 3
@@ -117,7 +118,7 @@ horizontal_alignment = 1
 script = ExtResource("5_bkogx")
 
 [node name="Node2D" type="Node2D" parent="Details" index="7"]
-position = Vector2(286, 252.229)
+position = Vector2(286, 242.574)
 
 [node name="Label2" type="Label" parent="Details/Node2D" index="0"]
 z_index = 3
@@ -163,7 +164,7 @@ position = Vector2(336, 281)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
 material = ExtResource("4_d74li")
-texture = SubResource("NoiseTexture2D_kqu4t")
+texture = SubResource("NoiseTexture2D_di6xq")
 polygon = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
 uv = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
 
@@ -173,7 +174,7 @@ element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
 material = ExtResource("3_wft5a")
-texture = SubResource("NoiseTexture2D_itjgu")
+texture = SubResource("NoiseTexture2D_tk068")
 polygon = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
 uv = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
 
@@ -195,3 +196,6 @@ material = SubResource("ShaderMaterial_scoft")
 [node name="ExitFinishCondition" type="Node" parent="." index="13" node_paths=PackedStringArray("exit")]
 script = ExtResource("5_ejbyq")
 exit = NodePath("../Exit")
+
+[node name="Pictogramms" parent="." index="16" instance=ExtResource("14_7o7aq")]
+position = Vector2(133, 184)
