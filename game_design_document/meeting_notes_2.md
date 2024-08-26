@@ -1,0 +1,26 @@
+# Protokoll 21.08.
+
+- Tested new build
+- Talked about new feature
+- „Danger Zones“ -> maybe more textures
+- Only Fire and Water 
+- Enddate is the second of September!!!
+- (no new Elementals and Design -> maybe later project)
+- „small story Elements cutscenes(?)
+- 2 new chapter (fire world and water world)
+- Game length (?) 1 hour or 10 minutes
+- Keys!!!! 
+- How do the „boss fights“ will work – getting crystals which defend themselves
+- „Grass World “ Overworld -> next Lvl
+- Linear design 
+- New Goals for next week more lvls, Danger zones poilish, maybe gayser , maybe bossfight and story
+- Story (Dialog (Speechbubbles(?))
+- Opening „white woman“ waking the elements 
+- Wall paintings as tutorials „edged into the wall“
+- „most important“ is content -> LEVELS!!!
+- Mechnics:Wall runAir dash
+- Storyplot:
+- Set up: Waking up in a crypt
+- Every 1000 years the fire crystal and water crystal have to be gathered to prevent the  next „apocalypse“ those crystal have to be put somewhere for a „ritual“
+- They need to work together to get to the crystal 
+- Endcard: See you in a thousand yearsFire and water 2 coming soon  september 3024
