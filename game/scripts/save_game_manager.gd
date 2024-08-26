@@ -30,7 +30,11 @@ func load_savegame():
 		game_data_from_dictionary(data)
 
 func game_data_as_dictionary() -> Dictionary:
-	return {"current_level": current_level_resource.current_level}
+	return {
+		"current_level": current_level_resource.current_level,
+		"can_shoot_ball": current_level_resource.can_shoot_ball
+	}
 
 func game_data_from_dictionary(data: Dictionary):
 	current_level_resource.current_level = data["current_level"]
+	current_level_resource.can_shoot_ball = data["can_shoot_ball"]

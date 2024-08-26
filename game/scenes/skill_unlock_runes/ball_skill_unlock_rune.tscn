@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsfbi0p3ow3by"]
+
+[ext_resource type="PackedScene" uid="uid://b2sxey6effb5j" path="res://scenes/skill_unlock_runes/skill_unlock_rune.tscn" id="1_dwfjq"]
+[ext_resource type="Texture2D" uid="uid://dkcghjr5dnddk" path="res://assets/sprite_animations/skill_unlock_rune.tres" id="2_6ofwc"]
+[ext_resource type="Script" path="res://scripts/skill_unlock_runes/ball_skill_rune_effect.gd" id="2_xp375"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0spq"]
+atlas = ExtResource("2_6ofwc")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2fht"]
+atlas = ExtResource("2_6ofwc")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg3qs"]
+atlas = ExtResource("2_6ofwc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tkdf"]
+atlas = ExtResource("2_6ofwc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upaov"]
+atlas = ExtResource("2_6ofwc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5daqr"]
+atlas = ExtResource("2_6ofwc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o12a"]
+atlas = ExtResource("2_6ofwc")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wh1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0spq")
+}],
+"loop": false,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2fht")
+}],
+"loop": false,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2fht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg3qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tkdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upaov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5daqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o12a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0spq")
+}],
+"loop": false,
+"name": &"unlock",
+"speed": 9.0
+}]
+
+[node name="SkillUnlockRune" instance=ExtResource("1_dwfjq")]
+position = Vector2(0, -4.2419)
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_4wh1x")
+animation = &"active"
+
+[node name="BallSkillRuneEffect" type="Node" parent="." index="6"]
+script = ExtResource("2_xp375")
