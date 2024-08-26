@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_8nnjv"]
 [ext_resource type="PackedScene" uid="uid://dpwmu6xqdrlj1" path="res://scenes/exit/exit.tscn" id="2_46yte"]
-[ext_resource type="TileSet" uid="uid://dars6nlgoywy4" path="res://resources/tile_map.tres" id="4_01v75"]
 [ext_resource type="PackedScene" uid="uid://prwtmusmjhn0" path="res://scenes/tile_map.tscn" id="4_f5mhp"]
 [ext_resource type="PackedScene" uid="uid://b3nxepkuua6vw" path="res://scenes/kill_zone.tscn" id="4_j2gnw"]
+[ext_resource type="TileSet" uid="uid://dars6nlgoywy4" path="res://resources/tile_map_no_collision.tres" id="4_wgr6c"]
 
 [sub_resource type="Environment" id="Environment_m5tdf"]
 background_mode = 3
@@ -43,6 +43,7 @@ height = 0.5
 energy = 0.27
 
 [node name="DecorTileMap" parent="." instance=ExtResource("4_f5mhp")]
+tile_set = ExtResource("4_wgr6c")
 layer_0/modulate = Color(0.482353, 0.482353, 0.482353, 1)
 layer_1/modulate = Color(0.482353, 0.482353, 0.482353, 1)
 layer_2/name = "temple"
@@ -51,7 +52,6 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="TileMap" parent="." instance=ExtResource("4_f5mhp")]
 z_index = 3
-tile_set = ExtResource("4_01v75")
 layer_1/name = "platforms"
 layer_1/z_index = 1
 layer_2/name = "terrain"
