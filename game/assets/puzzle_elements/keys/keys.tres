@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://cujxri42l1mhw"]
+
+[ext_resource type="Texture2D" uid="uid://cq2okesr6533k" path="res://scenes/puzzle_elements/water_key.png" id="1_051ar"]
+[ext_resource type="Texture2D" uid="uid://bkmc5a3rtg4tg" path="res://assets/puzzle_elements/keys/NormalMap.png" id="2_gsb8p"]
+
+[resource]
+diffuse_texture = ExtResource("1_051ar")
+normal_texture = ExtResource("2_gsb8p")

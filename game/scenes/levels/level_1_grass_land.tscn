@@ -259,3 +259,9 @@ material = SubResource("ShaderMaterial_scoft")
 [node name="ExitFinishCondition" type="Node" parent="." index="13" node_paths=PackedStringArray("exit")]
 script = ExtResource("5_ejbyq")
 exit = NodePath("../Exit")
+
+[node name="key_1" parent="." index="16" instance=ExtResource("14_la0qe")]
+position = Vector2(145, 215)
+
+[node name="LockConsole" parent="." index="17" instance=ExtResource("15_oc1ev")]
+position = Vector2(223, 213)
