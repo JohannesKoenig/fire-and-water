@@ -9,6 +9,8 @@ func transition(input: InputPackage) -> String:
 	if "Walk" in input.actions:
 		return "Walk"
 	if "Shoot" in input.actions:
+		if not player.can_shoot_ball:
+			return name
 		return "Shoot"
 	return name
 
