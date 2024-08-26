@@ -9,12 +9,13 @@
 		"Level 3": {
 			"file": "res://scenes/levels/level_3_grass_land.tscn"
 		},
-		"Level 4": {
-			"file": "res://scenes/levels/level_4_grass_land.tscn"
+		"Level Unlock Ball": {
+			"file": "res://scenes/levels/level_unlock_ball_grass_land.tscn"
 		},
 		"Level 5": {
 			"file": "res://scenes/levels/level_5_grass_land.tscn"
 		},
+		
 	},
 	"first_level": "Level 1",
 	"transitions": [
@@ -28,10 +29,10 @@
 		},
 		{
 			"from": "Level 3",
-			"to": "Level 4"
+			"to": "Level Unlock Ball"
 		},
 		{
-			"from": "Level 4",
+			"from": "Level Unlock Ball",
 			"to": "Level 5"
 		},
 		{

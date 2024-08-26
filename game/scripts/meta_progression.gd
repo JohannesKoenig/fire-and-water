@@ -33,6 +33,7 @@ func _ready():
 	else:
 		current_level = level_transitions.get_first_level()
 	water_player = player_packed_scene.instantiate()
+	water_player.can_shoot_ball = SaveGameManager.current_level_resource.can_shoot_ball
 	water_player.current_element = "Water"
 	add_child(water_player)
 	water_player.dead.connect(reset_level)
@@ -40,8 +41,16 @@ func _ready():
 	fire_player = player_packed_scene.instantiate()
 	add_child(fire_player)
 	fire_player.dead.connect(reset_level)
+	fire_player.can_shoot_ball = SaveGameManager.current_level_resource.can_shoot_ball
 	fire_player.current_element = "Fire"
 	fire_player.set_player_id(1)
+
+	SaveGameManager.current_level_resource.can_shoot_ball_changed.connect(
+		func(value): water_player.can_shoot_ball = value
+	)
+	SaveGameManager.current_level_resource.can_shoot_ball_changed.connect(
+		func(value): fire_player.can_shoot_ball = value
+	)
 
 	load_level(current_level)
 	texture_rect.texture = WaterViewport.get_texture()
