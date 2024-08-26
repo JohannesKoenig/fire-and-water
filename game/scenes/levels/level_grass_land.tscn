@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://d2jq7dosx00rk"]
+[gd_scene load_steps=24 format=3 uid="uid://d2jq7dosx00rk"]
 
 [ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_ibqed"]
-[ext_resource type="TileSet" uid="uid://dars6nlgoywy4" path="res://resources/tile_map.tres" id="2_6clnq"]
 [ext_resource type="Texture2D" uid="uid://c4ujglvswhjqo" path="res://assets/background_clouds.png" id="2_rd3yi"]
 [ext_resource type="Script" path="res://scripts/auto_scrolling_parallax_layer.gd" id="3_yifrl"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="4_f7beb"]
@@ -104,9 +103,6 @@ shadow_item_cull_mask = 3
 layer_3/name = "water_temple"
 layer_3/modulate = Color(0.482353, 0.482353, 0.482353, 1)
 layer_3/tile_data = PackedInt32Array()
-
-[node name="TileMap" parent="." index="8"]
-tile_set = ExtResource("2_6clnq")
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 motion_offset = Vector2(2.08165e-12, 2.08165e-12)
