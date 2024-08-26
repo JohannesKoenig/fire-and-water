@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/bobbing_component.gd" id="5_bkogx"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="5_ejbyq"]
 [ext_resource type="PackedScene" uid="uid://ck7np6asmhc24" path="res://scenes/torch.tscn" id="5_kcs4y"]
+[ext_resource type="PackedScene" uid="uid://bsaui0hmnuj6f" path="res://scenes/pictogramms.tscn" id="14_7o7aq"]
 [ext_resource type="Shader" uid="uid://bccbqkhv8pvbb" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_shader.tres" id="8_ed2wv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfyn4"]
@@ -259,3 +260,6 @@ material = SubResource("ShaderMaterial_scoft")
 [node name="ExitFinishCondition" type="Node" parent="." index="13" node_paths=PackedStringArray("exit")]
 script = ExtResource("5_ejbyq")
 exit = NodePath("../Exit")
+
+[node name="Pictogramms" parent="." index="16" instance=ExtResource("14_7o7aq")]
+position = Vector2(133, 184)
