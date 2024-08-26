@@ -258,7 +258,7 @@ seamless = true
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_kfhy3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_smqdb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yku4f"]
 shader = ExtResource("10_ycn76")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -272,7 +272,7 @@ shader_parameter/scroll_speed = 0.04
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yq1ll"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fom01"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gaotu"]
 frequency = 0.0562
@@ -293,7 +293,7 @@ seamless_blend_skirt = 0.585
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_f3vxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7gyi4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jafa"]
 shader = ExtResource("10_ycn76")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -307,9 +307,9 @@ shader_parameter/scroll_speed = 0.01
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nhgk6"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ar2uw"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rlpl8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cb3o"]
 shader = ExtResource("10_ycn76")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -323,9 +323,9 @@ shader_parameter/scroll_speed = 0.01
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2gtpr"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ncapg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4qsr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48ost"]
 shader = ExtResource("10_ycn76")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -339,7 +339,7 @@ shader_parameter/scroll_speed = 0.04
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0m6ph"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j3ywt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijkv2"]
 resource_local_to_scene = true
@@ -452,8 +452,8 @@ script = ExtResource("6_of5la")
 position = Vector2(298, 48)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
-material = SubResource("ShaderMaterial_smqdb")
-texture = SubResource("NoiseTexture2D_yq1ll")
+material = SubResource("ShaderMaterial_yku4f")
+texture = SubResource("NoiseTexture2D_fom01")
 polygon = PackedVector2Array(27, -22, 27, -18.6743, 27, -15.2799, 27, -12.879, 27, -10.7265, 27, -7.16656, 27, -3.10989, 27, 1.19515, 27, 4.50672, 27, 7.90108, 27, 11.2954, 27, 15, 27, 26, 27, 33, -4, 33, -4, 26, -4.00001, 15.1865, -4.00001, 11.7922, -4, 7.98386, -4, 5, -4.00001, 0.781204, -4.00001, -2.61315, -4.00001, -5.84193, -4, -9.31907, -4, -12, -4.00001, -15.3627, -4, -18.6743, -4, -22)
 uv = PackedVector2Array(27, -22, 27, -18.6743, 27, -15.2799, 27, -12.879, 27, -10.7265, 27, -7.16656, 27, -3.10989, 27, 1.19515, 27, 4.50672, 27, 7.90108, 27, 11.2954, 27, 15, 27, 26, 27, 33, -4, 33, -4, 26, -4.00001, 15.1865, -4.00001, 11.7922, -4, 7.98386, -4, 5, -4.00001, 0.781204, -4.00001, -2.61315, -4.00001, -5.84193, -4, -9.31907, -4, -12, -4.00001, -15.3627, -4, -18.6743, -4, -22)
 
@@ -462,8 +462,8 @@ position = Vector2(400, 48)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
-material = SubResource("ShaderMaterial_7gyi4")
-texture = SubResource("NoiseTexture2D_nhgk6")
+material = SubResource("ShaderMaterial_1jafa")
+texture = SubResource("NoiseTexture2D_ar2uw")
 polygon = PackedVector2Array(27, -22, 27, -19.1379, 27, -17, 27, -13.9221, 27, -10.2794, 27, -7.21622, 27, -4.89812, 27, -1.58655, 27, 1.8078, 27, 5.28495, 27, 8.34815, 27, 10.749, 27, 13.5639, 27, 16.8754, 27, 20, 27, 34, -4, 34, -4, 19.8558, -4, 17.2894, -4, 12.4048, -4, 9.83836, -4, 5.94726, -4, 3.3808, -4, -0.344713, -4, -3, -4, -5.64322, -4, -8.12689, -4, -12.3491, -4, -15.5779, -4, -18.8067, -4, -22)
 uv = PackedVector2Array(27, -22, 27, -19.1379, 27, -17, 27, -13.9221, 27, -10.2794, 27, -7.21622, 27, -4.89812, 27, -1.58655, 27, 1.8078, 27, 5.28495, 27, 8.34815, 27, 10.749, 27, 13.5639, 27, 16.8754, 27, 20, 27, 34, -4, 34, -4, 19.8558, -4, 17.2894, -4, 12.4048, -4, 9.83836, -4, 5.94726, -4, 3.3808, -4, -0.344713, -4, -3, -4, -5.64322, -4, -8.12689, -4, -12.3491, -4, -15.5779, -4, -18.8067, -4, -22)
 
@@ -474,8 +474,8 @@ position = Vector2(485, 173)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone3" index="1"]
-material = SubResource("ShaderMaterial_rlpl8")
-texture = SubResource("NoiseTexture2D_2gtpr")
+material = SubResource("ShaderMaterial_2cb3o")
+texture = SubResource("NoiseTexture2D_ncapg")
 polygon = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 uv = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 
@@ -483,8 +483,8 @@ uv = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 position = Vector2(597, 173)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone4" index="1"]
-material = SubResource("ShaderMaterial_r4qsr")
-texture = SubResource("NoiseTexture2D_0m6ph")
+material = SubResource("ShaderMaterial_48ost")
+texture = SubResource("NoiseTexture2D_j3ywt")
 polygon = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 uv = PackedVector2Array(34, -22, 34, 29, -12, 29, -12, -22)
 
