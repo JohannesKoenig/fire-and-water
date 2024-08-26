@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://c6yau11xl7cyt"]
+
+[ext_resource type="Texture2D" uid="uid://qnoy7bc1pepj" path="res://assets/puzzle_elements/lock_console/lock.png" id="1_jsact"]
+[ext_resource type="Texture2D" uid="uid://dwmavvngljydh" path="res://assets/puzzle_elements/lock_console/lock_normal.png" id="2_6o3s8"]
+
+[resource]
+diffuse_texture = ExtResource("1_jsact")
+normal_texture = ExtResource("2_6o3s8")
