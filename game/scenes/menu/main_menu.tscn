@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bfi7x5713lob3"]
+[gd_scene load_steps=65 format=3 uid="uid://bfi7x5713lob3"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_x357e"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_og3uh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b5xrlsrr1se3y" path="res://assets/menu/hill_menu.png" id="3_mcw31"]
 [ext_resource type="Texture2D" uid="uid://qppv6qbsuadf" path="res://assets/menu/logo.png" id="3_vrr0e"]
 [ext_resource type="Texture2D" uid="uid://c48yfk5foit2u" path="res://assets/menu/hero-pose-fire-elemental.png" id="3_wjpjc"]
+[ext_resource type="PackedScene" uid="uid://bkorw2mrj85mw" path="res://scenes/SceneFader.tscn" id="4_5ng1t"]
 [ext_resource type="Texture2D" uid="uid://cj7h5q0vdhqbe" path="res://assets/menu/hill_sky_menu.png" id="4_364to"]
 [ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="4_tmeon"]
 [ext_resource type="Texture2D" uid="uid://c4ujglvswhjqo" path="res://assets/background_clouds.png" id="5_o8rir"]
@@ -477,6 +478,8 @@ text = "Exit"
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="SceneFader" parent="CanvasLayer" instance=ExtResource("4_5ng1t")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_651bc")

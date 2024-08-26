@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmcfmxcfi8ro2"]
+[gd_scene load_steps=28 format=3 uid="uid://bmcfmxcfi8ro2"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_m2iko"]
 [ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="2_3gfga"]
@@ -7,14 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dfdd3jbx4chlh" path="res://scenes/fake_window_light.tscn" id="3_di2xs"]
 [ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="3_ffhdt"]
 [ext_resource type="FontFile" uid="uid://br5epjsu22ioy" path="res://assets/PixelOperator8.ttf" id="3_iua6w"]
-[ext_resource type="Material" uid="uid://dyxtuv3ivdxjn" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_material.tres" id="3_wft5a"]
-[ext_resource type="Material" uid="uid://byk6n5aqfdoc3" path="res://resources/puzzle_elements/danger_zone/fire_danger_zone_material.tres" id="4_d74li"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="4_t6dxe"]
 [ext_resource type="Script" path="res://scripts/bobbing_component.gd" id="5_bkogx"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="5_ejbyq"]
 [ext_resource type="PackedScene" uid="uid://ck7np6asmhc24" path="res://scenes/torch.tscn" id="5_kcs4y"]
-[ext_resource type="PackedScene" uid="uid://c3xrpo4lbxo78" path="res://scenes/puzzle_elements/collectables.tscn" id="14_la0qe"]
-[ext_resource type="PackedScene" uid="uid://didul4dm6fd6m" path="res://scenes/puzzle_elements/lock_console/lock_console.tscn" id="15_oc1ev"]
+[ext_resource type="Shader" uid="uid://bccbqkhv8pvbb" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_shader.tres" id="8_ed2wv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfyn4"]
 size = Vector2(2246, 20)
@@ -22,9 +19,74 @@ size = Vector2(2246, 20)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p47ba"]
 light_mode = 1
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v5nvw"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_srvr8"]
+frequency = 0.0255
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fw4gx"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fhc4f"]
+seamless = true
+seamless_blend_skirt = 0.84
+noise = SubResource("FastNoiseLite_srvr8")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kfhy3"]
+frequency = 0.0104
+fractal_type = 3
+fractal_lacunarity = 2.08165e-12
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d86a4"]
+seamless = true
+bump_strength = 14.0
+noise = SubResource("FastNoiseLite_kfhy3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4sk0a"]
+shader = ExtResource("8_ed2wv")
+shader_parameter/DisplacementSpeed = 0.01
+shader_parameter/NoiseDisplacementStrength = 5.0
+shader_parameter/PlayerPosition = null
+shader_parameter/MaxDistance = 30.0
+shader_parameter/DisplacementDistance = 5.0
+shader_parameter/PrimaryColor = Color(0.741176, 0.345098, 0, 1)
+shader_parameter/Secondary = Color(0.788235, 0, 0.0235294, 1)
+shader_parameter/ColorMix = 0.49
+shader_parameter/scroll_speed = 0.04
+shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
+shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4eu82"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gaotu"]
+frequency = 0.0562
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yt3bg"]
+seamless = true
+seamless_blend_skirt = 0.644
+noise = SubResource("FastNoiseLite_gaotu")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f3vxv"]
+noise_type = 0
+frequency = 0.5448
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ywsui"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.585
+bump_strength = 14.0
+noise = SubResource("FastNoiseLite_f3vxv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lrda4"]
+shader = ExtResource("8_ed2wv")
+shader_parameter/DisplacementSpeed = 0.01
+shader_parameter/NoiseDisplacementStrength = 5.0
+shader_parameter/PlayerPosition = Vector2(2.08165e-12, 2.08165e-12)
+shader_parameter/MaxDistance = 30.0
+shader_parameter/DisplacementDistance = 8.0
+shader_parameter/PrimaryColor = Color(0, 0.545098, 0.815686, 1)
+shader_parameter/Secondary = Color(0.129412, 0, 0.87451, 1)
+shader_parameter/ColorMix = 0.49
+shader_parameter/scroll_speed = 0.01
+shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
+shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7vjkw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_scoft"]
 resource_local_to_scene = true
@@ -100,7 +162,7 @@ text = "Level 1"
 horizontal_alignment = 1
 
 [node name="Node2D2" type="Node2D" parent="Details" index="6"]
-position = Vector2(286, 237.75)
+position = Vector2(286, 240.817)
 
 [node name="Label3" type="Label" parent="Details/Node2D2" index="0"]
 z_index = 3
@@ -119,7 +181,7 @@ horizontal_alignment = 1
 script = ExtResource("5_bkogx")
 
 [node name="Node2D" type="Node2D" parent="Details" index="7"]
-position = Vector2(286, 239.649)
+position = Vector2(286, 242.716)
 
 [node name="Label2" type="Label" parent="Details/Node2D" index="0"]
 z_index = 3
@@ -164,20 +226,20 @@ position = Vector2(501, 238)
 position = Vector2(336, 281)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
-material = ExtResource("4_d74li")
-texture = SubResource("NoiseTexture2D_v5nvw")
-polygon = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
-uv = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
+material = SubResource("ShaderMaterial_4sk0a")
+texture = SubResource("NoiseTexture2D_4eu82")
+polygon = PackedVector2Array(40, 15, 33.8124, 15, 28.5885, 15, 23.7091, 15, 18.7149, 15, 14.4095, 15, 9.93196, 15, 6.02843, 15, 1.43605, 15, -2.23786, 15, -7.4043, 15, -12.2837, 15, -16.7039, 15, -21.3536, 15, -26.2905, 15, -29.907, 15, -34.2123, 15, -38.2307, 15, -42, 15, -42, -1, -37.4336, -1, -32.8968, -1, -28.36, -1, -23.6972, -1, -19.042, -1, -14.7969, -1, -10.1857, -1, -5.50142, -1, -0.304756, -1, 4.59914, -1, 9.64942, -1, 14.2605, -1, 18.8717, -1, 23.6292, -1, 27.8012, -1, 32.2659, -1, 36.2183, -1, 40, -1)
+uv = PackedVector2Array(40, 15, 33.8124, 15, 28.5885, 15, 23.7091, 15, 18.7149, 15, 14.4095, 15, 9.93196, 15, 6.02843, 15, 1.43605, 15, -2.23786, 15, -7.4043, 15, -12.2837, 15, -16.7039, 15, -21.3536, 15, -26.2905, 15, -29.907, 15, -34.2123, 15, -38.2307, 15, -42, 15, -42, -1, -37.4336, -1, -32.8968, -1, -28.36, -1, -23.6972, -1, -19.042, -1, -14.7969, -1, -10.1857, -1, -5.50142, -1, -0.304756, -1, 4.59914, -1, 9.64942, -1, 14.2605, -1, 18.8717, -1, 23.6292, -1, 27.8012, -1, 32.2659, -1, 36.2183, -1, 40, -1)
 
 [node name="DangerZone2" parent="PuzzleElements" index="1" instance=ExtResource("2_gqh5w")]
 position = Vector2(447, 281)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
-material = ExtResource("3_wft5a")
-texture = SubResource("NoiseTexture2D_fw4gx")
-polygon = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
-uv = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
+material = SubResource("ShaderMaterial_lrda4")
+texture = SubResource("NoiseTexture2D_7vjkw")
+polygon = PackedVector2Array(40, 15, 35.2097, 15, 31.0192, 15, 27.5175, 15, 23.327, 15, 18.7346, 15, 13.5107, 15, 8.05727, 15, 3, 15, -0.518715, 15, -5, 15, -8.95722, 15, -13.2052, 15, -18.3716, 15, -23.5955, 15, -28.8767, 15, -33.8709, 15, -38.0041, 15, -42, 15, -42, -1, -37.4336, -1, -32.8968, -1, -28.36, -1, -23.6972, -1, -19.042, -1, -14.7969, -1, -10.1857, -1, -5.50142, -1, -0.304756, -1, 4.59914, -1, 9.64942, -1, 14.2605, -1, 18.8717, -1, 23.6292, -1, 27.8012, -1, 32.2659, -1, 36.2183, -1, 40, -1)
+uv = PackedVector2Array(40, 15, 35.2097, 15, 31.0192, 15, 27.5175, 15, 23.327, 15, 18.7346, 15, 13.5107, 15, 8.05727, 15, 3, 15, -0.518715, 15, -5, 15, -8.95722, 15, -13.2052, 15, -18.3716, 15, -23.5955, 15, -28.8767, 15, -33.8709, 15, -38.0041, 15, -42, 15, -42, -1, -37.4336, -1, -32.8968, -1, -28.36, -1, -23.6972, -1, -19.042, -1, -14.7969, -1, -10.1857, -1, -5.50142, -1, -0.304756, -1, 4.59914, -1, 9.64942, -1, 14.2605, -1, 18.8717, -1, 23.6292, -1, 27.8012, -1, 32.2659, -1, 36.2183, -1, 40, -1)
 
 [node name="TileMap" parent="." index="10"]
 z_index = 2
@@ -197,9 +259,3 @@ material = SubResource("ShaderMaterial_scoft")
 [node name="ExitFinishCondition" type="Node" parent="." index="13" node_paths=PackedStringArray("exit")]
 script = ExtResource("5_ejbyq")
 exit = NodePath("../Exit")
-
-[node name="key_1" parent="." index="16" instance=ExtResource("14_la0qe")]
-position = Vector2(145, 215)
-
-[node name="LockConsole" parent="." index="17" instance=ExtResource("15_oc1ev")]
-position = Vector2(223, 213)
