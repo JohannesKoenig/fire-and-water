@@ -6,7 +6,7 @@ var enter_timestamp: float
 func transition(input: InputPackage) -> String:
 	return name
 
-func on_enter():
+func on_enter(previous_state: String):
 	mark_enter_timestamp()
 
 func on_exit():

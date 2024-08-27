@@ -25,7 +25,7 @@
 			"file": "res://scenes/levels/level_final.tscn"
 		}
 	},
-	"first_level": "Level 1 Fire Temple",
+	"first_level": "Level 1",
 	"transitions": [
 		{
 			"from": "Level 1",
