@@ -67,3 +67,11 @@ func _get_configuration_warnings():
 		if child is Polygon2D:
 			return []
 	return ["Missing Polygon2D"]
+
+func activate():
+	visible = true
+	collision_polygon_2d.disabled = false
+
+func deactivate():
+	visible = false
+	collision_polygon_2d.disabled = true
