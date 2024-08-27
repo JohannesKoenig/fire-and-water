@@ -103,6 +103,13 @@ shadow_item_cull_mask = 3
 layer_3/name = "water_temple"
 layer_3/modulate = Color(0.482353, 0.482353, 0.482353, 1)
 layer_3/tile_data = PackedInt32Array()
+layer_4/name = "fire_temple"
+layer_4/modulate = Color(0.482353, 0.482353, 0.482353, 1)
+layer_4/tile_data = PackedInt32Array()
+
+[node name="TileMap" parent="." index="8"]
+layer_5/name = "fire_temple"
+layer_5/tile_data = PackedInt32Array()
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 motion_offset = Vector2(2.08165e-12, 2.08165e-12)
