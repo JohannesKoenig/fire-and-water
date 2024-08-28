@@ -13,12 +13,12 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r5rub"]
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_ybubc"]
+[sub_resource type="Gradient" id="Gradient_24oty"]
 offsets = PackedFloat32Array(0.2, 0.552113)
 colors = PackedColorArray(0.223216, 0.438075, 1, 1, 0.662837, 0.827758, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8blgw"]
-gradient = SubResource("Gradient_ybubc")
+gradient = SubResource("Gradient_24oty")
 width = 2048
 height = 1152
 fill_to = Vector2(0, 1)
@@ -43,13 +43,13 @@ shader_parameter/YScrollSpeed = 0.001
 shader_parameter/Color = Color(0.705887, 0.705887, 0.705887, 1)
 shader_parameter/Opacity = 0.2
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_qekyy"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rwnxb"]
 frequency = 0.0245
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g661d"]
 seamless = true
 seamless_blend_skirt = 0.43
-noise = SubResource("FastNoiseLite_qekyy")
+noise = SubResource("FastNoiseLite_rwnxb")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8e4k6"]
 light_mode = 1
@@ -58,7 +58,7 @@ light_mode = 1
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.242222, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_fyfio"]
+[sub_resource type="CurveTexture" id="CurveTexture_8u6dl"]
 curve = SubResource("Curve_a0kub")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m0m2d"]
@@ -71,15 +71,15 @@ spread = 180.0
 initial_velocity_min = 15.87
 initial_velocity_max = 35.71
 gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-scale_curve = SubResource("CurveTexture_fyfio")
+scale_curve = SubResource("CurveTexture_8u6dl")
 color = Color(0.882353, 0.886275, 0.882353, 0.27451)
 turbulence_enabled = true
 
-[sub_resource type="Gradient" id="Gradient_jnpy8"]
+[sub_resource type="Gradient" id="Gradient_vhjku"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0qdmn"]
-gradient = SubResource("Gradient_jnpy8")
+gradient = SubResource("Gradient_vhjku")
 width = 6
 height = 6
 fill = 1

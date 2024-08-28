@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://cefc6g8st4qyu"]
+
+[ext_resource type="Texture2D" uid="uid://b4oo1xoo0v8ys" path="res://assets/tilesets/water_temple_tileset.png" id="1_rqx73"]
+[ext_resource type="Texture2D" uid="uid://up5rmuqdeufa" path="res://assets/tilesets/water_temple_tileset_normals.png" id="2_87dhg"]
+
+[resource]
+diffuse_texture = ExtResource("1_rqx73")
+normal_texture = ExtResource("2_87dhg")

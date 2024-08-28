@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="CurrentLevelResource" load_steps=2 format=3 uid="uid://csdioc6k7fgf1"]
+
+[ext_resource type="Script" path="res://scripts/game_state/current_level_resource.gd" id="1_f43ak"]
+
+[resource]
+script = ExtResource("1_f43ak")

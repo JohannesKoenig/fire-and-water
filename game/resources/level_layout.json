@@ -9,8 +9,8 @@
 		"Level 3": {
 			"file": "res://scenes/levels/level_3_grass_land.tscn"
 		},
-		"Level 4": {
-			"file": "res://scenes/levels/level_4_grass_land.tscn"
+		"Level Unlock Ball": {
+			"file": "res://scenes/levels/level_unlock_ball_grass_land.tscn"
 		},
 		"Level 5": {
 			"file": "res://scenes/levels/level_5_grass_land.tscn"
@@ -20,6 +20,18 @@
 			"file": "res://scenes/levels/level_6_grass_land.tscn"
 			
 		},
+		"Level 6": {
+			"file": "res://scenes/levels/level_6_grass_land.tscn"
+		},
+		"Level 1 Fire Temple": {
+			"file": "res://scenes/levels/level_1_fire_temple.tscn"
+		},
+		"Level 1 Water Temple": {
+			"file": "res://scenes/levels/level_1_water_temple.tscn"
+		},
+		"Level Final": {
+			"file": "res://scenes/levels/level_final.tscn"
+		}
 	},
 	"first_level": "Level 6",
 	"transitions": [
@@ -33,18 +45,30 @@
 		},
 		{
 			"from": "Level 3",
-			"to": "Level 4"
+			"to": "Level Unlock Ball"
 		},
 		{
-			"from": "Level 4",
+			"from": "Level Unlock Ball",
 			"to": "Level 5"
 		},
 		{
 			"from": "Level 5",
+			"to": "Level 1 Fire Temple"
+		},
+		{
+			"from": "Level 1 Fire Temple",
 			"to": "Level 6"
 		},
 		{
 			"from": "Level 6",
+			"to": "Level 1 Water Temple"
+		},
+		{
+			"from": "Level 1 Water Temple",
+			"to": "Level Final"
+		},
+		{
+			"from": "Level Final",
 			"to": "Level 1"
 		}
 	]

@@ -11,15 +11,17 @@ signal jump
 
 func transition(input: InputPackage) -> String:
 	if "Shoot" in input.actions:
+		if not player.can_shoot_ball:
+			return name
 		return "Shoot"
 	if has_passed(transition_time):
 		return "Falling"
 	return name
 
-func on_enter():
+func on_enter(previous_state: String):
 	player.velocity.y = JUMP_VELOCITY
 	jump.emit()
-	super()
+	super(previous_state)
 
 func update(input: InputPackage, delta: float):
 	var direction = input.direction

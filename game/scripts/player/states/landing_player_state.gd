@@ -7,6 +7,8 @@ func transition(input: InputPackage) -> String:
 	if "Jump" in input.actions:
 		return "Jump"
 	if "Shoot" in input.actions:
+		if not player.can_shoot_ball:
+			return name
 		return "Shoot"
 	if has_passed(transition_time):
 		return "Idle"

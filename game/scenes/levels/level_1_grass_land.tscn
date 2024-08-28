@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmcfmxcfi8ro2"]
+[gd_scene load_steps=29 format=3 uid="uid://bmcfmxcfi8ro2"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_m2iko"]
 [ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="2_3gfga"]
@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dfdd3jbx4chlh" path="res://scenes/fake_window_light.tscn" id="3_di2xs"]
 [ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="3_ffhdt"]
 [ext_resource type="FontFile" uid="uid://br5epjsu22ioy" path="res://assets/PixelOperator8.ttf" id="3_iua6w"]
-[ext_resource type="Material" uid="uid://dyxtuv3ivdxjn" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_material.tres" id="3_wft5a"]
-[ext_resource type="Material" uid="uid://byk6n5aqfdoc3" path="res://resources/puzzle_elements/danger_zone/fire_danger_zone_material.tres" id="4_d74li"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="4_t6dxe"]
 [ext_resource type="Script" path="res://scripts/bobbing_component.gd" id="5_bkogx"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="5_ejbyq"]
 [ext_resource type="PackedScene" uid="uid://ck7np6asmhc24" path="res://scenes/torch.tscn" id="5_kcs4y"]
+[ext_resource type="Shader" uid="uid://bccbqkhv8pvbb" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_shader.tres" id="8_ed2wv"]
+[ext_resource type="PackedScene" uid="uid://bsaui0hmnuj6f" path="res://scenes/pictogramms.tscn" id="14_7o7aq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfyn4"]
 size = Vector2(2246, 20)
@@ -20,9 +20,74 @@ size = Vector2(2246, 20)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p47ba"]
 light_mode = 1
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kqu4t"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_srvr8"]
+frequency = 0.0255
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_itjgu"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fhc4f"]
+seamless = true
+seamless_blend_skirt = 0.84
+noise = SubResource("FastNoiseLite_srvr8")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kfhy3"]
+frequency = 0.0104
+fractal_type = 3
+fractal_lacunarity = 2.08165e-12
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d86a4"]
+seamless = true
+bump_strength = 14.0
+noise = SubResource("FastNoiseLite_kfhy3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2prl3"]
+shader = ExtResource("8_ed2wv")
+shader_parameter/DisplacementSpeed = 0.01
+shader_parameter/NoiseDisplacementStrength = 5.0
+shader_parameter/PlayerPosition = null
+shader_parameter/MaxDistance = 30.0
+shader_parameter/DisplacementDistance = 5.0
+shader_parameter/PrimaryColor = Color(0.741176, 0.345098, 0, 1)
+shader_parameter/Secondary = Color(0.788235, 0, 0.0235294, 1)
+shader_parameter/ColorMix = 0.49
+shader_parameter/scroll_speed = 0.04
+shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
+shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tkw7b"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gaotu"]
+frequency = 0.0562
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yt3bg"]
+seamless = true
+seamless_blend_skirt = 0.644
+noise = SubResource("FastNoiseLite_gaotu")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f3vxv"]
+noise_type = 0
+frequency = 0.5448
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ywsui"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.585
+bump_strength = 14.0
+noise = SubResource("FastNoiseLite_f3vxv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_juylx"]
+shader = ExtResource("8_ed2wv")
+shader_parameter/DisplacementSpeed = 0.01
+shader_parameter/NoiseDisplacementStrength = 5.0
+shader_parameter/PlayerPosition = Vector2(2.08165e-12, 2.08165e-12)
+shader_parameter/MaxDistance = 30.0
+shader_parameter/DisplacementDistance = 8.0
+shader_parameter/PrimaryColor = Color(0, 0.545098, 0.815686, 1)
+shader_parameter/Secondary = Color(0.129412, 0, 0.87451, 1)
+shader_parameter/ColorMix = 0.49
+shader_parameter/scroll_speed = 0.01
+shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
+shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3iifp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_scoft"]
 resource_local_to_scene = true
@@ -64,8 +129,6 @@ visible = false
 [node name="DecorTileMap" parent="." index="7"]
 layer_2/tile_data = PackedInt32Array(983055, 131073, 2, 917519, 196609, 4, 851983, 196609, 4, 786447, 196609, 4, 720911, 196609, 4, 655375, 196609, 4, 589839, 196609, 3, 524303, 65537, 2, 458767, 589825, 0, 983054, 1, 3, 917518, 196609, 4, 851982, 196609, 4, 786446, 196609, 4, 720910, 196609, 4, 655374, 196609, 4, 589838, 196609, 4, 524302, 196609, 4, 458766, 65537, 3, 983053, 1, 3, 917517, 196609, 4, 851981, 196609, 4, 786445, 196609, 4, 720909, 196609, 4, 655373, 196609, 4, 589837, 196609, 4, 524301, 196609, 4, 458765, 65537, 3, 983052, 1, 3, 917516, 196609, 4, 851980, 196609, 4, 786444, 131073, 3, 720908, 1, 2, 655372, 1, 2, 589836, 131073, 2, 524300, 196609, 4, 458764, 65537, 3, 983051, 1, 3, 917515, 196609, 4, 851979, 196609, 4, 786443, 65537, 3, 589835, 1, 3, 524299, 196609, 4, 458763, 65537, 3, 983050, 1, 3, 917514, 196609, 4, 851978, 196609, 4, 786442, 196609, 3, 720906, 65537, 2, 655370, 65537, 2, 589834, 196609, 2, 524298, 196609, 4, 458762, 65537, 3, 983049, 1, 3, 917513, 196609, 4, 851977, 196609, 4, 786441, 196609, 4, 720905, 196609, 4, 655369, 196609, 4, 589833, 196609, 4, 524297, 196609, 4, 458761, 65537, 3, 983048, 1, 3, 917512, 196609, 4, 851976, 196609, 4, 786440, 196609, 4, 720904, 196609, 4, 655368, 196609, 4, 589832, 196609, 4, 524296, 196609, 4, 458760, 65537, 3, 983047, 1, 3, 917511, 196609, 4, 851975, 196609, 4, 786439, 131073, 3, 720903, 1, 2, 655367, 1, 2, 589831, 131073, 2, 524295, 196609, 4, 458759, 65537, 3, 983046, 1, 3, 917510, 196609, 4, 851974, 196609, 4, 786438, 65537, 3, 589830, 1, 3, 524294, 196609, 4, 458758, 65537, 3, 983045, 1, 3, 917509, 196609, 4, 851973, 196609, 4, 786437, 196609, 3, 720901, 65537, 2, 655365, 65537, 2, 589829, 196609, 2, 524293, 196609, 4, 458757, 65537, 3, 983044, 1, 3, 917508, 196609, 4, 851972, 196609, 4, 786436, 196609, 4, 720900, 196609, 4, 655364, 196609, 4, 589828, 196609, 4, 524292, 196609, 4, 458756, 65537, 3, 983043, 1, 3, 917507, 196609, 4, 851971, 196609, 4, 786435, 196609, 4, 720899, 196609, 4, 655363, 196609, 4, 589827, 196609, 4, 524291, 196609, 4, 458755, 65537, 3, 983042, 524289, 1, 917506, 1, 2, 851970, 1, 2, 786434, 1, 2, 720898, 1, 2, 655362, 1, 2, 589826, 1, 2, 524290, 1, 2, 458754, 524289, 0, 1114131, 196609, 4, 1048595, 196609, 4, 983059, 196609, 4, 917523, 196609, 4, 851987, 196609, 4, 786451, 196609, 4, 720915, 196609, 3, 655379, 65537, 2, 589843, 589825, 0, 1114130, 131073, 2, 1048594, 196609, 4, 983058, 196609, 4, 917522, 196609, 4, 851986, 196609, 4, 786450, 196609, 4, 720914, 196609, 4, 655378, 196609, 4, 589842, 65537, 3, 1114129, 1, 3, 1048593, 196609, 4, 983057, 196609, 4, 917521, 196609, 4, 851985, 196609, 4, 786449, 196609, 4, 720913, 196609, 4, 655377, 196609, 4, 589841, 65537, 3, 1114128, 1, 3, 1048592, 196609, 4, 983056, 196609, 4, 917520, 196609, 4, 851984, 196609, 4, 786448, 196609, 4, 720912, 196609, 4, 655376, 196609, 4, 589840, 65537, 3, 1114127, 524289, 1, 1048591, 1, 2, 1179678, 589825, 1, 1114142, 196609, 2, 1048606, 196609, 4, 983070, 196609, 4, 917534, 196609, 4, 851998, 196609, 4, 786462, 196609, 4, 720926, 65537, 3, 1179677, 1, 3, 1114141, 196609, 4, 1048605, 196609, 4, 983069, 196609, 4, 917533, 196609, 4, 851997, 196609, 4, 786461, 196609, 4, 720925, 65537, 3, 1179676, 1, 3, 1114140, 196609, 4, 1048604, 196609, 4, 983068, 196609, 4, 917532, 196609, 4, 851996, 196609, 4, 786460, 196609, 4, 720924, 65537, 3, 1179675, 1, 3, 1114139, 196609, 4, 1048603, 196609, 4, 983067, 196609, 4, 917531, 196609, 4, 851995, 196609, 4, 786459, 196609, 4, 720923, 65537, 3, 1179674, 1, 3, 1114138, 196609, 4, 1048602, 196609, 4, 983066, 196609, 4, 917530, 196609, 4, 851994, 196609, 4, 786458, 196609, 4, 720922, 65537, 3, 1179673, 1, 3, 1114137, 196609, 4, 1048601, 196609, 4, 983065, 196609, 4, 917529, 196609, 4, 851993, 196609, 4, 786457, 196609, 4, 720921, 65537, 3, 1179672, 1, 3, 1114136, 196609, 4, 1048600, 196609, 4, 983064, 196609, 4, 917528, 196609, 4, 851992, 196609, 4, 786456, 196609, 4, 720920, 65537, 3, 1179671, 1, 3, 1114135, 196609, 4, 1048599, 196609, 4, 983063, 196609, 4, 917527, 196609, 4, 851991, 196609, 4, 786455, 196609, 4, 720919, 65537, 3, 1179670, 1, 3, 1114134, 196609, 4, 1048598, 196609, 4, 983062, 196609, 4, 917526, 196609, 4, 851990, 196609, 4, 786454, 196609, 4, 720918, 65537, 3, 1179669, 1, 3, 1114133, 196609, 4, 1048597, 196609, 4, 983061, 196609, 4, 917525, 196609, 4, 851989, 196609, 4, 786453, 196609, 4, 720917, 65537, 3, 1179668, 1, 3, 1114132, 196609, 4, 1048596, 196609, 4, 983060, 196609, 4, 917524, 196609, 4, 851988, 196609, 4, 786452, 196609, 4, 720916, 65537, 3, 1179667, 1, 3, 1179666, 524289, 1, 1114144, 589825, 1, 1048608, 196609, 2, 983072, 196609, 4, 917536, 196609, 4, 852000, 196609, 4, 786464, 196609, 4, 720928, 196609, 4, 1114143, 1, 3, 1048607, 196609, 4, 983071, 196609, 4, 917535, 196609, 4, 851999, 196609, 4, 786463, 196609, 4, 720927, 131073, 3, 1048609, 589825, 1, 983073, 196609, 2, 917537, 196609, 4, 852001, 196609, 4, 786465, 196609, 4, 720929, 196609, 4, 655393, 196609, 4, 589857, 131073, 3, 655392, 196609, 4, 589856, 65537, 3, 655391, 1, 2, 589855, 524289, 0, 983075, 589825, 1, 917539, 196609, 2, 852003, 196609, 4, 786467, 196609, 4, 720931, 196609, 4, 655395, 196609, 4, 589859, 196609, 4, 524323, 196609, 4, 458787, 131073, 3, 983074, 1, 3, 917538, 196609, 4, 852002, 196609, 4, 786466, 196609, 4, 720930, 196609, 4, 655394, 196609, 4, 589858, 196609, 4, 524322, 196609, 4, 458786, 65537, 3, 524321, 1, 2, 458785, 524289, 0, 852016, 196609, 4, 786480, 196609, 4, 720944, 196609, 4, 655408, 196609, 4, 589872, 131073, 3, 524336, 1, 2, 852015, 196609, 4, 786479, 196609, 4, 720943, 196609, 4, 655407, 196609, 4, 852014, 196609, 4, 786478, 196609, 4, 720942, 196609, 4, 655406, 196609, 4, 589870, 196609, 3, 524334, 458753, 2, 852013, 196609, 4, 786477, 196609, 4, 720941, 196609, 4, 655405, 196609, 4, 589869, 196609, 4, 524333, 65537, 3, 852012, 196609, 4, 786476, 196609, 4, 720940, 196609, 4, 655404, 196609, 4, 589868, 196609, 4, 524332, 196609, 3, 852011, 196609, 4, 786475, 196609, 4, 720939, 196609, 4, 655403, 196609, 4, 589867, 196609, 4, 524331, 196609, 4, 852010, 196609, 4, 786474, 196609, 4, 720938, 196609, 4, 655402, 196609, 4, 589866, 196609, 4, 524330, 196609, 4, 852009, 196609, 4, 786473, 196609, 4, 720937, 196609, 4, 655401, 196609, 4, 589865, 196609, 4, 524329, 196609, 4, 852008, 196609, 4, 786472, 196609, 4, 720936, 196609, 4, 655400, 196609, 4, 589864, 196609, 4, 524328, 131073, 3, 852007, 196609, 4, 786471, 196609, 4, 720935, 196609, 4, 655399, 196609, 4, 589863, 196609, 4, 524327, 65537, 3, 852006, 196609, 4, 786470, 196609, 4, 720934, 196609, 4, 655398, 196609, 4, 589862, 131073, 3, 852005, 196609, 4, 786469, 196609, 4, 720933, 196609, 4, 655397, 196609, 4, 589861, 65537, 3, 852004, 196609, 4, 786468, 196609, 4, 720932, 196609, 4, 655396, 196609, 4, 589860, 196609, 3, 524324, 65537, 2, 917553, 589825, 1, 852017, 65537, 2, 786481, 65537, 2, 917552, 1, 3, 917551, 1, 3, 917550, 1, 3, 917549, 1, 3, 917548, 1, 3, 917547, 1, 3, 917546, 1, 3, 917545, 1, 3, 917544, 1, 3, 917543, 1, 3, 917542, 1, 3, 917541, 1, 3, 917540, 1, 3, 720945, 65537, 2, 655409, 65537, 2, 589873, 65537, 2, 524337, 65537, 2, 458801, 65537, 2, 393265, 65537, 2, 327729, 65537, 2, 262193, 65537, 2, 196657, 589825, 0, 458800, 1, 2, 393264, 1, 2, 327728, 131073, 2, 262192, 196609, 4, 196656, 65537, 3, 327727, 1, 3, 262191, 196609, 4, 196655, 65537, 3, 458798, 131073, 1, 393262, 131073, 1, 327726, 393217, 3, 262190, 131073, 2, 196654, 65537, 3, 393254, 131073, 1, 327718, 458753, 3, 262182, 196609, 2, 196646, 65537, 3, 327717, 1, 3, 262181, 196609, 4, 196645, 65537, 3, 458788, 65537, 2, 393252, 65537, 2, 327716, 196609, 2, 262180, 196609, 4, 196644, 65537, 3, 393251, 1, 2, 327715, 1, 2, 262179, 1, 2, 196643, 524289, 0, 393256, 131073, 1, 327720, 131073, 1, 262184, 458753, 3, 196648, 589825, 0, 458794, 1, 5, 393258, 131073, 1, 327722, 131073, 1, 262186, 131073, 1, 196650, 327681, 1, 458796, 458753, 2, 393260, 131073, 1, 327724, 131073, 1, 262188, 393217, 3, 458795, 65537, 3, 458793, 65537, 3, 262183, 1, 3, 196647, 65537, 3, 262189, 1, 3, 196653, 65537, 3, 196652, 524289, 0, 589871, 65537, 3, 458790, 131073, 1, 524326, 393217, 2, 458792, 393217, 2)
 
-[node name="Details" type="Node2D" parent="." index="8"]
-
 [node name="FakeDirectionalLight" parent="Details" index="0" instance=ExtResource("2_vmtw1")]
 position = Vector2(680, 145)
 texture_scale = 4.92
@@ -98,7 +161,7 @@ text = "Level 1"
 horizontal_alignment = 1
 
 [node name="Node2D2" type="Node2D" parent="Details" index="6"]
-position = Vector2(286, 250.33)
+position = Vector2(286, 240.817)
 
 [node name="Label3" type="Label" parent="Details/Node2D2" index="0"]
 z_index = 3
@@ -117,7 +180,7 @@ horizontal_alignment = 1
 script = ExtResource("5_bkogx")
 
 [node name="Node2D" type="Node2D" parent="Details" index="7"]
-position = Vector2(286, 252.229)
+position = Vector2(286, 242.716)
 
 [node name="Label2" type="Label" parent="Details/Node2D" index="0"]
 z_index = 3
@@ -156,26 +219,24 @@ position = Vector2(394, 238)
 [node name="Torch3" parent="Details" index="11" instance=ExtResource("5_kcs4y")]
 position = Vector2(501, 238)
 
-[node name="PuzzleElements" type="Node2D" parent="." index="9"]
-
 [node name="DangerZone" parent="PuzzleElements" index="0" instance=ExtResource("2_gqh5w")]
 position = Vector2(336, 281)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
-material = ExtResource("4_d74li")
-texture = SubResource("NoiseTexture2D_kqu4t")
-polygon = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
-uv = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
+material = SubResource("ShaderMaterial_2prl3")
+texture = SubResource("NoiseTexture2D_tkw7b")
+polygon = PackedVector2Array(40, 15, 33.8124, 15, 28.5885, 15, 23.7091, 15, 18.7149, 15, 14.4095, 15, 9.93196, 15, 6.02843, 15, 1.43605, 15, -2.23786, 15, -7.4043, 15, -12.2837, 15, -16.7039, 15, -21.3536, 15, -26.2905, 15, -29.907, 15, -34.2123, 15, -38.2307, 15, -42, 15, -42, -1, -37.4336, -1, -32.8968, -1, -28.36, -1, -23.6972, -1, -19.042, -1, -14.7969, -1, -10.1857, -1, -5.50142, -1, -0.304756, -1, 4.59914, -1, 9.64942, -1, 14.2605, -1, 18.8717, -1, 23.6292, -1, 27.8012, -1, 32.2659, -1, 36.2183, -1, 40, -1)
+uv = PackedVector2Array(40, 15, 33.8124, 15, 28.5885, 15, 23.7091, 15, 18.7149, 15, 14.4095, 15, 9.93196, 15, 6.02843, 15, 1.43605, 15, -2.23786, 15, -7.4043, 15, -12.2837, 15, -16.7039, 15, -21.3536, 15, -26.2905, 15, -29.907, 15, -34.2123, 15, -38.2307, 15, -42, 15, -42, -1, -37.4336, -1, -32.8968, -1, -28.36, -1, -23.6972, -1, -19.042, -1, -14.7969, -1, -10.1857, -1, -5.50142, -1, -0.304756, -1, 4.59914, -1, 9.64942, -1, 14.2605, -1, 18.8717, -1, 23.6292, -1, 27.8012, -1, 32.2659, -1, 36.2183, -1, 40, -1)
 
 [node name="DangerZone2" parent="PuzzleElements" index="1" instance=ExtResource("2_gqh5w")]
 position = Vector2(447, 281)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
-material = ExtResource("3_wft5a")
-texture = SubResource("NoiseTexture2D_itjgu")
-polygon = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
-uv = PackedVector2Array(40, 15, -42, 15, -42, -1, 40, -1)
+material = SubResource("ShaderMaterial_juylx")
+texture = SubResource("NoiseTexture2D_3iifp")
+polygon = PackedVector2Array(40, 15, 35.2097, 15, 31.0192, 15, 27.5175, 15, 23.327, 15, 18.7346, 15, 13.5107, 15, 8.05727, 15, 3, 15, -0.518715, 15, -5, 15, -8.95722, 15, -13.2052, 15, -18.3716, 15, -23.5955, 15, -28.8767, 15, -33.8709, 15, -38.0041, 15, -42, 15, -42, -1, -37.4336, -1, -32.8968, -1, -28.36, -1, -23.6972, -1, -19.042, -1, -14.7969, -1, -10.1857, -1, -5.50142, -1, -0.304756, -1, 4.59914, -1, 9.64942, -1, 14.2605, -1, 18.8717, -1, 23.6292, -1, 27.8012, -1, 32.2659, -1, 36.2183, -1, 40, -1)
+uv = PackedVector2Array(40, 15, 35.2097, 15, 31.0192, 15, 27.5175, 15, 23.327, 15, 18.7346, 15, 13.5107, 15, 8.05727, 15, 3, 15, -0.518715, 15, -5, 15, -8.95722, 15, -13.2052, 15, -18.3716, 15, -23.5955, 15, -28.8767, 15, -33.8709, 15, -38.0041, 15, -42, 15, -42, -1, -37.4336, -1, -32.8968, -1, -28.36, -1, -23.6972, -1, -19.042, -1, -14.7969, -1, -10.1857, -1, -5.50142, -1, -0.304756, -1, 4.59914, -1, 9.64942, -1, 14.2605, -1, 18.8717, -1, 23.6292, -1, 27.8012, -1, 32.2659, -1, 36.2183, -1, 40, -1)
 
 [node name="TileMap" parent="." index="10"]
 z_index = 2
@@ -195,3 +256,6 @@ material = SubResource("ShaderMaterial_scoft")
 [node name="ExitFinishCondition" type="Node" parent="." index="13" node_paths=PackedStringArray("exit")]
 script = ExtResource("5_ejbyq")
 exit = NodePath("../Exit")
+
+[node name="Pictogramms" parent="." index="16" instance=ExtResource("14_7o7aq")]
+position = Vector2(133, 184)
