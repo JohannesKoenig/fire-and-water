@@ -1,16 +1,141 @@
-[gd_scene load_steps=9 format=3 uid="uid://7hfjwlvoetv2"]
+[gd_scene load_steps=18 format=3 uid="uid://7hfjwlvoetv2"]
 
 [ext_resource type="Script" path="res://scripts/meta_progression.gd" id="1_5j0tq"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_g7kmn"]
 [ext_resource type="Shader" uid="uid://ddjknlty02ucr" path="res://resources/meta_ball_2d.tres" id="3_di07h"]
 [ext_resource type="PackedScene" uid="uid://6aiifjgk6hr7" path="res://scenes/menu/in_game_menu.tscn" id="3_wy7o0"]
 [ext_resource type="Script" path="res://scripts/GameCamera.gd" id="4_i3jek"]
-[ext_resource type="AudioStream" uid="uid://dbnuy1h8mpm48" path="res://assets/music/Theme.mp3" id="5_0m3jt"]
 [ext_resource type="PackedScene" uid="uid://bkorw2mrj85mw" path="res://scenes/SceneFader.tscn" id="5_iuykt"]
+[ext_resource type="AudioStream" uid="uid://cfs8p82bosfjt" path="res://assets/music/intro_music.mp3" id="7_iu3nm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7yg6p"]
 shader = ExtResource("3_di07h")
 shader_parameter/Clamp = 0.192
+
+[sub_resource type="Gradient" id="Gradient_qos64"]
+offsets = PackedFloat32Array(0.638587, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ig3g"]
+gradient = SubResource("Gradient_qos64")
+width = 512
+height = 288
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_7x3vy"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -20.0]
+}
+
+[sub_resource type="Animation" id="Animation_cmr2e"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-20.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_olddq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_027x4"]
+_data = {
+"RESET": SubResource("Animation_olddq"),
+"fade_in": SubResource("Animation_7x3vy"),
+"fade_out": SubResource("Animation_cmr2e")
+}
+
+[sub_resource type="Animation" id="Animation_eq6h0"]
+resource_name = "player_died"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/DeathOverlay:texture:fill_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/DeathOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qkdxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/DeathOverlay:texture:fill_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/DeathOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7kqvv"]
+_data = {
+"RESET": SubResource("Animation_qkdxw"),
+"player_died": SubResource("Animation_eq6h0")
+}
 
 [node name="MetaProgression" type="Node2D"]
 script = ExtResource("1_5j0tq")
@@ -24,6 +149,15 @@ script = ExtResource("2_g7kmn")
 material = SubResource("ShaderMaterial_7yg6p")
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="DeathOverlay" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6ig3g")
 
 [node name="ToggleMenuButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
@@ -52,10 +186,20 @@ script = ExtResource("4_i3jek")
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="GameCamera"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_0m3jt")
-volume_db = -10.0
-autoplay = true
+stream = ExtResource("7_iu3nm")
+volume_db = -20.0
+
+[node name="AudioAnimationPlayer" type="AnimationPlayer" parent="AudioStreamPlayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_027x4")
+}
 
 [node name="LevelRig" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7kqvv")
+}
 
 [connection signal="pressed" from="CanvasLayer/ToggleMenuButton" to="CanvasLayer/InGameMenu" method="open"]
