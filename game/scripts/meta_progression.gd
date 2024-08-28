@@ -9,6 +9,10 @@ class_name MetaProgression extends Node2D
 @onready var remote_transform_2d = $GameCamera/RemoteTransform2D
 @onready var current_level_resource: CurrentLevelResource = preload("res://resources/game_state/current_level_resource.tres")
 @onready var scene_fader = $CanvasLayer/SceneFader
+@onready var audio_stream_player = $AudioStreamPlayer
+@onready var audio_animation_player = $AudioStreamPlayer/AudioAnimationPlayer
+@onready var animation_player = $AnimationPlayer
+
 
 @onready var current_level: String:
 	set(value):
@@ -27,6 +31,8 @@ var reset = false
 var loading_next_level = false
 
 func _ready():
+	audio_stream_player.autoplay = true
+	audio_stream_player.play()
 	if current_level_resource and SaveGameManager.has_savegame():
 		SaveGameManager.load_savegame()
 		current_level = current_level_resource.current_level
@@ -76,11 +82,13 @@ func load_next_level():
 	loading_next_level = true
 	var next_level_name = level_transitions.get_next_level(current_level_scene.level_name)[0]
 	scene_fader.fade_out()
+	audio_animation_player.play("fade_out")
 	await scene_fader.fading_out_finished
 	load_level(next_level_name)
 	loading_next_level = false
 
 func load_level(level_name: String):
+	audio_stream_player.volume_db = -80.0
 	var first_level_path = level_transitions.get_level_path(level_name)
 	var level_scene: PackedScene = load(first_level_path)
 	if current_level_scene != null:
@@ -96,8 +104,21 @@ func load_level(level_name: String):
 	fire_player.position = spawn_points.fire_spawn_point
 	game_camera.current_level = current_level_scene
 	scene_fader.fade_in()
+	audio_animation_player.play("fade_in")
 
 
 func reset_level():
+	deactivate_player_controls()
+	scene_fader.fade_out()
+	animation_player.play("player_died")
+	await animation_player.animation_finished
 	reset = true
+	activate_player_controls()
 
+func deactivate_player_controls():
+	water_player.deactivate_input()
+	fire_player.deactivate_input()
+
+func activate_player_controls():
+	water_player.activate_input()
+	fire_player.activate_input()

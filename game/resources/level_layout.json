@@ -31,7 +31,7 @@
 			"file": "res://scenes/levels/level_final.tscn"
 		}
 	},
-	"first_level": "Level 7",
+	"first_level": "Level 1",
 	"transitions": [
 		{
 			"from": "Level 1",

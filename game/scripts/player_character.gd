@@ -10,6 +10,7 @@ class_name PlayerCharacter extends CharacterBody2D
 
 var can_shoot_ball: bool = false
 var has_key: bool = false
+var input_active: bool = true
 
 @export var current_element: String = "Fire":
 	set(value):
@@ -25,21 +26,28 @@ func _ready():
 	player_state_machine.accept_player(self)
 
 func _process(delta):
-	var input_package = player_input.get_input()
-	var direction = input_package.direction
-	if direction > 0:
-		rig.facing_right = true
-		rig.scale.x = 1
-	elif direction < 0:
-		rig.facing_right = false
-		rig.scale.x = -1
-	input_package.queue_free()
+	if input_active:
+		var input_package = player_input.get_input()
+		var direction = input_package.direction
+		if direction > 0:
+			rig.facing_right = true
+			rig.scale.x = 1
+		elif direction < 0:
+			rig.facing_right = false
+			rig.scale.x = -1
+		input_package.queue_free()
 
 func _physics_process(delta):
-	var input_package = player_input.get_input()
+	var input_package = null
+	if input_active:
+		input_package = player_input.get_input()
+	else:
+		input_package = InputPackage.new()
+		input_package.actions.append("Idle")
 	player_state_machine.update(input_package, delta)
-	move_and_slide()
 	input_package.queue_free()
+	move_and_slide()
+	
 
 func set_player_id(id: int):
 	player_input.player_id = id
@@ -49,7 +57,12 @@ func set_key_collection():
 		has_key = true
 	else: 
 		has_key = false
-	
+
+func deactivate_input():
+	input_active = false
+
+func activate_input():
+	input_active = true
 
 func kill():
 	dead.emit()
