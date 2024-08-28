@@ -99,9 +99,6 @@ skew = -0.558505
 range_item_cull_mask = 3
 shadow_item_cull_mask = 3
 
-[node name="DecorTileMap" parent="." index="7"]
-layer_3/modulate = Color(0.482353, 0.482353, 0.482353, 1)
-
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 motion_offset = Vector2(2.08165e-12, 2.08165e-12)
 motion_mirroring = Vector2(2048, 2.08165e-12)

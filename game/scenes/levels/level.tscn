@@ -76,3 +76,7 @@ layer_5/tile_data = PackedInt32Array()
 [node name="Exit" parent="." instance=ExtResource("2_46yte")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Details" type="Node2D" parent="."]
+
+[node name="PuzzleElements" type="Node2D" parent="."]

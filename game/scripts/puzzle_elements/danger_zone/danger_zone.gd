@@ -70,8 +70,8 @@ func _get_configuration_warnings():
 
 func activate():
 	visible = true
-	collision_polygon_2d.disabled = false
+	collision_polygon_2d.set_deferred("disabled", false)
 
 func deactivate():
 	visible = false
-	collision_polygon_2d.disabled = true
+	collision_polygon_2d.set_deferred("disabled", true)
