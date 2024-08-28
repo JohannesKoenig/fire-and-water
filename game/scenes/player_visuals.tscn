@@ -120,6 +120,7 @@ height = 3.0
 [node name="PlayerAudio" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamPolyphonic_8278i")
 max_polyphony = 10
+bus = &"player"
 script = ExtResource("7_rsjsq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

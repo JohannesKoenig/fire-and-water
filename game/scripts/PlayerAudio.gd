@@ -14,6 +14,7 @@ var stream_playback: AudioStreamPlaybackPolyphonic
 func _ready():
 	play()
 	stream_playback = get_stream_playback()
+	
 
 func accept_model(player_state_machine: PlayerStateMachine):
 	_player_state_machine = player_state_machine
@@ -42,6 +43,7 @@ func play_step_sound():
 	stream_playback.play_stream(step_sound,0, 8, pitch)
 	
 func play_landing_sound():
+	print("landing")
 	stream_playback.play_stream(step_sound,0, 15)
 
 func play_dead_sound():
