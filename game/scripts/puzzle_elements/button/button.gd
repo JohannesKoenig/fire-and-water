@@ -19,3 +19,7 @@ func _process(delta):
 		if animation_player.current_animation != "button":
 			animation_player.play("button")
 			button_inactive.emit()
+
+
+func _on_pool_line_draw():
+	pass # Replace with function body.

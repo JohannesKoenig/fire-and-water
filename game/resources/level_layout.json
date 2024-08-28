@@ -21,11 +21,17 @@
 		"Level 7": {
 			"file": "res://scenes/levels/level_7_water_land.tscn"
 		},
+		"Level 1 Fire Temple": {
+			"file": "res://scenes/levels/level_1_fire_temple.tscn"
+		},
+		"Level 1 Water Temple": {
+			"file": "res://scenes/levels/level_1_water_temple.tscn"
+		},
 		"Level Final": {
 			"file": "res://scenes/levels/level_final.tscn"
 		}
 	},
-	"first_level": "Level 6",
+	"first_level": "Level 7",
 	"transitions": [
 		{
 			"from": "Level 1",
@@ -45,6 +51,10 @@
 		},
 		{
 			"from": "Level 5",
+			"to": "Level 1 Fire Temple"
+		},
+		{
+			"from": "Level 1 Fire Temple",
 			"to": "Level 6"
 		},
 		{
@@ -53,7 +63,15 @@
 		},
 		{
 			"from": "Level 7",
+			"to": "Level 1 Water Temple"
+		},
+		{
+			"from": "Level 1 Water Temple",
 			"to": "Level Final"
+		},
+		{
+			"from": "Level Final",
+			"to": "Level 1"
 		}
 	]
 }

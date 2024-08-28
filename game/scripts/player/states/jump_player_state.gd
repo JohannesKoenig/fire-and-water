@@ -18,10 +18,10 @@ func transition(input: InputPackage) -> String:
 		return "Falling"
 	return name
 
-func on_enter():
+func on_enter(previous_state: String):
 	player.velocity.y = JUMP_VELOCITY
 	jump.emit()
-	super()
+	super(previous_state)
 
 func update(input: InputPackage, delta: float):
 	var direction = input.direction

@@ -53,3 +53,7 @@ func current_animation_remaining_time():
 	var current_animation_progress = animation_player.current_animation_position
 	var current_animation_time = animation_player.current_animation_length
 	return current_animation_time - current_animation_progress
+
+
+func _on_church_door_btn_button_inactive():
+	pass # Replace with function body.

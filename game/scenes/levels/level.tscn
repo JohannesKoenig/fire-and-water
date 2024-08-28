@@ -49,6 +49,12 @@ layer_1/modulate = Color(0.482353, 0.482353, 0.482353, 1)
 layer_2/name = "temple"
 layer_2/modulate = Color(0.482353, 0.482353, 0.482353, 1)
 layer_2/tile_data = PackedInt32Array()
+layer_3/name = "water_temple"
+layer_3/modulate = Color(0.482353, 0.482353, 0.482353, 1)
+layer_3/tile_data = PackedInt32Array()
+layer_4/name = "fire_temple"
+layer_4/modulate = Color(0.482353, 0.482353, 0.482353, 1)
+layer_4/tile_data = PackedInt32Array()
 
 [node name="TileMap" parent="." instance=ExtResource("4_f5mhp")]
 z_index = 3
@@ -61,8 +67,16 @@ layer_3/name = "temple"
 layer_3/z_index = 7
 layer_3/tile_data = PackedInt32Array()
 layer_4/name = "water_temple"
+layer_4/z_index = 7
 layer_4/tile_data = PackedInt32Array()
+layer_5/name = "fire_temple"
+layer_5/z_index = 7
+layer_5/tile_data = PackedInt32Array()
 
 [node name="Exit" parent="." instance=ExtResource("2_46yte")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Details" type="Node2D" parent="."]
+
+[node name="PuzzleElements" type="Node2D" parent="."]

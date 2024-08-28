@@ -22,9 +22,9 @@ func transition(input: InputPackage) -> String:
 			return "Falling"
 	return name
 
-func on_enter():
+func on_enter(previous_state: String):
 	has_shot = false
-	super()
+	super(previous_state)
 
 func update(input: InputPackage, delta: float):
 	if has_passed(shooting_delay) and not has_shot:

@@ -58,8 +58,6 @@ offset_bottom = 605.0
 script = ExtResource("5_gbp7f")
 exit = NodePath("../Exit")
 
-[node name="Details" type="Node2D" parent="." index="14"]
-
 [node name="FakeDirectionalLight" parent="Details" index="0" instance=ExtResource("6_40nf3")]
 position = Vector2(650, 38)
 texture_scale = 5.0
@@ -92,8 +90,6 @@ position = Vector2(1321, 7)
 
 [node name="SkillUnlockRune" parent="." index="15" instance=ExtResource("9_kvfle")]
 position = Vector2(648, 72)
-
-[node name="PuzzleElements" type="Node2D" parent="." index="16"]
 
 [node name="PullUpDoor" parent="PuzzleElements" index="0" instance=ExtResource("10_nfvf3")]
 position = Vector2(784, 146)
