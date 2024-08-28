@@ -18,6 +18,9 @@
 		"Level 6": {
 			"file": "res://scenes/levels/level_6_grass_land.tscn"
 		},
+		"Level 7": {
+			"file": "res://scenes/levels/level_7_grass_land.tscn"
+		},
 		"Level 1 Fire Temple": {
 			"file": "res://scenes/levels/level_1_fire_temple.tscn"
 		},
@@ -28,7 +31,7 @@
 			"file": "res://scenes/levels/level_final.tscn"
 		}
 	},
-	"first_level": "Level 1 Water Temple",
+	"first_level": "Level 7",
 	"transitions": [
 		{
 			"from": "Level 1",
@@ -48,14 +51,18 @@
 		},
 		{
 			"from": "Level 5",
-			"to": "Level 6"
-		},
-		{
-			"from": "Level 6",
 			"to": "Level 1 Fire Temple"
 		},
 		{
 			"from": "Level 1 Fire Temple",
+			"to": "Level 6"
+		},
+		{
+			"from": "Level 6",
+			"to": "Level 7"
+		},
+		{
+			"from": "Level 7",
 			"to": "Level 1 Water Temple"
 		},
 		{
