@@ -56,6 +56,10 @@
 		},
 		{
 			"from": "Level 1 Fire Temple",
+			"to": "Level 1 Water Temple"
+		},
+		{
+			"from": "Level 1 Water Temple",
 			"to": "Level Final"
 		},
 		{
