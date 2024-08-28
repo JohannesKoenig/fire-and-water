@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://q714wiie3es7"]
+[gd_scene load_steps=25 format=3 uid="uid://q714wiie3es7"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_petf7"]
 [ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="2_h2bfr"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dlkv7a6o0va36" path="res://scenes/puzzle_elements/danger_zone/danger_zone.tscn" id="8_ev4f7"]
 [ext_resource type="Shader" uid="uid://bccbqkhv8pvbb" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_shader.tres" id="9_rexs1"]
 [ext_resource type="PackedScene" uid="uid://cxtpaia8dtd3t" path="res://scenes/power_line.tscn" id="10_6y263"]
+[ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="11_1wk54"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_36ca7"]
 resource_local_to_scene = true
@@ -39,7 +40,7 @@ seamless_blend_skirt = 0.585
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_f3vxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0u3m3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tq1fx"]
 shader = ExtResource("9_rexs1")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -53,7 +54,7 @@ shader_parameter/scroll_speed = 0.01
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6k5xy"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u7ai5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_srvr8"]
 frequency = 0.0255
@@ -73,7 +74,7 @@ seamless = true
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_kfhy3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfj2q"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hd2n1"]
 shader = ExtResource("9_rexs1")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -87,7 +88,7 @@ shader_parameter/scroll_speed = 0.04
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l2nv1"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_opbgs"]
 
 [node name="Level" instance=ExtResource("1_petf7")]
 level_name = "Level 7"
@@ -176,8 +177,8 @@ position = Vector2(605, 291)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="DangerZone" index="1"]
-material = SubResource("ShaderMaterial_0u3m3")
-texture = SubResource("NoiseTexture2D_6k5xy")
+material = SubResource("ShaderMaterial_tq1fx")
+texture = SubResource("NoiseTexture2D_u7ai5")
 polygon = PackedVector2Array(0, 0, 88, 0, 88, 16, -1, 16, -1, 0)
 uv = PackedVector2Array(0, 0, 88, 0, 88, 16, -1, 16, -1, 0)
 
@@ -185,8 +186,8 @@ uv = PackedVector2Array(0, 0, 88, 0, 88, 16, -1, 16, -1, 0)
 position = Vector2(588, 221)
 
 [node name="Polygon2D" type="Polygon2D" parent="DangerZone2" index="1"]
-material = SubResource("ShaderMaterial_wfj2q")
-texture = SubResource("NoiseTexture2D_l2nv1")
+material = SubResource("ShaderMaterial_hd2n1")
+texture = SubResource("NoiseTexture2D_opbgs")
 polygon = PackedVector2Array(0, 0, 103, 0, 103, 21, 0, 21)
 uv = PackedVector2Array(0, 0, 103, 0, 103, 21, 0, 21)
 
@@ -234,6 +235,10 @@ points = PackedVector2Array(2, 0, 2, 23, -101, 23, -101, -62)
 [node name="StairLine" parent="." index="43" instance=ExtResource("10_6y263")]
 position = Vector2(20, 290)
 points = PackedVector2Array(0, 0, 0, 106, 580, 106, 580, 12, 553, 12, 553, 2)
+
+[node name="ExitFinishCondition" type="Node" parent="." index="46" node_paths=PackedStringArray("exit")]
+script = ExtResource("11_1wk54")
+exit = NodePath("../Exit")
 
 [connection signal="button_active" from="ChurchDoorBtn" to="PullUpDoorEntrance" method="open"]
 [connection signal="button_inactive" from="ChurchDoorBtn" to="PullUpDoorEntrance" method="close"]

@@ -134,6 +134,7 @@ libraries = {
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 4.0
+range_item_cull_mask = 3
 texture = ExtResource("4_45nur")
 texture_scale = 2.0
 
@@ -146,11 +147,13 @@ lifetime = 2.0
 [node name="LeftLight" type="PointLight2D" parent="."]
 position = Vector2(-32, 0)
 rotation = 1.5708
+range_item_cull_mask = 3
 texture = ExtResource("5_axvae")
 
 [node name="RightLight" type="PointLight2D" parent="."]
 position = Vector2(32, 0)
 rotation = -1.5708
+range_item_cull_mask = 3
 texture = ExtResource("5_axvae")
 
 [node name="TextureRect" type="TextureRect" parent="."]

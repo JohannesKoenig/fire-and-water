@@ -268,7 +268,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("ElementalCatalystCutScene:position")
+tracks/12/path = NodePath("FireCatalyst:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -280,7 +280,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("ElementalCatalystCutScene2:position")
+tracks/13/path = NodePath("WaterCatalyst:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -360,6 +360,102 @@ tracks/19/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-20.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("FireCatalyst/FireParticles:emitting")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("WaterCatalyst/FireParticles:emitting")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("WaterCatalyst/WaterParticles:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("FireCatalyst/WaterParticles:emitting")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("FireCatalyst/PointLight2D:energy")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("FireCatalyst/PointLight2D:color")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("WaterCatalyst/PointLight2D:energy")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("WaterCatalyst/PointLight2D:color")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mohqf"]
@@ -522,7 +618,7 @@ tracks/12/keys = {
 tracks/13/type = "method"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("ElementalCatalystCutScene/AnimatedSprite2D")
+tracks/13/path = NodePath("FireCatalyst/AnimatedSprite2D")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -535,14 +631,14 @@ tracks/13/keys = {
 "args": [&"transform_fire"],
 "method": &"play"
 }, {
-"args": ["idle"],
+"args": ["idle_fire"],
 "method": &"play"
 }]
 }
 tracks/14/type = "method"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("ElementalCatalystCutScene2/AnimatedSprite2D")
+tracks/14/path = NodePath("WaterCatalyst/AnimatedSprite2D")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -552,17 +648,17 @@ tracks/14/keys = {
 "args": [&"open_eyes"],
 "method": &"play"
 }, {
-"args": [&"transform_fire"],
+"args": [&"transform_water"],
 "method": &"play"
 }, {
-"args": [&"idle"],
+"args": [&"idle_water"],
 "method": &"play"
 }]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("ElementalCatalystCutScene:position")
+tracks/15/path = NodePath("FireCatalyst:position")
 tracks/15/interp = 2
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -574,7 +670,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("ElementalCatalystCutScene2:position")
+tracks/16/path = NodePath("WaterCatalyst:position")
 tracks/16/interp = 2
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -707,6 +803,102 @@ tracks/25/keys = {
 "times": PackedFloat32Array(14.2, 18.3, 21)
 }
 tracks/25/use_blend = true
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("FireCatalyst/FireParticles:emitting")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 20.9, 24.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("WaterCatalyst/FireParticles:emitting")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("WaterCatalyst/WaterParticles:emitting")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 20.9, 24.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("FireCatalyst/WaterParticles:emitting")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("FireCatalyst/PointLight2D:energy")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 21, 23),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 2.4]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("FireCatalyst/PointLight2D:color")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.647059, 0, 1)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("WaterCatalyst/PointLight2D:energy")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 21, 23),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 2.4]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("WaterCatalyst/PointLight2D:color")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ft77i"]
 _data = {
@@ -900,6 +1092,7 @@ lifetime = 5.0
 position = Vector2(280, -47)
 color = Color(0.670588, 0.87451, 1, 1)
 energy = 4.8
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_towrc")
 texture_scale = 6.04
 
@@ -925,14 +1118,26 @@ libraries = {
 }
 autoplay = "intro"
 
-[node name="ElementalCatalystCutScene" parent="." instance=ExtResource("16_l02m3")]
+[node name="FireCatalyst" parent="." instance=ExtResource("16_l02m3")]
 z_index = 10
 position = Vector2(194, 169)
 
-[node name="ElementalCatalystCutScene2" parent="." instance=ExtResource("16_l02m3")]
+[node name="WaterParticles" parent="FireCatalyst" index="2"]
+emitting = false
+
+[node name="WaterCatalyst" parent="." instance=ExtResource("16_l02m3")]
 z_index = 10
 position = Vector2(366, 169)
 scale = Vector2(-1, 1)
+
+[node name="FireParticles" parent="WaterCatalyst" index="1"]
+emitting = false
+
+[node name="WaterParticles" parent="WaterCatalyst" index="2"]
+emitting = false
+
+[node name="PointLight2D" parent="WaterCatalyst" index="3"]
+color = Color(0, 1, 1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(280, 144)
@@ -948,5 +1153,5 @@ volume_db = -20.0
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 
 [editable path="WhiteSpirit"]
-[editable path="ElementalCatalystCutScene"]
-[editable path="ElementalCatalystCutScene2"]
+[editable path="FireCatalyst"]
+[editable path="WaterCatalyst"]
