@@ -1,26 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://doxxubw6k1tbl"]
+[gd_scene load_steps=7 format=3 uid="uid://doxxubw6k1tbl"]
 
 [ext_resource type="Script" path="res://scripts/puzzle_elements/diamond_altar/diamond_altar.gd" id="1_e1fev"]
 [ext_resource type="Texture2D" uid="uid://bo2s0po6ovmrk" path="res://assets/puzzle_elements/diamond_altar/diamond_altar.png" id="2_ssk7p"]
 [ext_resource type="Texture2D" uid="uid://x1sr63e1u7a7" path="res://assets/puzzle_elements/diamond_altar/diamond_altar_normals.png" id="3_d8pc4"]
+[ext_resource type="PackedScene" uid="uid://s1qdr82025vy" path="res://scenes/gems/fire_gem_socket.tscn" id="4_8ucm5"]
+[ext_resource type="PackedScene" uid="uid://bfcopq5hrq8ia" path="res://scenes/gems/water_gem_socket.tscn" id="5_uc4al"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oo3h8"]
 diffuse_texture = ExtResource("2_ssk7p")
 normal_texture = ExtResource("3_d8pc4")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vljv2"]
-
-[sub_resource type="Animation" id="Animation_hy2ek"]
-resource_name = "place_fire_diamond"
-
-[sub_resource type="Animation" id="Animation_a3w47"]
-resource_name = "place_water_diamond"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecepk"]
-_data = {
-"place_fire_diamond": SubResource("Animation_hy2ek"),
-"place_water_diamond": SubResource("Animation_a3w47")
-}
 
 [node name="DiamondAltar" type="Node2D"]
 script = ExtResource("1_e1fev")
@@ -29,26 +17,11 @@ script = ExtResource("1_e1fev")
 position = Vector2(0, -32)
 texture = SubResource("CanvasTexture_oo3h8")
 
-[node name="WaterDiamondArea" type="Area2D" parent="."]
-position = Vector2(-15, -12)
+[node name="FireGemSocket" parent="." instance=ExtResource("4_8ucm5")]
+position = Vector2(-15, -13)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDiamondArea"]
-shape = SubResource("CircleShape2D_vljv2")
+[node name="WaterGemSocket" parent="." instance=ExtResource("5_uc4al")]
+position = Vector2(15, -13)
 
-[node name="FireDiamondArea" type="Area2D" parent="."]
-position = Vector2(15, -12)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FireDiamondArea"]
-shape = SubResource("CircleShape2D_vljv2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ecepk")
-}
-
-[node name="WaterAudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-
-[node name="FireAudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-
-[connection signal="area_entered" from="WaterDiamondArea" to="." method="_on_water_diamond_area_area_entered"]
-[connection signal="area_entered" from="FireDiamondArea" to="." method="_on_fire_diamond_area_area_entered"]
+[connection signal="gem_placed" from="FireGemSocket" to="." method="_on_fire_gem_placed"]
+[connection signal="gem_placed" from="WaterGemSocket" to="." method="_on_water_gem_placed"]

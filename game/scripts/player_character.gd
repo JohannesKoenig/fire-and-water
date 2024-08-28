@@ -11,6 +11,7 @@ class_name PlayerCharacter extends CharacterBody2D
 var can_shoot_ball: bool = false
 var has_key: bool = false
 var input_active: bool = true
+var has_gem: bool = false
 
 @export var current_element: String = "Fire":
 	set(value):
