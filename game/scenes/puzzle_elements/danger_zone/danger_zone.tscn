@@ -14,4 +14,3 @@ script = ExtResource("3_gagix")
 element = "Fire"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
-visible = false

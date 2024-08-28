@@ -25,5 +25,5 @@ func transition(input: InputPackage):
 	if next_state != current_state:
 		var next_state_node = states[next_state]
 		current_state_node.on_exit()
-		next_state_node.on_enter()
+		next_state_node.on_enter(current_state)
 		current_state = next_state
