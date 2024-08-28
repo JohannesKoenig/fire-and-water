@@ -18,6 +18,9 @@
 		"Level 6": {
 			"file": "res://scenes/levels/level_6_grass_land.tscn"
 		},
+		"Level 7": {
+			"file": "res://scenes/levels/level_7_water_land.tscn"
+		},
 		"Level Final": {
 			"file": "res://scenes/levels/level_final.tscn"
 		}
@@ -46,6 +49,10 @@
 		},
 		{
 			"from": "Level 6",
+			"to": "Level 7"
+		},
+		{
+			"from": "Level 7",
 			"to": "Level Final"
 		}
 	]
