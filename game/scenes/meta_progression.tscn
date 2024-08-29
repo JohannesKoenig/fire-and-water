@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://7hfjwlvoetv2"]
+[gd_scene load_steps=19 format=3 uid="uid://7hfjwlvoetv2"]
 
 [ext_resource type="Script" path="res://scripts/meta_progression.gd" id="1_5j0tq"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_g7kmn"]
 [ext_resource type="Shader" uid="uid://ddjknlty02ucr" path="res://resources/meta_ball_2d.tres" id="3_di07h"]
 [ext_resource type="PackedScene" uid="uid://6aiifjgk6hr7" path="res://scenes/menu/in_game_menu.tscn" id="3_wy7o0"]
 [ext_resource type="Script" path="res://scripts/GameCamera.gd" id="4_i3jek"]
+[ext_resource type="Theme" uid="uid://d0yjmx3qrutg6" path="res://resources/default_theme.tres" id="4_jotjl"]
 [ext_resource type="PackedScene" uid="uid://bkorw2mrj85mw" path="res://scenes/SceneFader.tscn" id="5_iuykt"]
 [ext_resource type="AudioStream" uid="uid://cfs8p82bosfjt" path="res://assets/music/intro_music.mp3" id="7_iu3nm"]
 
@@ -165,12 +166,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -60.0
+offset_left = -64.0
 offset_top = -38.0
-offset_right = -7.0
-offset_bottom = -7.0
+offset_right = -26.0
+offset_bottom = -22.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("4_jotjl")
 text = "Menu"
 
 [node name="InGameMenu" parent="CanvasLayer" instance=ExtResource("3_wy7o0")]
