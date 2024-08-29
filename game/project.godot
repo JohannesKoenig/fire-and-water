@@ -109,6 +109,7 @@ Skip={
 2d_physics/layer_9="player-hurtbox"
 2d_physics/layer_10="action"
 2d_physics/layer_11="actionable"
+2d_physics/layer_12="camera-collider"
 
 [rendering]
 

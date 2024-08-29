@@ -185,6 +185,13 @@ script = ExtResource("4_i3jek")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="GameCamera"]
 
+[node name="StaticBody2D" type="StaticBody2D" parent="GameCamera"]
+collision_layer = 2048
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameCamera/StaticBody2D"]
+polygon = PackedVector2Array(-256, -144, 256, -144, 256, 144, -256, 144, -256, -144, -320, -208, -320, 208, 320, 208, 320, -208, -320, -208)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_iu3nm")
 volume_db = -20.0
