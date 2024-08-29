@@ -105,7 +105,9 @@ func load_level(level_name: String):
 	
 	var spawn_points = current_level_scene.get_spawn_points()
 	water_player.position = spawn_points.water_spawn_point
+	water_player.has_key = false
 	fire_player.position = spawn_points.fire_spawn_point
+	fire_player.has_key = false
 	game_camera.current_level = current_level_scene
 	scene_fader.fade_in()
 	audio_animation_player.play("fade_in")

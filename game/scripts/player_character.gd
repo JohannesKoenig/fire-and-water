@@ -54,10 +54,7 @@ func set_player_id(id: int):
 	player_input.player_id = id
 	
 func set_key_collection():
-	if(has_key == false):
-		has_key = true
-	else: 
-		has_key = false
+	has_key = true
 
 func deactivate_input():
 	input_active = false

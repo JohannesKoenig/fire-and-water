@@ -470,7 +470,6 @@ text = "Exit"
 layout_mode = 2
 
 [node name="SceneFader" parent="CanvasLayer" instance=ExtResource("4_5ng1t")]
-visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_651bc")
