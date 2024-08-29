@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://0t78u034kkht"]
+[gd_scene load_steps=14 format=3 uid="uid://0t78u034kkht"]
 
 [ext_resource type="Texture2D" uid="uid://qppv6qbsuadf" path="res://assets/menu/logo.png" id="1_aq50f"]
+[ext_resource type="FontFile" uid="uid://bl0gnwqpotmbl" path="res://assets/PixelOperator8-Bold.ttf" id="2_0j8dc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp8lq"]
 atlas = ExtResource("1_aq50f")
@@ -85,17 +86,19 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(43, -16)
+position = Vector2(-1, -14)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_54vwe")
 autoplay = "default"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-offset_left = -103.0
-offset_top = -27.0
-offset_right = 215.0
-offset_bottom = -3.0
+offset_left = -154.0
+offset_top = -25.0
+offset_right = 176.0
+offset_bottom = -1.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0j8dc")
 theme_override_font_sizes/font_size = 24
-text = "Fire         Water"
-horizontal_alignment = 2
+text = "Fire       Water"
+horizontal_alignment = 1

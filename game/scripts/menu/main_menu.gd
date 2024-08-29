@@ -7,16 +7,21 @@ class_name MainMenu extends Node2D
 @onready var start_button = $CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/StartButton
 @onready var exit_button = $CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/ExitButton
 
+var transitioning: bool = false
+
 func on_animation_finished(animation_name: String):
 	if animation_name == "intro":
 		start_button.disabled = false
 		exit_button.disabled = false
 
 func _ready():
+	if SaveGameManager.has_savegame():
+		start_button.text = "Continue"
 	scene_fader.modulate = Color(0,0,0,0)
 	animation_player.animation_finished.connect(on_animation_finished)
 	start_button.disabled = true
 	exit_button.disabled = true
+	start_button.grab_focus()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Skip"):
@@ -24,6 +29,9 @@ func _process(_delta):
 		animation_player.advance(8.0)
 
 func transition_to_level():
+	if transitioning:
+		return
+	transitioning = true
 	scene_fader.fade_out()
 	await scene_fader.fading_out_finished
 	if SaveGameManager.has_savegame():
