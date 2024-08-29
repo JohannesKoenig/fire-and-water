@@ -1,10 +1,10 @@
-[gd_scene load_steps=65 format=3 uid="uid://bfi7x5713lob3"]
+[gd_scene load_steps=54 format=3 uid="uid://bfi7x5713lob3"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_x357e"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_og3uh"]
 [ext_resource type="AudioStream" uid="uid://55yyl3btbg7w" path="res://assets/music/fire-and-water-main-theme - 22.08.24, 14.47.mp3" id="3_651bc"]
+[ext_resource type="PackedScene" uid="uid://0t78u034kkht" path="res://scenes/Logo.tscn" id="3_if73l"]
 [ext_resource type="Texture2D" uid="uid://b5xrlsrr1se3y" path="res://assets/menu/hill_menu.png" id="3_mcw31"]
-[ext_resource type="Texture2D" uid="uid://qppv6qbsuadf" path="res://assets/menu/logo.png" id="3_vrr0e"]
 [ext_resource type="Texture2D" uid="uid://c48yfk5foit2u" path="res://assets/menu/hero-pose-fire-elemental.png" id="3_wjpjc"]
 [ext_resource type="PackedScene" uid="uid://bkorw2mrj85mw" path="res://scenes/SceneFader.tscn" id="4_5ng1t"]
 [ext_resource type="Texture2D" uid="uid://cj7h5q0vdhqbe" path="res://assets/menu/hill_sky_menu.png" id="4_364to"]
@@ -22,84 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://vodcfmpycltx" path="res://assets/menu/back_mountain_1_left_menu.png" id="15_keusf"]
 [ext_resource type="Texture2D" uid="uid://2rj2cglyuw8n" path="res://assets/menu/back_mountain_1_right_menu.png" id="16_luous"]
 [ext_resource type="Shader" uid="uid://c1cnoxevljp20" path="res://resources/fog_shader.tres" id="18_1crwt"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gp8lq"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v15a2"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6tyly"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yjkcb"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q1lyv"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sdbr0"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_khusr"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0xawn"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5fpaj"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(1024, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xegkx"]
-atlas = ExtResource("3_vrr0e")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_54vwe"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gp8lq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v15a2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6tyly")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yjkcb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q1lyv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sdbr0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_khusr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0xawn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5fpaj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xegkx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4evfx"]
 
@@ -443,20 +365,8 @@ grow_vertical = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Control" type="CenterContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="Logo" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("3_if73l")]
 layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/CenterContainer/VBoxContainer/Control"]
-position = Vector2(43, -16)
-sprite_frames = SubResource("SpriteFrames_54vwe")
-autoplay = "default"
-
-[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/Control"]
-visible = false
-layout_mode = 2
-text = "Fire &
-Water"
-horizontal_alignment = 1
 
 [node name="Panel" type="Panel" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 40)
@@ -760,3 +670,5 @@ color = Color(0.286275, 0.286275, 0.286275, 1)
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="transition_to_level"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="close_application"]
+
+[editable path="CanvasLayer/CenterContainer/VBoxContainer/Logo"]
