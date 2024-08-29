@@ -29,6 +29,12 @@ func load_savegame():
 	if data:
 		game_data_from_dictionary(data)
 
+func delete_savegame():
+	var file := FileAccess.open(MENU_SAVE_PATH, FileAccess.READ)
+	if !file:
+		return
+	DirAccess.remove_absolute(MENU_SAVE_PATH)
+
 func game_data_as_dictionary() -> Dictionary:
 	return {
 		"current_level": current_level_resource.current_level,

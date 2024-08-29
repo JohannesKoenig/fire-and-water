@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ci45bgka0wiu4"]
+[gd_scene load_steps=32 format=3 uid="uid://02qflwtb86u0"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_al7qo"]
 [ext_resource type="PackedScene" uid="uid://dfdd3jbx4chlh" path="res://scenes/fake_window_light.tscn" id="2_srore"]

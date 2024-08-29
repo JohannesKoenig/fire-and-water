@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://0t78u034kkht"]
+
+[ext_resource type="Texture2D" uid="uid://qppv6qbsuadf" path="res://assets/menu/logo.png" id="1_aq50f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp8lq"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v15a2"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tyly"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjkcb"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1lyv"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdbr0"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khusr"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xawn"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fpaj"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xegkx"]
+atlas = ExtResource("1_aq50f")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_54vwe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp8lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v15a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tyly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjkcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1lyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdbr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khusr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xawn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fpaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xegkx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(43, -16)
+sprite_frames = SubResource("SpriteFrames_54vwe")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = -103.0
+offset_top = -27.0
+offset_right = 215.0
+offset_bottom = -3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Fire         Water"
+horizontal_alignment = 2

@@ -76,6 +76,7 @@ func _process(delta):
 		load_level(current_level)
 	
 	if current_level_scene and current_level_scene.is_finished() and not loading_next_level:
+		
 		call_deferred("load_next_level")
 
 func load_next_level():
@@ -84,8 +85,11 @@ func load_next_level():
 	scene_fader.fade_out()
 	audio_animation_player.play("fade_out")
 	await scene_fader.fading_out_finished
-	load_level(next_level_name)
-	loading_next_level = false
+	if next_level_name == "Outro":
+		get_tree().change_scene_to_file("res://scenes/outro_cutscene.tscn")
+	else:
+		load_level(next_level_name)
+		loading_next_level = false
 
 func load_level(level_name: String):
 	audio_stream_player.volume_db = -80.0
