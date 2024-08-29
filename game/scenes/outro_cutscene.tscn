@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://3l1sqdso3wuc"]
+[gd_scene load_steps=55 format=3 uid="uid://3l1sqdso3wuc"]
 
 [ext_resource type="PackedScene" uid="uid://b3nxepkuua6vw" path="res://scenes/kill_zone.tscn" id="1_q7ddl"]
 [ext_resource type="Script" path="res://scripts/outro_cutscene.gd" id="1_yh56u"]
@@ -27,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://s1qdr82025vy" path="res://scenes/gems/fire_gem_socket.tscn" id="25_vvmoo"]
 [ext_resource type="PackedScene" uid="uid://bfcopq5hrq8ia" path="res://scenes/gems/water_gem_socket.tscn" id="26_qkwp6"]
 [ext_resource type="PackedScene" uid="uid://bkorw2mrj85mw" path="res://scenes/SceneFader.tscn" id="27_5mi4f"]
+[ext_resource type="FontFile" uid="uid://br5epjsu22ioy" path="res://assets/PixelOperator8.ttf" id="28_ah1w6"]
+[ext_resource type="PackedScene" uid="uid://0t78u034kkht" path="res://scenes/Logo.tscn" id="29_d0awy"]
+[ext_resource type="Texture2D" uid="uid://b673k0m5bkgw6" path="res://assets/splash_screen.png" id="30_kpppa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u46ej"]
 size = Vector2(4631, 336.5)
@@ -459,6 +462,67 @@ tracks/25/keys = {
 "method": &"play"
 }]
 }
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("CanvasLayer/Label2:text")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(33.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Thank you for playing
+"]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("CanvasLayer/Label2:modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(33.3, 34, 43.5, 44.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("CanvasLayer/Control:modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(33.3, 34, 43.5, 44.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(47.9, 48.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("OutroMusic:volume_db")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 0.3, 57.7, 60),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-40.0, -10.0, -10.0, -80.0]
+}
 
 [sub_resource type="Animation" id="Animation_rdbtl"]
 length = 0.001
@@ -689,6 +753,67 @@ tracks/18/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.815686)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("CanvasLayer/Label2:text")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Thank you for playing
+"]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("CanvasLayer/Label2:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("CanvasLayer/Control:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("OutroMusic:volume_db")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_18o2e"]
@@ -1066,6 +1191,41 @@ animation = &"collected"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SceneFader" parent="CanvasLayer" instance=ExtResource("27_5mi4f")]
+visible = false
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -42.0
+offset_right = 133.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("28_ah1w6")
+text = "Thank you for playing
+"
+horizontal_alignment = 1
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("29_d0awy")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 209.0
+offset_top = 190.0
+offset_right = 209.0
+offset_bottom = 190.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_kpppa")
 
 [editable path="FireCatalyst"]
 [editable path="WaterCatalyst"]
