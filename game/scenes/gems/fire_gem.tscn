@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://kecsur2qvm62"]
+
+[ext_resource type="PackedScene" uid="uid://ckdrqfbup3250" path="res://scenes/gems/gem.tscn" id="1_66tof"]
+[ext_resource type="Script" path="res://scripts/gems/fire_gem.gd" id="2_d4j8b"]
+[ext_resource type="Texture2D" uid="uid://cctmx7wu033ml" path="res://assets/fire_gem.png" id="3_4d8ay"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfyqo"]
+atlas = ExtResource("3_4d8ay")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c78na"]
+atlas = ExtResource("3_4d8ay")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4ya"]
+atlas = ExtResource("3_4d8ay")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjj1x"]
+atlas = ExtResource("3_4d8ay")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih4wm"]
+atlas = ExtResource("3_4d8ay")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7dv3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfyqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c78na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjj1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih4wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfyqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfyqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfyqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfyqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfyqo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FireGem" instance=ExtResource("1_66tof")]
+script = ExtResource("2_d4j8b")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_l7dv3")
+autoplay = "default"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="0"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_l7dv3")
+autoplay = "default"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

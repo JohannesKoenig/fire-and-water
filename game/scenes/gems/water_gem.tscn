@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://e7bbqrem7rjv"]
+
+[ext_resource type="PackedScene" uid="uid://ckdrqfbup3250" path="res://scenes/gems/gem.tscn" id="1_8mti6"]
+[ext_resource type="Script" path="res://scripts/gems/water_gem.gd" id="2_wrhbs"]
+[ext_resource type="Texture2D" uid="uid://b7kqqyrpvbgul" path="res://assets/water_gem.png" id="3_0ox6v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwyud"]
+atlas = ExtResource("3_0ox6v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asd1x"]
+atlas = ExtResource("3_0ox6v")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnp5w"]
+atlas = ExtResource("3_0ox6v")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb0wv"]
+atlas = ExtResource("3_0ox6v")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtyhn"]
+atlas = ExtResource("3_0ox6v")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_248xk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwyud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asd1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnp5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb0wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtyhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwyud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwyud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwyud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwyud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwyud")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaterGem" instance=ExtResource("1_8mti6")]
+script = ExtResource("2_wrhbs")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_248xk")
+autoplay = "default"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

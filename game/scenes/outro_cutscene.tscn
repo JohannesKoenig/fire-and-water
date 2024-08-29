@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://3l1sqdso3wuc"]
+[gd_scene load_steps=52 format=3 uid="uid://3l1sqdso3wuc"]
 
 [ext_resource type="PackedScene" uid="uid://b3nxepkuua6vw" path="res://scenes/kill_zone.tscn" id="1_q7ddl"]
 [ext_resource type="Script" path="res://scripts/outro_cutscene.gd" id="1_yh56u"]
@@ -24,6 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://c5tu7tcrmkcrr" path="res://scenes/space_ray.tscn" id="20_pqq5p"]
 [ext_resource type="AudioStream" uid="uid://c5lnjm22p2lf4" path="res://assets/sound_effects/space_ray_sound.wav" id="22_dx1r8"]
 [ext_resource type="AudioStream" uid="uid://dlvmcbigm0f6x" path="res://assets/music/win_music.mp3" id="24_pun60"]
+[ext_resource type="PackedScene" uid="uid://s1qdr82025vy" path="res://scenes/gems/fire_gem_socket.tscn" id="25_vvmoo"]
+[ext_resource type="PackedScene" uid="uid://bfcopq5hrq8ia" path="res://scenes/gems/water_gem_socket.tscn" id="26_qkwp6"]
+[ext_resource type="PackedScene" uid="uid://bkorw2mrj85mw" path="res://scenes/SceneFader.tscn" id="27_5mi4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u46ej"]
 size = Vector2(4631, 336.5)
@@ -125,7 +128,7 @@ metadata/_snap_enabled = true
 
 [sub_resource type="Animation" id="Animation_8bckt"]
 resource_name = "outro"
-length = 40.0
+length = 60.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -427,6 +430,34 @@ tracks/23/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.815686)]
+}
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("FireGemSocket/AnimatedSprite2D")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"collected", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/25/type = "method"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("WaterGemSocket/AnimatedSprite2D")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"collected", 1.0, false],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_rdbtl"]
@@ -1020,8 +1051,26 @@ position = Vector2(585, -528)
 scale = Vector2(1, 1e-05)
 texture = SubResource("GradientTexture2D_2hkmk")
 
+[node name="FireGemSocket" parent="." instance=ExtResource("25_vvmoo")]
+position = Vector2(569, -41)
+
+[node name="AnimatedSprite2D" parent="FireGemSocket" index="1"]
+animation = &"collected"
+
+[node name="WaterGemSocket" parent="." instance=ExtResource("26_qkwp6")]
+position = Vector2(599, -41)
+
+[node name="AnimatedSprite2D" parent="WaterGemSocket" index="1"]
+animation = &"collected"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SceneFader" parent="CanvasLayer" instance=ExtResource("27_5mi4f")]
+
 [editable path="FireCatalyst"]
 [editable path="WaterCatalyst"]
 [editable path="WhiteSpirit"]
 [editable path="WaterSpaceRay"]
 [editable path="FireSpaceRay"]
+[editable path="FireGemSocket"]
+[editable path="WaterGemSocket"]

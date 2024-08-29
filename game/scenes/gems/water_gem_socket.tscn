@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfcopq5hrq8ia"]
+
+[ext_resource type="PackedScene" uid="uid://dyy0yt7n2meje" path="res://scenes/gems/gem_socket.tscn" id="1_6yvdn"]
+[ext_resource type="Script" path="res://scripts/gems/water_gem_socket.gd" id="2_vj8gm"]
+[ext_resource type="Texture2D" uid="uid://b7kqqyrpvbgul" path="res://assets/water_gem.png" id="3_gyli0"]
+[ext_resource type="AudioStream" uid="uid://b7ljn30lsasao" path="res://assets/puzzle_elements/lock_console/unlock.wav" id="4_iwtb0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he6tt"]
+atlas = ExtResource("3_gyli0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0eme"]
+atlas = ExtResource("3_gyli0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axkwc"]
+atlas = ExtResource("3_gyli0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15qoc"]
+atlas = ExtResource("3_gyli0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53t2b"]
+atlas = ExtResource("3_gyli0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f46jx"]
+atlas = ExtResource("3_gyli0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4i1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he6tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0eme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axkwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15qoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53t2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he6tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he6tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he6tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he6tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he6tt")
+}],
+"loop": true,
+"name": &"collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f46jx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaterGemSocket" instance=ExtResource("1_6yvdn")]
+script = ExtResource("2_vj8gm")
+
+[node name="Area2D" parent="." index="0"]
+collision_layer = 512
+collision_mask = 1024
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_b4i1o")
+autoplay = "default"
+
+[node name="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource("4_iwtb0")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -29,12 +29,22 @@ func load_savegame():
 	if data:
 		game_data_from_dictionary(data)
 
+func delete_savegame():
+	var file := FileAccess.open(MENU_SAVE_PATH, FileAccess.READ)
+	if !file:
+		return
+	DirAccess.remove_absolute(MENU_SAVE_PATH)
+
 func game_data_as_dictionary() -> Dictionary:
 	return {
 		"current_level": current_level_resource.current_level,
-		"can_shoot_ball": current_level_resource.can_shoot_ball
+		"can_shoot_ball": current_level_resource.can_shoot_ball,
+		"collected_fire_gem": current_level_resource.collected_fire_gem,
+		"collected_water_gem": current_level_resource.collected_water_gem
 	}
 
 func game_data_from_dictionary(data: Dictionary):
 	current_level_resource.current_level = data["current_level"]
 	current_level_resource.can_shoot_ball = data["can_shoot_ball"]
+	current_level_resource.collected_water_gem = data["collected_water_gem"]
+	current_level_resource.collected_fire_gem = data["collected_fire_gem"]
