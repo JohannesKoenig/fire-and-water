@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://ca4srp2k4qjrv"]
+[gd_scene load_steps=78 format=3 uid="uid://ca4srp2k4qjrv"]
 
 [ext_resource type="PackedScene" uid="uid://coh8qmosrcerh" path="res://scenes/levels/level_fire_temple.tscn" id="1_hjhca"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="2_mls71"]
@@ -8,8 +8,8 @@
 [ext_resource type="Shader" uid="uid://bccbqkhv8pvbb" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_shader.tres" id="6_opww6"]
 [ext_resource type="PackedScene" uid="uid://cqw6044qgk00u" path="res://scenes/puzzle_elements/button/button.tscn" id="7_tos3i"]
 [ext_resource type="PackedScene" uid="uid://cxtpaia8dtd3t" path="res://scenes/power_line.tscn" id="8_mpmsl"]
+[ext_resource type="TileSet" uid="uid://dars6nlgoywy4" path="res://resources/tile_map_no_collision.tres" id="9_2joxh"]
 [ext_resource type="PackedScene" uid="uid://cleoamcjwfmj2" path="res://scenes/puzzle_elements/platform/platform.tscn" id="9_ygh2h"]
-[ext_resource type="TileSet" uid="uid://fwwvv2ohyb2n" path="res://resources/tile_map.tres" id="10_h2utt"]
 [ext_resource type="PackedScene" uid="uid://c3xrpo4lbxo78" path="res://scenes/puzzle_elements/collectables.tscn" id="11_os83e"]
 [ext_resource type="PackedScene" uid="uid://bbk6gw0yvmspf" path="res://scenes/puzzle_elements/pull_up_door/pull_up_door.tscn" id="12_8xijn"]
 [ext_resource type="PackedScene" uid="uid://didul4dm6fd6m" path="res://scenes/puzzle_elements/lock_console/lock_console.tscn" id="13_j2j5s"]
@@ -250,11 +250,17 @@ shader_parameter/ScrollingSpeed = 0.2
 shader_parameter/Alpha = 0.19
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_riwlt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0pgx"]
+size = Vector2(39, 2)
+
 [sub_resource type="Curve2D" id="Curve2D_youyb"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 372, 54, 0, 0, 0, 0, 571, 54)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fi3ux"]
+size = Vector2(39, 2)
 
 [sub_resource type="Curve2D" id="Curve2D_rnn6j"]
 _data = {
@@ -502,7 +508,7 @@ seamless_blend_skirt = 0.585
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_f3vxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o7ttb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrcjb"]
 shader = ExtResource("6_opww6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -516,7 +522,7 @@ shader_parameter/scroll_speed = 0.01
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j4jf0"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_56sab"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_srvr8"]
 frequency = 0.0255
@@ -536,7 +542,7 @@ seamless = true
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_kfhy3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7ohi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ln66l"]
 shader = ExtResource("6_opww6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -550,7 +556,7 @@ shader_parameter/scroll_speed = 0.04
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_58jy2"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hlnpo"]
 
 [node name="Level2" instance=ExtResource("1_hjhca")]
 level_name = "Level 1 Fire Temple"
@@ -645,9 +651,14 @@ path = NodePath("../Path2D")
 
 [node name="TileMap" type="TileMap" parent="PuzzleElements/TopPlatform/Platform" index="0"]
 position = Vector2(-8, 10)
-tile_set = ExtResource("10_h2utt")
+tile_set = ExtResource("9_2joxh")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1, 2, 0, -65536, 65538, 0, -65535, 131074, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleElements/TopPlatform/Platform" index="1"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_f0pgx")
+one_way_collision = true
 
 [node name="Path2D" type="Path2D" parent="PuzzleElements/TopPlatform" index="1"]
 curve = SubResource("Curve2D_youyb")
@@ -662,9 +673,14 @@ duration = 3.0
 
 [node name="TileMap" type="TileMap" parent="PuzzleElements/VerticalPlatform/Platform" index="0"]
 position = Vector2(-8, 10)
-tile_set = ExtResource("10_h2utt")
+tile_set = ExtResource("9_2joxh")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1, 2, 0, -65536, 65538, 0, -65535, 131074, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleElements/VerticalPlatform/Platform" index="1"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_fi3ux")
+one_way_collision = true
 
 [node name="Path2D" type="Path2D" parent="PuzzleElements/VerticalPlatform" index="1"]
 curve = SubResource("Curve2D_rnn6j")
@@ -687,16 +703,16 @@ position = Vector2(753, 209)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
-material = SubResource("ShaderMaterial_o7ttb")
-texture = SubResource("NoiseTexture2D_j4jf0")
+material = SubResource("ShaderMaterial_vrcjb")
+texture = SubResource("NoiseTexture2D_56sab")
 polygon = PackedVector2Array(-43, -59, -43, -55.2624, -43, -52.2547, -43, -48.7656, -43, -45, -43, -40.3438, -43, -33.9673, -43, -30, -43, -25.0643, -43, -19.6503, -43, -14.116, -43, -7.01758, -43, -2, -43, 4.17138, -43, 10.5479, -43, 16.8284, -43, 22.7236, -43, 28.8595, -43, 35.1157, -43, 40.4094, -43, 46.425, -43, 53.5233, -43, 60.0201, -43, 65.3138, -43, 69.8377, -43, 74.1689, -43, 78, 34, 78, 34, 73.447, 34, 68.6346, 34, 61.7768, 34, 57.0847, 34, 52.7535, 34, 47.941, 34, 43.1285, 34, 37.113, 34, 33.0224, 34, 29.413, 34, 23.8301, 34, 17.6942, 34, 12.8817, 34, 7.6843, 34, 2.63122, 34, -2.42186, 34, -7.98022, 34, -12.4317, 34, -17.7254, 34, -22.6582, 34, -28.4332, 34, -34.3284, 34, -38.9002, 34, -44.0736, 34, -49.1267, 34, -54.0595, 34, -59)
 uv = PackedVector2Array(-43, -59, -43, -55.2624, -43, -52.2547, -43, -48.7656, -43, -45, -43, -40.3438, -43, -33.9673, -43, -30, -43, -25.0643, -43, -19.6503, -43, -14.116, -43, -7.01758, -43, -2, -43, 4.17138, -43, 10.5479, -43, 16.8284, -43, 22.7236, -43, 28.8595, -43, 35.1157, -43, 40.4094, -43, 46.425, -43, 53.5233, -43, 60.0201, -43, 65.3138, -43, 69.8377, -43, 74.1689, -43, 78, 34, 78, 34, 73.447, 34, 68.6346, 34, 61.7768, 34, 57.0847, 34, 52.7535, 34, 47.941, 34, 43.1285, 34, 37.113, 34, 33.0224, 34, 29.413, 34, 23.8301, 34, 17.6942, 34, 12.8817, 34, 7.6843, 34, 2.63122, 34, -2.42186, 34, -7.98022, 34, -12.4317, 34, -17.7254, 34, -22.6582, 34, -28.4332, 34, -34.3284, 34, -38.9002, 34, -44.0736, 34, -49.1267, 34, -54.0595, 34, -59)
 
 [node name="DangerZone2" parent="PuzzleElements" index="9" instance=ExtResource("5_5pgd5")]
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
-material = SubResource("ShaderMaterial_t7ohi")
-texture = SubResource("NoiseTexture2D_58jy2")
+material = SubResource("ShaderMaterial_ln66l")
+texture = SubResource("NoiseTexture2D_hlnpo")
 polygon = PackedVector2Array(847, 152, 847, 156.962, 847, 162.015, 847, 167.068, 847, 171.76, 847, 176.091, 847, 181.024, 847, 186.077, 847, 193, 847, 197.627, 847, 203.282, 847, 207.492, 847, 213.628, 847, 220.366, 847, 226.02, 847, 232.156, 847, 238.413, 847, 245, 847, 250.853, 847, 255.184, 847, 260.358, 847, 265.652, 847, 273, 847.478, 279.27, 847, 285, 917, 285, 917, 279.536, 917, 273.761, 917, 268.587, 917, 263.534, 917, 257.639, 917, 252.706, 917, 248.134, 917, 242.961, 917, 238.75, 917, 231.555, 917, 227.826, 917, 222.171, 917, 217.719, 917, 210.862, 917, 204.846, 917, 199.673, 917, 194.138, 917, 189.446, 917, 183.912, 917, 177.415, 917, 172, 917, 165.384, 917, 161.293, 917, 156.601, 917, 151)
 uv = PackedVector2Array(847, 152, 847, 156.962, 847, 162.015, 847, 167.068, 847, 171.76, 847, 176.091, 847, 181.024, 847, 186.077, 847, 193, 847, 197.627, 847, 203.282, 847, 207.492, 847, 213.628, 847, 220.366, 847, 226.02, 847, 232.156, 847, 238.413, 847, 245, 847, 250.853, 847, 255.184, 847, 260.358, 847, 265.652, 847, 273, 847.478, 279.27, 847, 285, 917, 285, 917, 279.536, 917, 273.761, 917, 268.587, 917, 263.534, 917, 257.639, 917, 252.706, 917, 248.134, 917, 242.961, 917, 238.75, 917, 231.555, 917, 227.826, 917, 222.171, 917, 217.719, 917, 210.862, 917, 204.846, 917, 199.673, 917, 194.138, 917, 189.446, 917, 183.912, 917, 177.415, 917, 172, 917, 165.384, 917, 161.293, 917, 156.601, 917, 151)
 

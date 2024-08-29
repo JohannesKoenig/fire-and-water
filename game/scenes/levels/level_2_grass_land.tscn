@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c4tm341kbo3kh"]
+[gd_scene load_steps=44 format=3 uid="uid://c4tm341kbo3kh"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_mpiqo"]
 [ext_resource type="PackedScene" uid="uid://wtpnjpwe3fky" path="res://scenes/fake_directional_light.tscn" id="2_7xdvx"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cqw6044qgk00u" path="res://scenes/puzzle_elements/button/button.tscn" id="7_iv2ay"]
 [ext_resource type="PackedScene" uid="uid://bbk6gw0yvmspf" path="res://scenes/puzzle_elements/pull_up_door/pull_up_door.tscn" id="8_accf5"]
 [ext_resource type="Script" path="res://scripts/signal_or_combination.gd" id="9_jy1nj"]
+[ext_resource type="TileSet" uid="uid://dars6nlgoywy4" path="res://resources/tile_map_no_collision.tres" id="11_8dgdu"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="15_nid24"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u2kcv"]
@@ -30,6 +31,9 @@ light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pq250"]
 light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v01h3"]
+size = Vector2(39, 2)
 
 [sub_resource type="Curve2D" id="Curve2D_3ux8l"]
 _data = {
@@ -417,7 +421,13 @@ duration = 3.0
 
 [node name="TileMap" parent="PuzzleElements/Platform" index="0" instance=ExtResource("6_46ihu")]
 position = Vector2(-8, 6)
-layer_0/tile_data = PackedInt32Array(-65535, 131072, 0, -65536, 65536, 0, -1, 0, 0)
+tile_set = ExtResource("11_8dgdu")
+layer_0/tile_data = PackedInt32Array(-65535, 131074, 0, -65536, 65538, 0, -1, 2, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleElements/Platform" index="1"]
+position = Vector2(-0.5, -5)
+shape = SubResource("RectangleShape2D_v01h3")
+one_way_collision = true
 
 [node name="PlatformPath" type="Path2D" parent="PuzzleElements" index="1"]
 curve = SubResource("Curve2D_3ux8l")
