@@ -8,3 +8,5 @@ var can_shoot_ball: bool:
 		SaveGameManager.write_savegame()
 
 signal can_shoot_ball_changed(value: bool)
+var collected_fire_gem: bool = false
+var collected_water_gem: bool = false

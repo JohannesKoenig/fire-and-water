@@ -27,11 +27,14 @@
 		"Level 1 Water Temple": {
 			"file": "res://scenes/levels/level_1_water_temple.tscn"
 		},
+		"Level 2 Water Temple": {
+			"file": "res://scenes/levels/level_2_water_temple.tscn"
+		},
 		"Level Final": {
 			"file": "res://scenes/levels/level_final.tscn"
 		}
 	},
-	"first_level": "Level 1",
+	"first_level": "Level 2 Water Temple",
 	"transitions": [
 		{
 			"from": "Level 1",
@@ -67,6 +70,10 @@
 		},
 		{
 			"from": "Level 1 Water Temple",
+			"to": "Level 2 Water Temple"
+		},
+		{
+			"from": "Level 2 Water Temple",
 			"to": "Level Final"
 		},
 		{
