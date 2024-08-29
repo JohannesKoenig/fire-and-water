@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://s1qdr82025vy"]
+
+[ext_resource type="PackedScene" uid="uid://dyy0yt7n2meje" path="res://scenes/gems/gem_socket.tscn" id="1_wg4xf"]
+[ext_resource type="Script" path="res://scripts/gems/fire_gem_socket.gd" id="2_e5bio"]
+[ext_resource type="Texture2D" uid="uid://cctmx7wu033ml" path="res://assets/fire_gem.png" id="3_0n5jf"]
+[ext_resource type="Texture2D" uid="uid://b7kqqyrpvbgul" path="res://assets/water_gem.png" id="4_o6gsq"]
+[ext_resource type="AudioStream" uid="uid://b7ljn30lsasao" path="res://assets/puzzle_elements/lock_console/unlock.wav" id="4_r4s1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jivx7"]
+atlas = ExtResource("3_0n5jf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awg1v"]
+atlas = ExtResource("3_0n5jf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36vd7"]
+atlas = ExtResource("3_0n5jf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwv7h"]
+atlas = ExtResource("3_0n5jf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgb2q"]
+atlas = ExtResource("3_0n5jf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f46jx"]
+atlas = ExtResource("4_o6gsq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iw7n0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jivx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awg1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36vd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwv7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgb2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jivx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jivx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jivx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jivx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jivx7")
+}],
+"loop": true,
+"name": &"collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f46jx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FireGemSocket" instance=ExtResource("1_wg4xf")]
+script = ExtResource("2_e5bio")
+
+[node name="Area2D" parent="." index="0"]
+collision_layer = 512
+collision_mask = 1024
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_iw7n0")
+autoplay = "default"
+
+[node name="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource("4_r4s1d")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
