@@ -1,4 +1,4 @@
-class_name Platform extends Node2D
+class_name Platform extends AnimatableBody2D
 
 @export var path: Path2D
 @export var duration: float = 4
