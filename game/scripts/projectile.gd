@@ -59,6 +59,7 @@ func time_out():
 
 func collide(body):
 	if !collided:
+		ScreenShaker.shake()
 		can_remove_physics = true
 		sprite_2d.visible = false
 		collided = true
