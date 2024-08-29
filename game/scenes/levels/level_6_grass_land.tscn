@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cqw6044qgk00u" path="res://scenes/puzzle_elements/button/button.tscn" id="7_2qhr6"]
 [ext_resource type="PackedScene" uid="uid://bbk6gw0yvmspf" path="res://scenes/puzzle_elements/pull_up_door/pull_up_door.tscn" id="8_0lct0"]
 [ext_resource type="PackedScene" uid="uid://dlkv7a6o0va36" path="res://scenes/puzzle_elements/danger_zone/danger_zone.tscn" id="9_6qa7u"]
+[ext_resource type="Script" path="res://scripts/signal_or_combination.gd" id="10_gsixx"]
 [ext_resource type="Shader" uid="uid://bccbqkhv8pvbb" path="res://resources/puzzle_elements/danger_zone/water_danger_zone_shader.tres" id="11_3dg7g"]
 [ext_resource type="PackedScene" uid="uid://c3xrpo4lbxo78" path="res://scenes/puzzle_elements/collectables.tscn" id="12_64vqx"]
 [ext_resource type="PackedScene" uid="uid://didul4dm6fd6m" path="res://scenes/puzzle_elements/lock_console/lock_console.tscn" id="12_dou6r"]
@@ -409,6 +410,9 @@ position = Vector2(1482, 293)
 [node name="PullUpDoor" parent="PuzzleElements" index="3" instance=ExtResource("8_0lct0")]
 position = Vector2(1682, 289)
 
+[node name="SignalOrCombination" type="Node" parent="PuzzleElements/PullUpDoor" index="5"]
+script = ExtResource("10_gsixx")
+
 [node name="DangerZone" parent="PuzzleElements" index="4" instance=ExtResource("9_6qa7u")]
 position = Vector2(1370, 301)
 
@@ -483,11 +487,13 @@ curve = SubResource("Curve2D_wlgs3")
 [node name="lower_platform" type="Path2D" parent="PuzzleElements" index="13"]
 curve = SubResource("Curve2D_0dsy5")
 
-[connection signal="button_active" from="PuzzleElements/Button" to="PuzzleElements/PullUpDoor" method="open"]
 [connection signal="button_active" from="PuzzleElements/Button" to="PuzzleElements/Line2D" method="activate"]
-[connection signal="button_inactive" from="PuzzleElements/Button" to="PuzzleElements/PullUpDoor" method="close"]
+[connection signal="button_active" from="PuzzleElements/Button" to="PuzzleElements/PullUpDoor/SignalOrCombination" method="on_signal"]
 [connection signal="button_inactive" from="PuzzleElements/Button" to="PuzzleElements/Line2D" method="deactivate"]
-[connection signal="locked" from="PuzzleElements/LockConsole" to="PuzzleElements/PullUpDoor" method="close"]
+[connection signal="button_inactive" from="PuzzleElements/Button" to="PuzzleElements/PullUpDoor/SignalOrCombination" method="off_signal"]
+[connection signal="off" from="PuzzleElements/PullUpDoor/SignalOrCombination" to="PuzzleElements/PullUpDoor" method="close"]
+[connection signal="on" from="PuzzleElements/PullUpDoor/SignalOrCombination" to="PuzzleElements/PullUpDoor" method="open"]
 [connection signal="locked" from="PuzzleElements/LockConsole" to="PuzzleElements/Line2D2" method="deactivate"]
-[connection signal="unlocked" from="PuzzleElements/LockConsole" to="PuzzleElements/PullUpDoor" method="open"]
+[connection signal="locked" from="PuzzleElements/LockConsole" to="PuzzleElements/PullUpDoor/SignalOrCombination" method="off_signal"]
 [connection signal="unlocked" from="PuzzleElements/LockConsole" to="PuzzleElements/Line2D2" method="activate"]
+[connection signal="unlocked" from="PuzzleElements/LockConsole" to="PuzzleElements/PullUpDoor/SignalOrCombination" method="on_signal"]
