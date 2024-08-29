@@ -182,6 +182,8 @@ visible = false
 position = Vector2(256, 144)
 position_smoothing_speed = 2.0
 script = ExtResource("4_i3jek")
+shake_amplitude = 3.0
+shake_duration = 0.2
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="GameCamera"]
 
