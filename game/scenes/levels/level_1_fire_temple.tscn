@@ -508,7 +508,7 @@ seamless_blend_skirt = 0.585
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_f3vxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y3l6w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0abd"]
 shader = ExtResource("6_opww6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -522,7 +522,7 @@ shader_parameter/scroll_speed = 0.01
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l7ak7"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_siwb0"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_srvr8"]
 frequency = 0.0255
@@ -542,7 +542,7 @@ seamless = true
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_kfhy3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_on4pa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rkcnq"]
 shader = ExtResource("6_opww6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -556,7 +556,7 @@ shader_parameter/scroll_speed = 0.04
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cdf3e"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3nxyj"]
 
 [node name="Level2" instance=ExtResource("1_hjhca")]
 level_name = "Level 1 Fire Temple"
@@ -703,16 +703,16 @@ position = Vector2(753, 209)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
-material = SubResource("ShaderMaterial_y3l6w")
-texture = SubResource("NoiseTexture2D_l7ak7")
+material = SubResource("ShaderMaterial_u0abd")
+texture = SubResource("NoiseTexture2D_siwb0")
 polygon = PackedVector2Array(-43, -59, -43, -55.2624, -43, -52.2547, -43, -48.7656, -43, -45, -43, -40.3438, -43, -33.9673, -43, -30, -43, -25.0643, -43, -19.6503, -43, -14.116, -43, -7.01758, -43, -2, -43, 4.17138, -43, 10.5479, -43, 16.8284, -43, 22.7236, -43, 28.8595, -43, 35.1157, -43, 40.4094, -43, 46.425, -43, 53.5233, -43, 60.0201, -43, 65.3138, -43, 69.8377, -43, 74.1689, -43, 78, 34, 78, 34, 73.447, 34, 68.6346, 34, 61.7768, 34, 57.0847, 34, 52.7535, 34, 47.941, 34, 43.1285, 34, 37.113, 34, 33.0224, 34, 29.413, 34, 23.8301, 34, 17.6942, 34, 12.8817, 34, 7.6843, 34, 2.63122, 34, -2.42186, 34, -7.98022, 34, -12.4317, 34, -17.7254, 34, -22.6582, 34, -28.4332, 34, -34.3284, 34, -38.9002, 34, -44.0736, 34, -49.1267, 34, -54.0595, 34, -59)
 uv = PackedVector2Array(-43, -59, -43, -55.2624, -43, -52.2547, -43, -48.7656, -43, -45, -43, -40.3438, -43, -33.9673, -43, -30, -43, -25.0643, -43, -19.6503, -43, -14.116, -43, -7.01758, -43, -2, -43, 4.17138, -43, 10.5479, -43, 16.8284, -43, 22.7236, -43, 28.8595, -43, 35.1157, -43, 40.4094, -43, 46.425, -43, 53.5233, -43, 60.0201, -43, 65.3138, -43, 69.8377, -43, 74.1689, -43, 78, 34, 78, 34, 73.447, 34, 68.6346, 34, 61.7768, 34, 57.0847, 34, 52.7535, 34, 47.941, 34, 43.1285, 34, 37.113, 34, 33.0224, 34, 29.413, 34, 23.8301, 34, 17.6942, 34, 12.8817, 34, 7.6843, 34, 2.63122, 34, -2.42186, 34, -7.98022, 34, -12.4317, 34, -17.7254, 34, -22.6582, 34, -28.4332, 34, -34.3284, 34, -38.9002, 34, -44.0736, 34, -49.1267, 34, -54.0595, 34, -59)
 
 [node name="DangerZone2" parent="PuzzleElements" index="9" instance=ExtResource("5_5pgd5")]
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
-material = SubResource("ShaderMaterial_on4pa")
-texture = SubResource("NoiseTexture2D_cdf3e")
+material = SubResource("ShaderMaterial_rkcnq")
+texture = SubResource("NoiseTexture2D_3nxyj")
 polygon = PackedVector2Array(847, 152, 847, 156.962, 847, 162.015, 847, 167.068, 847, 171.76, 847, 176.091, 847, 181.024, 847, 186.077, 847, 193, 847, 197.627, 847, 203.282, 847, 207.492, 847, 213.628, 847, 220.366, 847, 226.02, 847, 232.156, 847, 238.413, 847, 245, 847, 250.853, 847, 255.184, 847, 260.358, 847, 265.652, 847, 273, 847.478, 279.27, 847, 285, 917, 285, 917, 279.536, 917, 273.761, 917, 268.587, 917, 263.534, 917, 257.639, 917, 252.706, 917, 248.134, 917, 242.961, 917, 238.75, 917, 231.555, 917, 227.826, 917, 222.171, 917, 217.719, 917, 210.862, 917, 204.846, 917, 199.673, 917, 194.138, 917, 189.446, 917, 183.912, 917, 177.415, 917, 172, 917, 165.384, 917, 161.293, 917, 156.601, 917, 151)
 uv = PackedVector2Array(847, 152, 847, 156.962, 847, 162.015, 847, 167.068, 847, 171.76, 847, 176.091, 847, 181.024, 847, 186.077, 847, 193, 847, 197.627, 847, 203.282, 847, 207.492, 847, 213.628, 847, 220.366, 847, 226.02, 847, 232.156, 847, 238.413, 847, 245, 847, 250.853, 847, 255.184, 847, 260.358, 847, 265.652, 847, 273, 847.478, 279.27, 847, 285, 917, 285, 917, 279.536, 917, 273.761, 917, 268.587, 917, 263.534, 917, 257.639, 917, 252.706, 917, 248.134, 917, 242.961, 917, 238.75, 917, 231.555, 917, 227.826, 917, 222.171, 917, 217.719, 917, 210.862, 917, 204.846, 917, 199.673, 917, 194.138, 917, 189.446, 917, 183.912, 917, 177.415, 917, 172, 917, 165.384, 917, 161.293, 917, 156.601, 917, 151)
 

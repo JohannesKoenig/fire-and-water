@@ -42,7 +42,7 @@ seamless_blend_skirt = 0.585
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_f3vxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_avosg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7u7p2"]
 shader = ExtResource("9_rexs1")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -56,7 +56,7 @@ shader_parameter/scroll_speed = 0.01
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jrr4x"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qhdna"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_srvr8"]
 frequency = 0.0255
@@ -76,7 +76,7 @@ seamless = true
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_kfhy3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xmrqb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4sp7"]
 shader = ExtResource("9_rexs1")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -90,7 +90,7 @@ shader_parameter/scroll_speed = 0.04
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_adwn8"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qyyk1"]
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_6p0p1"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
@@ -856,8 +856,8 @@ position = Vector2(605, 291)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="DangerZone" index="1"]
-material = SubResource("ShaderMaterial_avosg")
-texture = SubResource("NoiseTexture2D_jrr4x")
+material = SubResource("ShaderMaterial_7u7p2")
+texture = SubResource("NoiseTexture2D_qhdna")
 polygon = PackedVector2Array(0, 0, 88, 0, 88, 16, -1, 16, -1, 0)
 uv = PackedVector2Array(0, 0, 88, 0, 88, 16, -1, 16, -1, 0)
 
@@ -866,8 +866,8 @@ z_index = 9
 position = Vector2(588, 221)
 
 [node name="Polygon2D" type="Polygon2D" parent="DangerZone2" index="1"]
-material = SubResource("ShaderMaterial_xmrqb")
-texture = SubResource("NoiseTexture2D_adwn8")
+material = SubResource("ShaderMaterial_p4sp7")
+texture = SubResource("NoiseTexture2D_qyyk1")
 polygon = PackedVector2Array(0, 0, 103, 0, 103, 21, 0, 21)
 uv = PackedVector2Array(0, 0, 103, 0, 103, 21, 0, 21)
 

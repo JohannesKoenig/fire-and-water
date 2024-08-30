@@ -104,6 +104,10 @@ func load_level(level_name: String):
 	SaveGameManager.write_savegame()
 	
 	var spawn_points = current_level_scene.get_spawn_points()
+	var sound_track = current_level_scene.sound_track
+	if sound_track != audio_stream_player.stream:
+		audio_stream_player.stream = sound_track
+		audio_stream_player.play()
 	water_player.position = spawn_points.water_spawn_point
 	water_player.has_key = false
 	fire_player.position = spawn_points.fire_spawn_point

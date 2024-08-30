@@ -2,6 +2,7 @@
 class_name Level extends Node2D
 
 @export var level_name: String
+@export var sound_track: AudioStream
 
 @onready var fire_spawn_point = $FireSpawnPoint
 @onready var water_spawn_point = $WaterSpawnPoint
