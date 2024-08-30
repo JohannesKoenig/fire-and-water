@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://02qflwtb86u0"]
+[gd_scene load_steps=34 format=3 uid="uid://02qflwtb86u0"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_al7qo"]
 [ext_resource type="PackedScene" uid="uid://dfdd3jbx4chlh" path="res://scenes/fake_window_light.tscn" id="2_srore"]
+[ext_resource type="AudioStream" uid="uid://wtqgi75aoyga" path="res://assets/music/water_temple_music.mp3" id="2_y15mm"]
 [ext_resource type="PackedScene" uid="uid://ck7np6asmhc24" path="res://scenes/torch.tscn" id="3_1oan0"]
 [ext_resource type="PackedScene" uid="uid://wtpnjpwe3fky" path="res://scenes/fake_directional_light.tscn" id="4_m77vp"]
 [ext_resource type="PackedScene" uid="uid://bbk6gw0yvmspf" path="res://scenes/puzzle_elements/pull_up_door/pull_up_door.tscn" id="5_73qw5"]
@@ -30,6 +31,9 @@ shader_parameter/Diffuse = ExtResource("14_rsop2")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_387ui"]
 light_mode = 1
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj85q"]
+size = Vector2(16, 8)
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_srvr8"]
 frequency = 0.0255
 
@@ -48,7 +52,7 @@ seamless = true
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_kfhy3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0nqw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2dkc8"]
 shader = ExtResource("10_dcqv6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -62,7 +66,7 @@ shader_parameter/scroll_speed = 0.04
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o1hub"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_phyx1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gaotu"]
 frequency = 0.0562
@@ -83,7 +87,7 @@ seamless_blend_skirt = 0.585
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_f3vxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvmym"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a71av"]
 shader = ExtResource("10_dcqv6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -97,10 +101,11 @@ shader_parameter/scroll_speed = 0.01
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r5pyp"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6tc86"]
 
 [node name="Level" instance=ExtResource("1_al7qo")]
 level_name = "Level 2 Water Temple"
+sound_track = ExtResource("2_y15mm")
 
 [node name="FireSpawnPoint" parent="." index="0"]
 position = Vector2(976, -77)
@@ -226,6 +231,10 @@ position = Vector2(1161, 178)
 position = Vector2(1090, 26)
 rotation = -1.5708
 
+[node name="CollisionShape2D" parent="PuzzleElements/Button/Area2D" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_yj85q")
+
 [node name="Line2D" parent="PuzzleElements" index="2" instance=ExtResource("7_fkgfn")]
 position = Vector2(1053, 50)
 points = PackedVector2Array(112, 86, 112, 119, 11, 119, 11, -9, 43, -9, 43, -24, 37, -24)
@@ -237,10 +246,10 @@ script = ExtResource("8_l0ki8")
 position = Vector2(1111, 507)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
-material = SubResource("ShaderMaterial_n0nqw")
+material = SubResource("ShaderMaterial_2dkc8")
 position = Vector2(-5.00005, 9)
 scale = Vector2(0.166159, 1)
-texture = SubResource("NoiseTexture2D_o1hub")
+texture = SubResource("NoiseTexture2D_phyx1")
 polygon = PackedVector2Array(122.977, -12, 122.977, -7, -39.5176, -7, -39.5176, -12)
 uv = PackedVector2Array(122.977, -12, 122.977, -7, -39.5176, -7, -39.5176, -12)
 
@@ -249,8 +258,8 @@ position = Vector2(1047, 507)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
-material = SubResource("ShaderMaterial_wvmym")
-texture = SubResource("NoiseTexture2D_r5pyp")
+material = SubResource("ShaderMaterial_a71av")
+texture = SubResource("NoiseTexture2D_6tc86")
 polygon = PackedVector2Array(-14, -4, 14, -4, 14, 2, -14, 2)
 uv = PackedVector2Array(-14, -4, 14, -4, 14, 2, -14, 2)
 
@@ -259,7 +268,7 @@ position = Vector2(1008, 56)
 rotation = 1.5708
 
 [node name="Button2" parent="PuzzleElements" index="7" instance=ExtResource("6_1b5pv")]
-position = Vector2(1273, 50)
+position = Vector2(1273, 51)
 
 [node name="Spikes" parent="PuzzleElements" index="8" instance=ExtResource("11_13gm2")]
 position = Vector2(1157, 723)
@@ -301,3 +310,6 @@ position = Vector2(1088, -59)
 [connection signal="on" from="PuzzleElements/SignalOrCombination" to="PuzzleElements/PullUpDoor" method="open"]
 [connection signal="button_active" from="PuzzleElements/Button2" to="PuzzleElements/PullUpDoor2" method="open"]
 [connection signal="button_inactive" from="PuzzleElements/Button2" to="PuzzleElements/PullUpDoor2" method="close"]
+
+[editable path="PuzzleElements/PullUpDoor"]
+[editable path="PuzzleElements/Button"]

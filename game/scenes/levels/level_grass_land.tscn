@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2jq7dosx00rk"]
+[gd_scene load_steps=25 format=3 uid="uid://d2jq7dosx00rk"]
 
 [ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_ibqed"]
+[ext_resource type="AudioStream" uid="uid://cyo0fgqc6xrf1" path="res://assets/music/grass_land_music.mp3" id="2_at76g"]
 [ext_resource type="Texture2D" uid="uid://c4ujglvswhjqo" path="res://assets/background_clouds.png" id="2_rd3yi"]
 [ext_resource type="Script" path="res://scripts/auto_scrolling_parallax_layer.gd" id="3_yifrl"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="4_f7beb"]
@@ -88,6 +89,7 @@ fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 
 [node name="Level" instance=ExtResource("1_ibqed")]
+sound_track = ExtResource("2_at76g")
 
 [node name="CanvasModulate" parent="." index="4"]
 color = Color(0.309804, 0.309804, 0.309804, 1)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8i1yq8saaw0v"]
+[gd_scene load_steps=13 format=3 uid="uid://c8i1yq8saaw0v"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_q50nw"]
+[ext_resource type="AudioStream" uid="uid://cfs8p82bosfjt" path="res://assets/music/intro_music.mp3" id="2_2b5be"]
 [ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="2_htkqy"]
 [ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="3_k0rmv"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="4_myysk"]
@@ -22,6 +23,7 @@ shader_parameter/Diffuse = ExtResource("4_myysk")
 
 [node name="Level" instance=ExtResource("1_q50nw")]
 level_name = "Level Unlock Ball"
+sound_track = ExtResource("2_2b5be")
 
 [node name="FireSpawnPoint" parent="." index="0"]
 position = Vector2(274, 249)

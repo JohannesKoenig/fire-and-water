@@ -12,7 +12,7 @@ func get_input() -> InputPackage:
 	if input_package.direction != 0:
 		input_package.actions.append("Walk")
 	
-	if Input.is_action_just_pressed(_contextualize_input_name("jump")):
+	if Input.is_action_pressed(_contextualize_input_name("jump")):
 		input_package.actions.append("Jump")
 	
 	if Input.is_action_just_pressed(_contextualize_input_name("special")):

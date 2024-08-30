@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://c4tm341kbo3kh"]
+[gd_scene load_steps=45 format=3 uid="uid://c4tm341kbo3kh"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_mpiqo"]
 [ext_resource type="PackedScene" uid="uid://wtpnjpwe3fky" path="res://scenes/fake_directional_light.tscn" id="2_7xdvx"]
 [ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="2_w4ssn"]
+[ext_resource type="AudioStream" uid="uid://cfs8p82bosfjt" path="res://assets/music/intro_music.mp3" id="2_xlas1"]
 [ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="3_nxbh2"]
 [ext_resource type="PackedScene" uid="uid://dfdd3jbx4chlh" path="res://scenes/fake_window_light.tscn" id="3_uay33"]
 [ext_resource type="PackedScene" uid="uid://ck7np6asmhc24" path="res://scenes/torch.tscn" id="4_jpu7r"]
@@ -265,6 +266,7 @@ shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_s4xsr")
 
 [node name="Level" instance=ExtResource("1_mpiqo")]
 level_name = "Level 2"
+sound_track = ExtResource("2_xlas1")
 
 [node name="FireSpawnPoint" parent="." index="0"]
 position = Vector2(166, 405)
