@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://coh8qmosrcerh"]
+[gd_scene load_steps=36 format=3 uid="uid://coh8qmosrcerh"]
 
 [ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_kffbk"]
+[ext_resource type="AudioStream" uid="uid://0sctwfle5m3l" path="res://assets/music/fire_temple_music.mp3" id="2_bss61"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_syv4b"]
 light_mode = 1
@@ -277,6 +278,7 @@ fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 
 [node name="Level2" instance=ExtResource("1_kffbk")]
+sound_track = ExtResource("2_bss61")
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 modulate = Color(1, 0.466667, 0.0588235, 1)
