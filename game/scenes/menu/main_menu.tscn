@@ -473,7 +473,7 @@ layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_651bc")
-volume_db = -13.703
+volume_db = -20.0
 autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
