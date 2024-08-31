@@ -44,3 +44,7 @@ func is_finished() -> bool:
 
 func get_focus_point() -> Vector2:
 	return focus_point.global_position
+
+
+func close():
+	pass # Replace with function body.

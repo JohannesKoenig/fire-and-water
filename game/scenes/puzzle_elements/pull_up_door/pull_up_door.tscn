@@ -491,3 +491,4 @@ autoplay = "inactive"
 stream = ExtResource("4_y32ug")
 volume_db = 20.0
 max_polyphony = 2
+bus = &"doors"

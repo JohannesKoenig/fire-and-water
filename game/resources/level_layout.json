@@ -33,6 +33,9 @@
 		"Level 2 Water Temple": {
 			"file": "res://scenes/levels/level_2_water_temple.tscn"
 		},
+		"Level Water Gem": {
+			"file": "res://scenes/levels/level_water_gem.tscn"
+		},
 		"Level Final": {
 			"file": "res://scenes/levels/level_final.tscn"
 		}
@@ -81,6 +84,10 @@
 		},
 		{
 			"from": "Level 2 Water Temple",
+			"to": "Level Water Gem"
+		},
+		{
+			"from": "Level Water Gem",
 			"to": "Level Final"
 		},
 		{
