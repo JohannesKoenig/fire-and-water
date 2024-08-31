@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://02qflwtb86u0"]
+[gd_scene load_steps=32 format=3 uid="uid://02qflwtb86u0"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_al7qo"]
 [ext_resource type="PackedScene" uid="uid://dfdd3jbx4chlh" path="res://scenes/fake_window_light.tscn" id="2_srore"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="13_aaq7q"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="14_rsop2"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="15_8krlx"]
-[ext_resource type="PackedScene" uid="uid://e7bbqrem7rjv" path="res://scenes/gems/water_gem.tscn" id="17_87kd1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijkv2"]
 resource_local_to_scene = true
@@ -51,7 +50,7 @@ seamless = true
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_kfhy3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tg7u0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kc5ph"]
 shader = ExtResource("10_dcqv6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -65,7 +64,7 @@ shader_parameter/scroll_speed = 0.04
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_40vh2"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fa7gi"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gaotu"]
 frequency = 0.0562
@@ -86,7 +85,7 @@ seamless_blend_skirt = 0.585
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_f3vxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yvn3a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwp3d"]
 shader = ExtResource("10_dcqv6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -100,7 +99,7 @@ shader_parameter/scroll_speed = 0.01
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cdwqs"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_km3wi"]
 
 [node name="Level" instance=ExtResource("1_al7qo")]
 level_name = "Level 2 Water Temple"
@@ -253,9 +252,9 @@ script = ExtResource("8_l0ki8")
 position = Vector2(1106, 514)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
-material = SubResource("ShaderMaterial_tg7u0")
+material = SubResource("ShaderMaterial_kc5ph")
 scale = Vector2(0.166159, 1)
-texture = SubResource("NoiseTexture2D_40vh2")
+texture = SubResource("NoiseTexture2D_fa7gi")
 polygon = PackedVector2Array(122.977, -12, 122.977, -7, -39.5176, -7, -39.5176, -12)
 uv = PackedVector2Array(122.977, -12, 122.977, -7, -39.5176, -7, -39.5176, -12)
 
@@ -264,8 +263,8 @@ position = Vector2(1047, 505)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
-material = SubResource("ShaderMaterial_yvn3a")
-texture = SubResource("NoiseTexture2D_cdwqs")
+material = SubResource("ShaderMaterial_kwp3d")
+texture = SubResource("NoiseTexture2D_km3wi")
 polygon = PackedVector2Array(-14, -4, 14, -4, 14, 2, -14, 2)
 uv = PackedVector2Array(-14, -4, 14, -4, 14, 2, -14, 2)
 
@@ -301,9 +300,6 @@ rotation = 1.309
 [node name="Spikes5" parent="PuzzleElements" index="15" instance=ExtResource("11_13gm2")]
 position = Vector2(1252, 700)
 rotation = -1.0472
-
-[node name="WaterGem" parent="." index="18" instance=ExtResource("17_87kd1")]
-position = Vector2(1122, 630)
 
 [connection signal="button_active" from="PuzzleElements/Button" to="PuzzleElements/Line2D" method="activate"]
 [connection signal="button_active" from="PuzzleElements/Button" to="PuzzleElements/SignalOrCombination" method="on_signal"]
