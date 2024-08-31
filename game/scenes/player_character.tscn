@@ -18,8 +18,9 @@
 radius = 5.0
 height = 24.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q1y1r"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7w3j"]
 radius = 5.0
+height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qohb8"]
 radius = 5.0
@@ -55,8 +56,8 @@ collision_layer = 1024
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitSensor"]
-position = Vector2(0, -9)
-shape = SubResource("CircleShape2D_q1y1r")
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_s7w3j")
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("agent")]
 collision_layer = 256

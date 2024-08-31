@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://02qflwtb86u0"]
+[gd_scene load_steps=33 format=3 uid="uid://02qflwtb86u0"]
 
 [ext_resource type="PackedScene" uid="uid://d2jq7dosx00rk" path="res://scenes/levels/level_grass_land.tscn" id="1_al7qo"]
 [ext_resource type="PackedScene" uid="uid://dfdd3jbx4chlh" path="res://scenes/fake_window_light.tscn" id="2_srore"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="13_aaq7q"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="14_rsop2"]
 [ext_resource type="Script" path="res://scripts/exit_finish_condition.gd" id="15_8krlx"]
-[ext_resource type="PackedScene" uid="uid://kecsur2qvm62" path="res://scenes/gems/fire_gem.tscn" id="16_ceqtu"]
 [ext_resource type="PackedScene" uid="uid://e7bbqrem7rjv" path="res://scenes/gems/water_gem.tscn" id="17_87kd1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijkv2"]
@@ -52,7 +51,7 @@ seamless = true
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_kfhy3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2dkc8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sal8d"]
 shader = ExtResource("10_dcqv6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -66,7 +65,7 @@ shader_parameter/scroll_speed = 0.04
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_fhc4f")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_d86a4")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_phyx1"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4a8a5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gaotu"]
 frequency = 0.0562
@@ -87,7 +86,7 @@ seamless_blend_skirt = 0.585
 bump_strength = 14.0
 noise = SubResource("FastNoiseLite_f3vxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a71av"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjv0h"]
 shader = ExtResource("10_dcqv6")
 shader_parameter/DisplacementSpeed = 0.01
 shader_parameter/NoiseDisplacementStrength = 5.0
@@ -101,7 +100,7 @@ shader_parameter/scroll_speed = 0.01
 shader_parameter/DisplacementNoiseTexture = SubResource("NoiseTexture2D_yt3bg")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_ywsui")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6tc86"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rkgvs"]
 
 [node name="Level" instance=ExtResource("1_al7qo")]
 level_name = "Level 2 Water Temple"
@@ -165,54 +164,42 @@ texture_scale = 3.0
 position = Vector2(1097, -69)
 texture_scale = 3.0
 
-[node name="FakeWindowLight3" parent="Details" index="2" instance=ExtResource("2_srore")]
-position = Vector2(520, 120)
-texture_scale = 3.0
+[node name="Torch" parent="Details" index="2" instance=ExtResource("3_1oan0")]
+position = Vector2(1033, 293)
 
-[node name="FakeWindowLight5" parent="Details" index="3" instance=ExtResource("2_srore")]
-position = Vector2(423, 261)
-texture_scale = 3.0
-
-[node name="FakeWindowLight4" parent="Details" index="4" instance=ExtResource("2_srore")]
-position = Vector2(346, 169)
-texture_scale = 3.0
-
-[node name="Torch" parent="Details" index="5" instance=ExtResource("3_1oan0")]
-position = Vector2(1032, 337)
-
-[node name="Torch2" parent="Details" index="6" instance=ExtResource("3_1oan0")]
+[node name="Torch2" parent="Details" index="3" instance=ExtResource("3_1oan0")]
 position = Vector2(1079, 183)
 
-[node name="Torch3" parent="Details" index="7" instance=ExtResource("3_1oan0")]
+[node name="Torch3" parent="Details" index="4" instance=ExtResource("3_1oan0")]
 position = Vector2(1119, 287)
 
-[node name="Torch4" parent="Details" index="8" instance=ExtResource("3_1oan0")]
+[node name="Torch4" parent="Details" index="5" instance=ExtResource("3_1oan0")]
 position = Vector2(1016, 11)
 
-[node name="Torch5" parent="Details" index="9" instance=ExtResource("3_1oan0")]
+[node name="Torch5" parent="Details" index="6" instance=ExtResource("3_1oan0")]
 position = Vector2(1103, 64)
 
-[node name="Torch6" parent="Details" index="10" instance=ExtResource("3_1oan0")]
-position = Vector2(1024, 475)
+[node name="Torch6" parent="Details" index="7" instance=ExtResource("3_1oan0")]
+position = Vector2(1038, 436)
 
-[node name="Torch13" parent="Details" index="11" instance=ExtResource("3_1oan0")]
-position = Vector2(1093, 477)
+[node name="Torch13" parent="Details" index="8" instance=ExtResource("3_1oan0")]
+position = Vector2(1096, 395)
 
-[node name="Torch7" parent="Details" index="12" instance=ExtResource("3_1oan0")]
+[node name="Torch7" parent="Details" index="9" instance=ExtResource("3_1oan0")]
 position = Vector2(1215, 29)
 
-[node name="Torch8" parent="Details" index="13" instance=ExtResource("3_1oan0")]
+[node name="Torch8" parent="Details" index="10" instance=ExtResource("3_1oan0")]
 position = Vector2(1200, 696)
 
-[node name="Torch11" parent="Details" index="14" instance=ExtResource("3_1oan0")]
-position = Vector2(1146, 557)
+[node name="Torch11" parent="Details" index="11" instance=ExtResource("3_1oan0")]
+position = Vector2(1122, 606)
 
-[node name="FakeDirectionalLight2" parent="Details" index="15" instance=ExtResource("4_m77vp")]
+[node name="FakeDirectionalLight2" parent="Details" index="12" instance=ExtResource("4_m77vp")]
 position = Vector2(1377, 628)
 scale = Vector2(1.3916, 1.18164)
 texture_scale = 4.0
 
-[node name="Label" type="Label" parent="Details" index="16"]
+[node name="Label" type="Label" parent="Details" index="13"]
 z_index = 6
 material = SubResource("CanvasItemMaterial_387ui")
 offset_left = 1014.0
@@ -223,6 +210,26 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 8
 text = "Level ?"
 horizontal_alignment = 1
+
+[node name="FakeDirectionalLight" parent="Details" index="14" instance=ExtResource("4_m77vp")]
+position = Vector2(1336, 553)
+energy = 2.91
+shadow_enabled = false
+texture_scale = 3.6
+
+[node name="FakeDirectionalLight3" parent="Details" index="15" instance=ExtResource("4_m77vp")]
+position = Vector2(1047, 507)
+color = Color(0, 0.478431, 0.976471, 1)
+energy = 2.91
+shadow_enabled = false
+texture_scale = 1.5
+
+[node name="FakeDirectionalLight4" parent="Details" index="16" instance=ExtResource("4_m77vp")]
+position = Vector2(1110, 507)
+color = Color(0.894118, 0.196078, 0, 1)
+energy = 2.91
+shadow_enabled = false
+texture_scale = 1.5
 
 [node name="PullUpDoor" parent="PuzzleElements" index="0" instance=ExtResource("5_73qw5")]
 position = Vector2(1161, 178)
@@ -243,23 +250,22 @@ points = PackedVector2Array(112, 86, 112, 119, 11, 119, 11, -9, 43, -9, 43, -24,
 script = ExtResource("8_l0ki8")
 
 [node name="DangerZone" parent="PuzzleElements" index="4" instance=ExtResource("9_hoh0n")]
-position = Vector2(1111, 507)
+position = Vector2(1106, 514)
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone" index="1"]
-material = SubResource("ShaderMaterial_2dkc8")
-position = Vector2(-5.00005, 9)
+material = SubResource("ShaderMaterial_sal8d")
 scale = Vector2(0.166159, 1)
-texture = SubResource("NoiseTexture2D_phyx1")
+texture = SubResource("NoiseTexture2D_4a8a5")
 polygon = PackedVector2Array(122.977, -12, 122.977, -7, -39.5176, -7, -39.5176, -12)
 uv = PackedVector2Array(122.977, -12, 122.977, -7, -39.5176, -7, -39.5176, -12)
 
 [node name="DangerZone2" parent="PuzzleElements" index="5" instance=ExtResource("9_hoh0n")]
-position = Vector2(1047, 507)
+position = Vector2(1047, 505)
 element = "Water"
 
 [node name="Polygon2D" type="Polygon2D" parent="PuzzleElements/DangerZone2" index="1"]
-material = SubResource("ShaderMaterial_a71av")
-texture = SubResource("NoiseTexture2D_6tc86")
+material = SubResource("ShaderMaterial_yjv0h")
+texture = SubResource("NoiseTexture2D_rkgvs")
 polygon = PackedVector2Array(-14, -4, 14, -4, 14, 2, -14, 2)
 uv = PackedVector2Array(-14, -4, 14, -4, 14, 2, -14, 2)
 
@@ -296,11 +302,8 @@ rotation = 1.309
 position = Vector2(1252, 700)
 rotation = -1.0472
 
-[node name="FireGem" parent="." index="18" instance=ExtResource("16_ceqtu")]
-position = Vector2(1019, -27)
-
-[node name="WaterGem" parent="." index="19" instance=ExtResource("17_87kd1")]
-position = Vector2(1088, -59)
+[node name="WaterGem" parent="." index="18" instance=ExtResource("17_87kd1")]
+position = Vector2(1122, 630)
 
 [connection signal="button_active" from="PuzzleElements/Button" to="PuzzleElements/Line2D" method="activate"]
 [connection signal="button_active" from="PuzzleElements/Button" to="PuzzleElements/SignalOrCombination" method="on_signal"]
