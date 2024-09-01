@@ -474,6 +474,7 @@ texture = ExtResource("3_60el7")
 collision_base_size = 10.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(0, -40)
 color = Color(0.501961, 0.886275, 1, 1)
 energy = 0.0
