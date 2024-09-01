@@ -36,6 +36,9 @@
 		"Level Water Gem": {
 			"file": "res://scenes/levels/level_water_gem.tscn"
 		},
+		"Level Exit Water Temple": {
+			"file": "res://scenes/levels/level_exit_water_temple.tscn"
+		},
 		"Level Final": {
 			"file": "res://scenes/levels/level_final.tscn"
 		}
@@ -88,6 +91,10 @@
 		},
 		{
 			"from": "Level Water Gem",
+			"to": "Level Exit Water Temple"
+		},
+		{
+			"from": "Level Exit Water Temple",
 			"to": "Level Final"
 		},
 		{
