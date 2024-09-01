@@ -24,6 +24,9 @@
 		"Level 1 Fire Temple": {
 			"file": "res://scenes/levels/level_1_fire_temple.tscn"
 		},
+		"Level 2 Fire Temple": {
+			"file": "res://scenes/levels/level_2_fire_temple.tscn"
+		},
 		"Level Fire Gem": {
 			"file": "res://scenes/levels/level_fire_gem.tscn"
 		},
@@ -67,6 +70,10 @@
 		},
 		{
 			"from": "Level 1 Fire Temple",
+			"to": "Level 2 Fire Temple"
+		},
+		{
+			"from": "Level 2 Fire Temple",
 			"to": "Level Fire Gem"
 		},
 		{
