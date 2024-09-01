@@ -1,7 +1,14 @@
-[gd_scene load_steps=30 format=3 uid="uid://bnkuxvbrapjrw"]
+[gd_scene load_steps=39 format=3 uid="uid://bnkuxvbrapjrw"]
 
 [ext_resource type="PackedScene" uid="uid://ej6lgkpbihc7" path="res://scenes/levels/level.tscn" id="1_gs0cv"]
 [ext_resource type="AudioStream" uid="uid://wtqgi75aoyga" path="res://assets/music/water_temple_music.mp3" id="2_upfwy"]
+[ext_resource type="Texture2D" uid="uid://c4ujglvswhjqo" path="res://assets/background_clouds.png" id="3_hhjo0"]
+[ext_resource type="Script" path="res://scripts/auto_scrolling_parallax_layer.gd" id="4_xh17r"]
+[ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="5_as6r1"]
+[ext_resource type="Texture2D" uid="uid://ptw2gx5qbls5" path="res://assets/hills.png" id="6_p73kx"]
+[ext_resource type="Script" path="res://scripts/cloud_shadow_parallax_layer.gd" id="7_om13s"]
+[ext_resource type="Shader" uid="uid://c7wltrh1q100a" path="res://resources/clipping_shader.tres" id="8_0vvas"]
+[ext_resource type="Texture2D" uid="uid://y6n0b3aemigf" path="res://assets/front_hills.png" id="9_bcr5i"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_17y4x"]
 light_mode = 1
@@ -16,6 +23,18 @@ width = 2048
 height = 1152
 fill_to = Vector2(0, 1)
 metadata/_snap_enabled = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ir4wv"]
+light_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_45x6b"]
+resource_local_to_scene = true
+shader = ExtResource("8_0vvas")
+shader_parameter/ShadowColor = Color(0, 0, 0, 0.152941)
+shader_parameter/ClippingMaskOffset = 0.0
+shader_parameter/AlphaTheshold = 0.024
+shader_parameter/ClippingMask = ExtResource("6_p73kx")
+shader_parameter/Diffuse = ExtResource("5_as6r1")
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_pfjvh"]
 
@@ -255,6 +274,115 @@ offset_top = -338.0
 offset_right = 2048.0
 offset_bottom = 814.0
 texture = SubResource("GradientTexture2D_6d3vn")
+
+[node name="BackgroundClouds" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+modulate = Color(0, 0.572549, 0.964706, 1)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/BackgroundClouds" index="0"]
+texture_filter = 2
+material = SubResource("CanvasItemMaterial_ir4wv")
+offset_top = -225.0
+offset_right = 1024.0
+offset_bottom = 351.0
+texture = ExtResource("3_hhjo0")
+stretch_mode = 1
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+modulate = Color(0.156863, 0.752941, 1, 1)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+script = ExtResource("4_xh17r")
+velocity = Vector2(4, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Clouds" index="0"]
+texture_filter = 2
+material = SubResource("CanvasItemMaterial_ir4wv")
+offset_left = 2.0
+offset_top = -240.0
+offset_right = 1026.0
+offset_bottom = 336.0
+texture = ExtResource("5_as6r1")
+stretch_mode = 1
+
+[node name="Hills" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+modulate = Color(0, 0.839216, 0.964706, 1)
+light_mask = 2
+motion_scale = Vector2(0.5, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Hills" index="0"]
+modulate = Color(0.741176, 0.835294, 0.905882, 1)
+light_mask = 2
+offset_top = -19.0
+offset_right = 1060.0
+offset_bottom = 557.0
+texture = ExtResource("6_p73kx")
+stretch_mode = 1
+
+[node name="CloudShadows" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+motion_scale = Vector2(0.5, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+script = ExtResource("7_om13s")
+clipping_mask_width = 1024
+clipping_mask = ExtResource("6_p73kx")
+velocity = Vector2(4, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/CloudShadows" index="0"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_45x6b")
+offset_top = -18.0
+offset_right = 1024.0
+offset_bottom = 558.0
+texture = ExtResource("5_as6r1")
+stretch_mode = 1
+
+[node name="FrontHills" type="ParallaxLayer" parent="ParallaxBackground" index="5"]
+modulate = Color(0, 0.803922, 0.996078, 1)
+light_mask = 2
+motion_scale = Vector2(0.4, 0.6)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/FrontHills" index="0"]
+modulate = Color(0.501961, 0.635294, 0.654902, 1)
+light_mask = 2
+offset_left = 2.0
+offset_top = 21.0
+offset_right = 1062.0
+offset_bottom = 597.0
+texture = ExtResource("9_bcr5i")
+stretch_mode = 1
+
+[node name="FrontCloudShadows" type="ParallaxLayer" parent="ParallaxBackground" index="6"]
+motion_scale = Vector2(0.4, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+script = ExtResource("7_om13s")
+clipping_mask_width = 1024
+clipping_mask = ExtResource("9_bcr5i")
+velocity = Vector2(4, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/FrontCloudShadows" index="0"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_45x6b")
+offset_left = 2.0
+offset_top = 20.0
+offset_right = 1026.0
+offset_bottom = 596.0
+texture = ExtResource("5_as6r1")
+stretch_mode = 1
+
+[node name="Foreground" type="ParallaxLayer" parent="ParallaxBackground" index="7"]
+z_index = 6
+z_as_relative = false
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Foreground" index="0"]
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Fog" type="TextureRect" parent="." index="11"]
 z_index = 4

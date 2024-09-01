@@ -1227,17 +1227,17 @@ texture = ExtResource("3_nasrp")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -4, -4, -4, -4, -1, 8, -1)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5, -4, -5, -4, -2, 8, -2)
 0:0/0/physics_layer_0/polygon_0/one_way = true
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, -1, -8, -1)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5, -8, -5, -8, -2, 8, -2)
 1:0/0/physics_layer_0/polygon_0/one_way = true
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 3, -4, 3, -1, -8, -1)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -5, -8, -5, -8, -2, 3, -2)
 2:0/0/physics_layer_0/polygon_0/one_way = true
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hop4g"]

@@ -30,6 +30,9 @@
 		"Level Fire Gem": {
 			"file": "res://scenes/levels/level_fire_gem.tscn"
 		},
+		"Level Exit Fire Temple": {
+			"file": "res://scenes/levels/level_exit_fire_temple.tscn"
+		},
 		"Level 1 Water Temple": {
 			"file": "res://scenes/levels/level_1_water_temple.tscn"
 		},
@@ -78,6 +81,10 @@
 		},
 		{
 			"from": "Level Fire Gem",
+			"to": "Level Exit Fire Temple"
+		},
+		{
+			"from": "Level Exit Fire Temple",
 			"to": "Level 6"
 		},
 		{
