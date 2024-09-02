@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqa4j24ihll2f"]
+
+[ext_resource type="Script" path="res://scripts/menu/settings_menu.gd" id="1_ggord"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2v41o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6u7h1"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ggord")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2v41o")
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+rounded = true
+tick_count = 10
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "50%"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Brightness"
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2v41o")
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+rounded = true
+tick_count = 10
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "50%"
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6u7h1")
+
+[node name="SaveButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Save
+"
+
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer2/HSlider" to="." method="_on_brightness_h_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]

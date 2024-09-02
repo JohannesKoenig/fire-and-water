@@ -1,9 +1,9 @@
 extends Node
 
-@onready var current_level_resource: CurrentLevelResource = preload("res://resources/game_state/current_level_resource.tres")
+@onready var settings_resource: SettingsResource = preload("res://resources/settings_resource.tres")
 
-var MENU_SAVE_PATH = "user://save.json"
 
+var MENU_SAVE_PATH = "user://settings.json"
 
 func has_savegame() -> bool:
 	var file := FileAccess.open(MENU_SAVE_PATH, FileAccess.READ)
@@ -37,16 +37,10 @@ func delete_savegame():
 
 func game_data_as_dictionary() -> Dictionary:
 	return {
-		"current_level": current_level_resource.current_level,
-		"can_shoot_ball": current_level_resource.can_shoot_ball,
-		"collected_fire_gem": current_level_resource.collected_fire_gem,
-		"collected_water_gem": current_level_resource.collected_water_gem,
-		"tries": current_level_resource.tries
+		"volume_percentage": settings_resource.volume_percentage,
+		"brightness_percentage": settings_resource.brightness_percentage
 	}
 
 func game_data_from_dictionary(data: Dictionary):
-	current_level_resource.current_level = data["current_level"]
-	current_level_resource.can_shoot_ball = data["can_shoot_ball"]
-	current_level_resource.collected_water_gem = data["collected_water_gem"]
-	current_level_resource.collected_fire_gem = data["collected_fire_gem"]
-	current_level_resource.tries = data["tries"]
+	settings_resource.volume_percentage = data["volume_percentage"]
+	settings_resource.brightness_percentage = data["brightness_percentage"]

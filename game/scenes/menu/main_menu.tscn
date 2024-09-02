@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bfi7x5713lob3"]
+[gd_scene load_steps=66 format=3 uid="uid://bfi7x5713lob3"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_x357e"]
 [ext_resource type="Script" path="res://scripts/level_transitions.gd" id="2_og3uh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bkorw2mrj85mw" path="res://scenes/SceneFader.tscn" id="4_5ng1t"]
 [ext_resource type="Texture2D" uid="uid://cj7h5q0vdhqbe" path="res://assets/menu/hill_sky_menu.png" id="4_364to"]
 [ext_resource type="Texture2D" uid="uid://l0ovixr7mqum" path="res://resources/point_light_texture.tres" id="4_tmeon"]
+[ext_resource type="PackedScene" uid="uid://cqa4j24ihll2f" path="res://scenes/menu/settings_menu.tscn" id="5_45vku"]
 [ext_resource type="Texture2D" uid="uid://c4ujglvswhjqo" path="res://assets/background_clouds.png" id="5_o8rir"]
 [ext_resource type="Script" path="res://scripts/auto_scrolling_parallax_layer.gd" id="6_aymwq"]
 [ext_resource type="Texture2D" uid="uid://dmxy1mtl45ras" path="res://assets/clouds.png" id="7_rq5id"]
@@ -460,14 +461,24 @@ alignment = 1
 
 [node name="StartButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Start"
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Settings"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Exit"
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("5_45vku")]
+visible = false
 
 [node name="SceneFader" parent="CanvasLayer" instance=ExtResource("4_5ng1t")]
 
@@ -751,6 +762,7 @@ position = Vector2(256, 144)
 color = Color(0.286275, 0.286275, 0.286275, 1)
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="transition_to_level"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="close_application"]
 
 [editable path="CanvasLayer/CenterContainer/VBoxContainer/Logo"]

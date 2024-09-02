@@ -23,11 +23,14 @@ WaterViewport="*res://scenes/water_viewport.tscn"
 ElementalReactions="*res://scenes/elemental_reactions.tscn"
 SaveGameManager="*res://scripts/save_game_manager.gd"
 ScreenShaker="*res://scripts/screen_shaker.gd"
+SettingsManager="*res://scripts/settings_manager.gd"
+GlobalWorldEnvironment="*res://scripts/world_environment.gd"
 
 [display]
 
 window/size/viewport_width=512
 window/size/viewport_height=288
+window/size/mode=3
 window/size/window_width_override=2048
 window/size/window_height_override=1152
 window/stretch/mode="viewport"

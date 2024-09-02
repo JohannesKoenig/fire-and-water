@@ -4,11 +4,10 @@ class_name WalkPlayerState extends PlayerState
 const SPEED = 120.0
 
 func transition(input: InputPackage) -> String:
-	if not player.is_on_floor():
-		return "Falling"
-
 	if "Jump" in input.actions:
 		return "Jump"
+	if not player.is_on_floor():
+		return "Falling"
 	elif "Shoot" in input.actions:
 		if not player.can_shoot_ball:
 			return name

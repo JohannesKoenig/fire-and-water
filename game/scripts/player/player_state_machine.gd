@@ -20,9 +20,12 @@ func update(input: InputPackage, delta: float):
 	states[current_state].update(input, delta)
 
 func transition(input: InputPackage):
+	if "Jump" in input.actions:
+		print("Jump")
 	var current_state_node = states[current_state]
 	var next_state = current_state_node.transition(input)
 	if next_state != current_state:
+		print(current_state, next_state)
 		var next_state_node = states[next_state]
 		current_state_node.on_exit()
 		next_state_node.on_enter(current_state)

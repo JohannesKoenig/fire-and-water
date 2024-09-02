@@ -6,6 +6,8 @@ class_name MainMenu extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var start_button = $CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/StartButton
 @onready var exit_button = $CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer/ExitButton
+@onready var settings_menu = $CanvasLayer/SettingsMenu
+
 
 var transitioning: bool = false
 
@@ -15,6 +17,9 @@ func on_animation_finished(animation_name: String):
 		exit_button.disabled = false
 
 func _ready():
+	if SettingsManager.has_savegame():
+		SettingsManager.load_savegame()
+	settings_menu.visible = false
 	if SaveGameManager.has_savegame():
 		start_button.text = "Continue"
 	scene_fader.modulate = Color(0,0,0,0)
@@ -41,3 +46,7 @@ func transition_to_level():
 
 func close_application():
 	get_tree().quit()
+
+
+func _on_settings_button_pressed():
+	settings_menu.visible = true

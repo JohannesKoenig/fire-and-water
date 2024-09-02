@@ -119,6 +119,7 @@ func load_level(level_name: String):
 
 func reset_level():
 	deactivate_player_controls()
+	current_level_resource.tries += 1
 	scene_fader.fade_out()
 	animation_player.play("player_died")
 	await animation_player.animation_finished
