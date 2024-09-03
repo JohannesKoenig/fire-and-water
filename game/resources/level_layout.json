@@ -15,6 +15,9 @@
 		"Level 5": {
 			"file": "res://scenes/levels/level_5_grass_land.tscn"
 		},
+		"Level Story": {
+			"file": "res://scenes/levels/level_4_grass_land.tscn"
+		},
 		"Level 6": {
 			"file": "res://scenes/levels/level_6_grass_land.tscn"
 		},
@@ -69,6 +72,10 @@
 		},
 		{
 			"from": "Level 5",
+			"to": "Level Story"
+		},
+		{
+			"from": "Level Story",
 			"to": "Level 1 Fire Temple"
 		},
 		{

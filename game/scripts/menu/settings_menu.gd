@@ -24,8 +24,8 @@ func _ready():
 
 	settings_resource.brightness_changed.connect(update_brightness_slider)
 	settings_resource.brightness_changed.connect(update_brightness_label)
-	update_slider(settings_resource.brightness_percentage)
-	update_label(settings_resource.brightness_percentage)
+	update_brightness_slider(settings_resource.brightness_percentage)
+	update_brightness_label(settings_resource.brightness_percentage)
 
 func update_slider(value: int):
 	h_slider.value = value
